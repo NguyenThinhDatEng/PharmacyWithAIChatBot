@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Tư vấn Dược sĩ 24/7 (AI kết hợp người)",
+    "description": "Người dùng được hỗ trợ tư vấn thuốc mọi lúc, nhanh chóng và hiệu quả.",
+    "icon": "💊"
+  },
+  {
+    "id": 2,
+    "title": "Đo huyết áp & đường huyết tại chỗ",
+    "description": "Cung cấp dịch vụ đo lường sức khỏe cơ bản ngay tại nhà thuốc hoặc điểm dịch vụ.",
+    "icon": "🩸"
+  },
+  {
+    "id": 3,
+    "title": "Giao thuốc kê đơn nhanh chóng",
+    "description": "Đảm bảo thuốc theo đơn được giao tận nơi, an toàn và tiện lợi.",
+    "icon": "🚚"
+  },
+  {
+    "id": 4,
+    "title": "Hệ thống AI theo dõi sức khỏe định kỳ",
+    "description": "Giúp phát hiện sớm các vấn đề sức khỏe thông qua theo dõi thường xuyên.",
+    "icon": "🤖"
+  },
+  {
+    "id": 5,
+    "title": "Dịch vụ và bàn tư vấn dinh dưỡng",
+    "description": "Hỗ trợ chế độ ăn uống hợp lý, nâng cao sức khỏe và thể lực.",
+    "icon": "🍎"
+  },
+  {
+    "id": 6,
+    "title": "Hệ thống tối ưu hóa & chuẩn hóa",
+    "description": "Ứng dụng công nghệ để cải thiện quy trình chăm sóc sức khỏe, đảm bảo chất lượng dịch vụ.",
+    "icon": "⚙️"
+  }
+]
