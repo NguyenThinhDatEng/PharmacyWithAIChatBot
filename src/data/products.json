@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Paracetamol 500mg",
+    "category": "Tiêu hóa",
+    "price": 15000,
+    "stock": 100,
+    "description": "Thuốc giảm đau, hạ sốt Paracetamol 500mg",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Vitamin C 1000mg",
+    "category": "Đề kháng",
+    "price": 25000,
+    "stock": 80,
+    "description": "Vitamin C tăng cường đề kháng 1000mg",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Ibuprofen 200mg",
+    "category": "Khớp xương",
+    "price": 20000,
+    "stock": 60,
+    "description": "Thuốc giảm đau khớp Ibuprofen 200mg",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Amoxicillin 500mg",
+    "category": "Hô hấp",
+    "price": 30000,
+    "stock": 40,
+    "description": "Kháng sinh Amoxicillin 500mg cho nhiễm trùng",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Cetirizine 10mg",
+    "category": "Hô hấp",
+    "price": 18000,
+    "stock": 90,
+    "description": "Thuốc chống dị ứng Cetirizine 10mg",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Calcium D3 500mg",
+    "category": "Khớp xương",
+    "price": 35000,
+    "stock": 70,
+    "description": "Bổ sung canxi và vitamin D3 500mg",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Kem Dưỡng Da Eucerin",
+    "category": "Chăm sóc da",
+    "price": 120000,
+    "stock": 30,
+    "description": "Kem dưỡng da Eucerin cho da khô",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Sữa Cho Bé Abbott",
+    "category": "Mẹ & Bé",
+    "price": 450000,
+    "stock": 20,
+    "description": "Sữa công thức cho bé Abbott",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Thuốc Ho Sirop",
+    "category": "Hô hấp",
+    "price": 25000,
+    "stock": 50,
+    "description": "Sirop giảm ho cho trẻ em",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Omega 3 Fish Oil",
+    "category": "Đề kháng",
+    "price": 40000,
+    "stock": 65,
+    "description": "Bổ sung Omega 3 từ dầu cá",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  }
+]

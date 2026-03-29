@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "5 mẹo phòng ngừa cảm cúm cho bé tại nhà",
+    "description": "Các mẹo đơn giản, hiệu quả để bảo vệ trẻ khi thời tiết lạnh. Học cách giữ ấm, vệ sinh tay và tăng cường đề kháng cho bé.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
+    "content": "Chi tiết bài viết về phòng ngừa cảm cúm..."
+  },
+  {
+    "id": 2,
+    "title": "Sử dụng kháng sinh đúng cách: 5 điều cần biết",
+    "description": "Hướng dẫn cách dùng kháng sinh đúng liều, đúng thời gian để tránh kháng thuốc. Tầm quan trọng của việc tuân thủ chỉ định bác sĩ.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
+    "content": "Chi tiết bài viết về sử dụng kháng sinh..."
+  },
+  {
+    "id": 3,
+    "title": "Chăm sóc trẻ sơ sinh tại nhà: những điều bố mẹ cần biết",
+    "description": "Cách chăm sóc đúng để bé khỏe mạnh, phát triển tốt. Bao gồm vệ sinh, dinh dưỡng và theo dõi sức khỏe.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
+    "content": "Chi tiết bài viết về chăm sóc trẻ sơ sinh..."
+  }
+]

@@ -101,13 +101,13 @@ async function CallToAIModel(message) {
 
   const prompt = `Bạn là dược sĩ chuyên nghiệp. Trả lời ngắn gọn, lịch sự, an toàn, khuyến nghị khám chuyên gia nếu cần. Người dùng hỏi: "${message}"`;
 
-  console.log('CallToAIModel: model nvidia/nemotron-nano-12b-v2-vl:free');
+  console.log('CallToAIModel: model ' + process.env.MODEL);
   console.log('CallToAIModel: message', message);
 
   try {
     const stream = await openRouter.chat.send({
       chatGenerationParams: {
-        model: 'nvidia/nemotron-nano-12b-v2-vl:free',
+        model: process.env.MODEL,
         messages: [
           { role: 'user', content: prompt }
         ],
