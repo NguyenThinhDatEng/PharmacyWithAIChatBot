@@ -30,6 +30,25 @@
   </div>
 
   <Chat />
+
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Nhà thuốc Trương Thị yến</h4>
+        <p>Đồng hành cùng sức khỏe gia đình Việt.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Liên hệ</h4>
+        <p>Hotline: 1800 1234</p>
+        <p>Email: support@pharmacyai.vn</p>
+      </div>
+      <div class="footer-column">
+        <h4>Theo dõi</h4>
+        <p>Facebook | Instagram | Zalo</p>
+      </div>
+    </div>
+    <p class="footer-copyright">© 2026 Trường Thị Yến</p>
+  </footer>
 </template>
 
 <script setup>
@@ -67,5 +86,41 @@ onUnmounted(() => {
 
 .nav-link.router-link-active {
   border-bottom-color: #27ae60;
+}
+
+.app-footer {
+  background-color: #f8f9fa;
+  padding: 20px 15px;
+  margin-top: 30px;
+  border-top: 1px solid #e6e6e6;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 180px;
+}
+
+.footer-column h4 {
+  margin: 0 0 8px;
+  color: #1c6b2d;
+}
+
+.footer-column p {
+  margin: 4px 0;
+  color: #555;
+}
+
+.footer-copyright {
+  text-align: center;
+  margin-top: 15px;
+  color: #777;
+  font-size: 14px;
 }
 </style>
