@@ -49,25 +49,25 @@
     <!-- Tủ thuốc gia đình -->
     <section class="product-categories">
       <h2>Tủ thuốc gia đình</h2>
-      <div class="categories-grid">
+      <div class="cabinet-grid">
         <div class="category-card">
-          <img src="https://via.placeholder.com/200x150?text=Tiêu+hóa" alt="Tiêu hóa" />
-          <h3>Tiêu hóa</h3>
+          <img src="/medicineCabinet/digestion.png" alt="Tiêu hóa" />
+          <h4>Tiêu hóa</h4>
           <p>Các sản phẩm hỗ trợ tiêu hóa, giảm đau bụng, đầy hơi.</p>
         </div>
         <div class="category-card">
-          <img src="https://via.placeholder.com/200x150?text=Hô+hấp" alt="Hô hấp" />
-          <h3>Hô hấp</h3>
+          <img src="/medicineCabinet/breathing.png" alt="Hô hấp" />
+          <h4>Hô hấp</h4>
           <p>Thuốc và sản phẩm cho đường hô hấp, giảm ho, sổ mũi.</p>
         </div>
         <div class="category-card">
-          <img src="https://via.placeholder.com/200x150?text=Mẹ+&+Bé" alt="Mẹ & Bé" />
-          <h3>Mẹ & Bé</h3>
+          <img src="/medicineCabinet/mom_baby.png" alt="Mẹ & Bé" />
+          <h4>Mẹ & Bé</h4>
           <p>Sản phẩm chăm sóc sức khỏe mẹ và bé yêu.</p>
         </div>
         <div class="category-card">
-          <img src="https://via.placeholder.com/200x150?text=Vitamin+&+Đề+kháng" alt="Vitamin & Đề kháng" />
-          <h3>Vitamin & Đề kháng</h3>
+          <img src="/medicineCabinet/vitamin.png" alt="Vitamin & Đề kháng" />
+          <h4>Vitamin & Đề kháng</h4>
           <p>Bổ sung vitamin và tăng cường đề kháng cơ thể.</p>
         </div>
       </div>
@@ -78,23 +78,11 @@
     <section class="blog-preview">
       <h2>Kiến thức y khoa</h2>
       <div class="blog-grid">
-        <div class="blog-card">
-          <img src="https://via.placeholder.com/300x200?text=Phòng+ngừa+cảm+cúm" alt="Phòng ngừa cảm cúm" />
-          <h3>5 mẹo phòng ngừa cảm cúm cho bé</h3>
-          <p>5/5/2023</p>
-          <router-link to="/blog/1" class="read-more-btn">Đọc tiếp</router-link>
-        </div>
-        <div class="blog-card">
-          <img src="https://via.placeholder.com/300x200?text=Sử+dụng+kháng+sinh" alt="Sử dụng kháng sinh" />
-          <h3>Sử dụng kháng sinh đúng cách</h3>
-          <p>11/5/2023</p>
-          <router-link to="/blog/2" class="read-more-btn">Đọc tiếp</router-link>
-        </div>
-        <div class="blog-card">
-          <img src="https://via.placeholder.com/300x200?text=Chăm+sóc+người+cao+tuổi" alt="Chăm sóc người cao tuổi" />
-          <h3>Chăm sóc sức khỏe người cao tuổi</h3>
-          <p>13/5/2023</p>
-          <router-link to="/blog/3" class="read-more-btn">Đọc tiếp</router-link>
+        <div v-for="post in latestPosts" :key="post.id" class="blog-card">
+          <img class="blog-image" :src="post.image" :alt="post.title" />
+          <div class="blog-content">
+            <h3>{{ post.title }}</h3>
+          </div>
         </div>
       </div>
       <router-link to="/blog" class="view-all-btn">Xem tất cả bài viết</router-link>
@@ -103,5 +91,18 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import BannerImage from '../assets/banner.png';
+import blogPosts from '../data/blogPosts.json';
+
+const latestPosts = computed(() => {
+  return [...blogPosts]
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .slice(0, 3);
+});
+
+function formatDate(dateString) {
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(dateString).toLocaleDateString('vi-VN', options);
+}
 </script>

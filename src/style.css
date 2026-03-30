@@ -438,8 +438,20 @@ textarea {
 
 .blog-image {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+  display: block;
+}
+
+.blog-content {
+  padding: 12px;
+}
+
+.blog-content h3 {
+  color: var(--primary-blue);
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.3;
 }
 
 .blog-content {
@@ -573,7 +585,17 @@ textarea {
   grid-template-columns: repeat(6, 1fr);
   /* 6 box trên 1 hàng */
   gap: 20px;
-  margin-bottom: 40px;
+}
+
+.cabinet-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* 4 box trên 1 hàng */
+  gap: 80px;
+}
+
+.benefit-item h6 {
+  margin: 20px 0;
 }
 
 .benefit-item,
@@ -594,9 +616,9 @@ textarea {
 }
 
 .benefit-item h3,
-.category-card h3 {
-  color: var(--primary-blue);
-  margin-bottom: 10px;
+.category-card h4 {
+  color: #000;
+  margin: unset;
 }
 
 .category-card img {
@@ -607,7 +629,13 @@ textarea {
   margin-bottom: 15px;
 }
 
+.category-card p {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
 .view-all-btn {
+  margin: 20px 0;
   display: inline-block;
   padding: 15px 30px;
   background: var(--primary-green);

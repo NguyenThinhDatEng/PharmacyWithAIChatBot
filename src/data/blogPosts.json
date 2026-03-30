@@ -4,20 +4,47 @@
     "title": "5 mẹo phòng ngừa cảm cúm cho bé tại nhà",
     "description": "Các mẹo đơn giản, hiệu quả để bảo vệ trẻ khi thời tiết lạnh. Học cách giữ ấm, vệ sinh tay và tăng cường đề kháng cho bé.",
     "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về phòng ngừa cảm cúm..."
+    "content": "Chi tiết bài viết về phòng ngừa cảm cúm...",
+    "publishedAt": "2026-03-21"
   },
   {
     "id": 2,
     "title": "Sử dụng kháng sinh đúng cách: 5 điều cần biết",
     "description": "Hướng dẫn cách dùng kháng sinh đúng liều, đúng thời gian để tránh kháng thuốc. Tầm quan trọng của việc tuân thủ chỉ định bác sĩ.",
     "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về sử dụng kháng sinh..."
+    "content": "Chi tiết bài viết về sử dụng kháng sinh...",
+    "publishedAt": "2026-03-22"
   },
   {
     "id": 3,
     "title": "Chăm sóc trẻ sơ sinh tại nhà: những điều bố mẹ cần biết",
     "description": "Cách chăm sóc đúng để bé khỏe mạnh, phát triển tốt. Bao gồm vệ sinh, dinh dưỡng và theo dõi sức khỏe.",
     "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về chăm sóc trẻ sơ sinh..."
+    "content": "Chi tiết bài viết về chăm sóc trẻ sơ sinh...",
+    "publishedAt": "2026-03-10"
+  },
+  {
+    "id": 4,
+    "title": "Giữ sức khỏe tim mạch mùa nắng nóng",
+    "description": "Lời khuyên dinh dưỡng và sinh hoạt để phòng ngừa các bệnh tim mạch trong mùa hè.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
+    "content": "Chi tiết bài viết về chăm sóc tim mạch...",
+    "publishedAt": "2026-03-20"
+  },
+  {
+    "id": 5,
+    "title": "5 bài tập giảm đau lưng cho dân văn phòng",
+    "description": "Bài tập đơn giản giúp giảm đau lưng, cải thiện tư thế khi ngồi nhiều.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
+    "content": "Chi tiết bài viết về bài tập giảm đau lưng...",
+    "publishedAt": "2026-03-25"
+  },
+  {
+    "id": 6,
+    "title": "Chế độ ăn tăng đề kháng sau tiêm chủng",
+    "description": "Thực đơn dinh dưỡng giúp cơ thể phục hồi và tăng cường miễn dịch sau tiêm chủng.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
+    "content": "Chi tiết bài viết về dinh dưỡng sau tiêm chủng...",
+    "publishedAt": "2026-03-28"
   }
 ]
