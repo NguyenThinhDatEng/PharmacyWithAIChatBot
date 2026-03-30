@@ -62,7 +62,7 @@ async function sendChat() {
   right: 20px;
   width: 60px;
   height: 60px;
-  background-color: #007bff;
+  background-color: var(--primary-green);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -96,7 +96,7 @@ async function sendChat() {
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: var(--primary-green);
   color: white;
   border-radius: 10px 10px 0 0;
 }
@@ -133,7 +133,7 @@ async function sendChat() {
 
 .chat-line.user {
   align-self: flex-end;
-  background-color: #007bff;
+  background-color: var(--primary-green);
   color: white;
 }
 
@@ -158,7 +158,7 @@ async function sendChat() {
 }
 
 .chat-input button {
-  background-color: #007bff;
+  background-color: var(--primary-green);
   color: white;
   border: none;
   padding: 8px 15px;
