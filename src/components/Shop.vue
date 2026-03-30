@@ -29,8 +29,7 @@
         <p class="product-price">Giá: {{ p.price }}đ</p>
         <p class="product-stock">Còn lại: {{ p.stock }}</p>
         <div class="product-controls">
-          <input type="number" v-model.number="qty" min="1" max="10" class="qty-input" />
-          <button :disabled="p.stock === 0" @click="addToCart(p)" class="add-btn">Thêm vào giỏ</button>
+          <button :disabled="p.stock === 0" @click="addToCart(p, 1)" class="add-btn">Thêm vào giỏ</button>
           <router-link :to="`/product/${p.id}`" class="detail-btn">Xem chi tiết</router-link>
         </div>
       </div>
@@ -81,12 +80,12 @@ async function loadProducts() {
   products.value = productsData;
 }
 
-function addToCart(item) {
+function addToCart(item, amount = 1) {
   const exists = cart.value.find(p => p.id === item.id);
   if (exists) {
-    exists.quantity += Number(qty.value);
+    exists.quantity += amount;
   } else {
-    cart.value.push({ ...item, quantity: Number(qty.value) });
+    cart.value.push({ ...item, quantity: amount });
   }
 }
 
