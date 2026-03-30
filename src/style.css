@@ -304,7 +304,82 @@ input, textarea {
   border-radius: 10px;
   margin-bottom: 20px;
 }
+/* About Page Styles */
+.about-page {
+  padding: 0;
+}
 
+.about-page h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 20px;
+  color: var(--primary-green);
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.about-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+  flex: 1;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h3 {
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section li {
+  padding: 8px 0;
+  padding-left: 20px;
+  position: relative;
+  color: var(--text-dark);
+}
+
+.section li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary-green);
+  font-weight: bold;
+}
 /* Blog Styles */
 .blog-banner {
   margin-bottom: 20px;
@@ -536,6 +611,15 @@ input, textarea {
 
   .blog-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-image {
+    min-width: auto;
   }
 }
 
