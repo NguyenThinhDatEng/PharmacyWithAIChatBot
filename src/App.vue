@@ -1,7 +1,8 @@
 <template>
-  <header class="header">
-    <div class="header-container">
-      <!-- Logo & Thương hiệu -->
+  <div class="app-layout">
+    <header class="header">
+      <div class="header-container">
+        <!-- Logo & Thương hiệu -->
       <div class="logo">
         <img :src="Logo" alt="Pharmacy Logo" class="logo-img" />
       </div>
@@ -49,6 +50,7 @@
     </div>
     <p class="footer-copyright">© 2026 Trường Thị Yến</p>
   </footer>
+</div>
 </template>
 
 <script setup>
@@ -79,6 +81,16 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
 .nav-link {
   border-bottom: 3px solid transparent;
   transition: border-color 0.3s ease;
