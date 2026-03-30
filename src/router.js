@@ -6,7 +6,6 @@ import Services from './components/Services.vue';
 import About from './components/About.vue';
 import Contact from './components/Contact.vue';
 import Prescription from './components/Prescription.vue';
-import Chat from './components/Chat.vue';
 import ProductDetail from './components/ProductDetail.vue';
 import BlogDetail from './components/BlogDetail.vue';
 
@@ -20,7 +19,6 @@ const routes = [
   { path: '/about', component: About },
   { path: '/contact', component: Contact },
   { path: '/prescription', component: Prescription },
-  { path: '/chat', component: Chat },
 ];
 
 const router = createRouter({

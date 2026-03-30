@@ -3,8 +3,7 @@
     <div class="header-container">
       <!-- Logo & Thương hiệu -->
       <div class="logo">
-        <img src="https://cdn.nhathuoclongchau.com.vn/v1/static/smalls/logo_default_web_78584a5cc6.png" alt="Pharmacy Logo" class="logo-img" />
-        <span class="brand-name">Pharmacy AI</span>
+        <img :src="Logo" alt="Pharmacy Logo" class="logo-img" />
       </div>
       
       <!-- Thanh menu điều hướng -->
@@ -34,10 +33,14 @@
   <div class="container">
     <router-view />
   </div>
+
+  <Chat />
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import Chat from './components/Chat.vue';
+import Logo from './assets/Logo.png';
 
 const isMenuOpen = ref(false);
 const isMobile = ref(false);
