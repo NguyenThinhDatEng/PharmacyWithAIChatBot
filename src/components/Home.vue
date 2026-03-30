@@ -6,12 +6,12 @@
         <h1>Người bạn đồng hành sức khỏe gia đình bạn</h1>
         <p>Kết hợp tư vấn tận tâm và công nghệ AI hiện đại cho sức khỏe tối ưu.</p>
         <div class="cta-buttons">
-          <router-link to="/shop" class="cta-btn primary">Khám phá tủ thuốc</router-link>
-          <router-link to="/chat" class="cta-btn secondary">Chat ngay với Dược sĩ AI</router-link>
+          <router-link to="/shop" class="cta-btn outline">Khám phá tủ thuốc</router-link>
+          <router-link to="/chat" class="cta-btn outline">Chat ngay với Dược sĩ AI</router-link>
         </div>
       </div>
       <div class="banner-image">
-        <img src="https://media.loveitopcdn.com/21183/cong-ty-tnhh-kinh-doanh-duoc-thien-thanh-1.jpg" alt="Dược sĩ trao thuốc" />
+        <img :src="BannerImage" alt="Dược sĩ trao thuốc" />
       </div>
     </section>
 
@@ -21,33 +21,27 @@
       <div class="benefits-grid">
         <div class="benefit-item">
           <div class="benefit-icon">💊</div>
-          <h3>Dược sĩ tư vấn 24/7</h3>
-          <p>Hỗ trợ tư vấn thuốc mọi lúc, nhanh chóng và hiệu quả.</p>
+          <h6>Dược sĩ tư vấn 24/7</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon">🔍</div>
-          <h3>Nguồn gốc thuốc minh bạch</h3>
-          <p>Đảm bảo chất lượng và nguồn gốc rõ ràng cho mọi sản phẩm.</p>
+          <h6>Nguồn gốc thuốc minh bạch</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon">🚚</div>
-          <h3>Giao hàng nhanh chóng</h3>
-          <p>Giao tận nơi, an toàn và tiện lợi trong thời gian ngắn.</p>
+          <h6>Giao hàng nhanh chóng</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon">🤖</div>
-          <h3>Hệ thống AI thông minh</h3>
-          <p>Công nghệ AI hỗ trợ tư vấn và theo dõi sức khỏe cá nhân hóa.</p>
+          <h6>Hệ thống AI thông minh</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon">🏥</div>
-          <h3>Chăm sóc sức khỏe toàn diện</h3>
-          <p>Từ phòng ngừa đến điều trị, chúng tôi đồng hành cùng bạn.</p>
+          <h6>Chăm sóc toàn diện</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon">❤️</div>
-          <h3>Tận tâm với khách hàng</h3>
-          <p>Luôn đặt sức khỏe và sự hài lòng của bạn lên hàng đầu.</p>
+          <h6>Tận tâm với khách hàng</h6>
         </div>
       </div>
     </section>
@@ -109,5 +103,5 @@
 </template>
 
 <script setup>
-// Không cần logic đặc biệt, sử dụng router-link
+import BannerImage from '../assets/banner.png';
 </script>

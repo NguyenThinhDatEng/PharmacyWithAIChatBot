@@ -16,11 +16,6 @@
         <router-link to="/contact" class="nav-link">Liên hệ</router-link>
       </nav>
       
-      <!-- Nút Hotline -->
-      <div class="hotline">
-        <a href="tel:1800XXXX" class="hotline-btn">Hotline 1800 XXXX</a>
-      </div>
-      
       <!-- Hamburger menu cho mobile -->
       <div class="hamburger" @click="toggleMenu" v-if="isMobile">
         <span class="bar"></span>
@@ -63,3 +58,14 @@ onUnmounted(() => {
   window.removeEventListener('resize', checkMobile);
 });
 </script>
+
+<style scoped>
+.nav-link {
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.nav-link.router-link-active {
+  border-bottom-color: #27ae60;
+}
+</style>
