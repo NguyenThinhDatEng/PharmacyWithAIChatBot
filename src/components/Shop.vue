@@ -23,10 +23,12 @@
     <!-- Lưới sản phẩm -->
     <div class="product-grid">
       <div v-for="p in filteredProducts" :key="p.id" class="product-card">
-        <img :src="p.image" alt="Product Image" class="product-image" />
-        <h5>{{ p.name }}</h5>
+        <div class="product-top">
+          <img :src="p.image" alt="Product Image" class="product-image" />
+          <h5>{{ p.name }}</h5>
+        </div>
         <p class="product-desc">{{ p.description }}</p>
-        <p class="product-price">Giá: {{ p.price }}đ</p>
+        <p class="product-price">Giá: {{ formatPrice(p.price) }}đ</p>
         <div class="product-controls">
           <button :disabled="p.stock === 0" @click="addToCart(p, 1)" class="add-btn">Thêm vào giỏ</button>
           <router-link :to="`/product/${p.productId}`" class="detail-btn">Xem chi tiết</router-link>
@@ -41,9 +43,9 @@
       <div v-else>
         <div v-for="item in cart" :key="item.id" class="cart-item">
           <span>{{ item.name }} x {{ item.quantity }}</span>
-          <span>{{ item.price * item.quantity }}đ</span>
+          <span>{{ formatPrice(item.price * item.quantity) }}đ</span>
         </div>
-        <div class="cart-total">Tổng: {{ cart.reduce((sum, item) => sum + item.price * item.quantity, 0) }}đ</div>
+        <div class="cart-total">Tổng: {{ formatPrice(cart.reduce((sum, item) => sum + item.price * item.quantity, 0)) }}đ</div>
         <button @click="checkout" class="checkout-btn">Thanh toán</button>
       </div>
     </div>
@@ -88,7 +90,11 @@ function addToCart(item, amount = 1) {
   }
 }
 
-async function checkout() {
+function formatPrice(value) {
+  return Number(value).toLocaleString('vi-VN');
+}
+
+async function checkout () {
   if (cart.value.length === 0) return;
   const order = {
     userId: 'user1',
