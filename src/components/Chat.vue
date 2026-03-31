@@ -22,6 +22,19 @@
           </div>
         </div>
       </div>
+      <div class="chat-sending" v-if="isSending">
+        <div class="chat-line assistant">
+          <div class="chat-item">
+            <div class="chat-avatar">🤖</div>
+            <div class="chat-bubble">
+              <div class="chat-name">Dược sĩ AI</div>
+              <div class="sending-dots">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="chat-input">
       <textarea v-model="userMessage" rows="2" placeholder="Nhập câu hỏi" @keydown.enter.prevent="sendChat"></textarea>
@@ -56,6 +69,11 @@ const isOpen = ref(false);
 
 function toggleChat() {
   isOpen.value = !isOpen.value;
+  if (isOpen.value) {
+    document.body.classList.add('chat-open');
+  } else {
+    document.body.classList.remove('chat-open');
+  }
 }
 
 async function sendChat() {

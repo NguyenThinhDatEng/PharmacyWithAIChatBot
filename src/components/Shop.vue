@@ -1,7 +1,27 @@
 <template>
   <div class="panel">
-    <h2>Tủ thuốc gia đình</h2>
-    
+    <div class="shop-top">
+      <h2>Tủ thuốc gia đình</h2>
+    </div>
+
+    <div class="floating-cart" :class="{ open: cartOpen }">
+      <button class="floating-cart-btn" @click="cartOpen = !cartOpen">
+        🛒 {{ cart.length }}
+      </button>
+      <div v-if="cartOpen" class="floating-cart-dropdown">
+        <h4>Giỏ hàng</h4>
+        <div v-if="cart.length === 0" class="empty-cart">Giỏ hàng trống</div>
+        <div v-else>
+          <div v-for="item in cart" :key="item.id" class="cart-item">
+            <span>{{ item.name }} x {{ item.quantity }}</span>
+            <span>{{ formatPrice(item.price * item.quantity) }}đ</span>
+          </div>
+          <div class="cart-total">Tổng: {{ formatPrice(cartTotal) }}đ</div>
+          <button @click="checkout" class="checkout-btn">Thanh toán</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Dòng tìm kiếm -->
     <div class="search-bar">
       <input v-model="searchTerm" type="text" placeholder="Tìm kiếm sản phẩm theo tên..." class="search-input" />
@@ -36,19 +56,6 @@
       </div>
     </div>
     
-    <!-- Giỏ hàng -->
-    <div class="cart-section">
-      <h3>Giỏ hàng của bạn</h3>
-      <div v-if="cart.length === 0" class="empty-cart">Giỏ hàng trống</div>
-      <div v-else>
-        <div v-for="item in cart" :key="item.id" class="cart-item">
-          <span>{{ item.name }} x {{ item.quantity }}</span>
-          <span>{{ formatPrice(item.price * item.quantity) }}đ</span>
-        </div>
-        <div class="cart-total">Tổng: {{ formatPrice(cart.reduce((sum, item) => sum + item.price * item.quantity, 0)) }}đ</div>
-        <button @click="checkout" class="checkout-btn">Thanh toán</button>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -61,6 +68,7 @@ const base = 'http://localhost:3000/api';
 const products = ref([]);
 const cart = ref([]);
 const qty = ref(1);
+const cartOpen = ref(false);
 const categories = ['Tất cả', 'Tiêu hóa', 'Hô hấp', 'Khớp xương', 'Mẹ & Bé', 'Chăm sóc da', 'Đề kháng'];
 const selectedCategory = ref('Tất cả');
 const searchTerm = ref('');
@@ -94,7 +102,9 @@ function formatPrice(value) {
   return Number(value).toLocaleString('vi-VN');
 }
 
-async function checkout () {
+const cartTotal = computed(() => cart.value.reduce((sum, item) => sum + item.price * item.quantity, 0));
+
+async function checkout() {
   if (cart.value.length === 0) return;
   const order = {
     userId: 'user1',
@@ -102,6 +112,7 @@ async function checkout () {
   };
   await axios.post(`${base}/orders`, order);
   cart.value = [];
+  cartOpen.value = false;
   alert('Order placed');
   loadProducts();
 }
