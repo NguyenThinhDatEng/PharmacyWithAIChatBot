@@ -24,10 +24,22 @@
       </div>
     </div>
     <div class="chat-input">
-      <textarea v-model="userMessage" rows="2" placeholder="Nhập câu hỏi"></textarea>
-      <button @click="sendChat">Gửi</button>
+      <textarea v-model="userMessage" rows="2" placeholder="Nhập câu hỏi" @keydown.enter.prevent="sendChat"></textarea>
+      <button @click="sendChat" :disabled="isSending">Gửi</button>
     </div>
-    <p class="chat-status">{{ chatStatus }}</p>
+    <div class="chat-sending" v-if="isSending">
+      <div class="chat-line assistant">
+        <div class="chat-item">
+          <div class="chat-avatar">🤖</div>
+          <div class="chat-bubble">
+            <div class="chat-name">Dược sĩ AI</div>
+            <div class="sending-dots">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,6 +50,7 @@ import axios from 'axios';
 const base = 'http://localhost:3000/api';
 const userMessage = ref('');
 const chatLog = ref([]);
+const isSending = ref(false);
 const chatStatus = ref('');
 const isOpen = ref(false);
 
@@ -49,20 +62,20 @@ async function sendChat() {
   if (!userMessage.value) return;
 
   const question = userMessage.value.trim();
-  if (!question) return;
+  if (!question || isSending.value) return;
 
-  // Hiển thị câu hỏi người dùng ngay lập tức vào khung chat
   chatLog.value.push({ role: 'user', text: question });
   userMessage.value = '';
-  chatStatus.value = 'Đang gửi...';
+  isSending.value = true;
 
   try {
     const res = await axios.post(`${base}/chat/pharmacist`, { userId: 'user1', message: question });
     chatLog.value.push({ role: 'assistant', text: res.data.answer });
-    chatStatus.value = '';
   } catch (error) {
-    chatStatus.value = 'Không gửi được, vui lòng thử lại';
+    chatLog.value.push({ role: 'assistant', text: 'Không gửi được, vui lòng thử lại.' });
     console.error(error);
+  } finally {
+    isSending.value = false;
   }
 }
 </script>
@@ -226,5 +239,36 @@ async function sendChat() {
   padding: 0 10px 10px;
   font-size: 12px;
   color: #666;
+  display: none;
+}
+
+.chat-sending {
+  padding: 0 10px 10px;
+}
+
+.sending-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.sending-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #333;
+  animation: dot-bounce 1s infinite ease-in-out;
+}
+
+.sending-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.sending-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
 }
 </style>
