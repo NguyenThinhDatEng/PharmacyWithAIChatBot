@@ -24,12 +24,12 @@
     <div class="product-grid">
       <div v-for="p in filteredProducts" :key="p.id" class="product-card">
         <img :src="p.image" alt="Product Image" class="product-image" />
-        <h3>{{ p.name }}</h3>
+        <h5>{{ p.name }}</h5>
         <p class="product-desc">{{ p.description }}</p>
         <p class="product-price">Giá: {{ p.price }}đ</p>
         <div class="product-controls">
           <button :disabled="p.stock === 0" @click="addToCart(p, 1)" class="add-btn">Thêm vào giỏ</button>
-          <router-link :to="`/product/${p.id}`" class="detail-btn">Xem chi tiết</router-link>
+          <router-link :to="`/product/${p.productId}`" class="detail-btn">Xem chi tiết</router-link>
         </div>
       </div>
     </div>

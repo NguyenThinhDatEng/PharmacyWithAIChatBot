@@ -13,7 +13,13 @@
     <div class="chat-body">
       <div class="chat-messages">
         <div v-for="(msg, idx) in chatLog" :key="idx" :class="['chat-line', msg.role]">
-          <strong>{{ msg.role === 'user' ? 'Bạn' : 'Dược sĩ AI' }}:</strong> {{ msg.text }}
+          <div class="chat-item">
+            <div class="chat-avatar">{{ msg.role === 'user' ? '👤' : '🤖' }}</div>
+            <div class="chat-bubble">
+              <div class="chat-name">{{ msg.role === 'user' ? 'Bạn' : 'Dược sĩ AI' }}</div>
+              <div class="chat-text">{{ msg.text }}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -41,15 +47,21 @@ function toggleChat() {
 
 async function sendChat() {
   if (!userMessage.value) return;
-  chatStatus.value = 'Sending...';
+
+  const question = userMessage.value.trim();
+  if (!question) return;
+
+  // Hiển thị câu hỏi người dùng ngay lập tức vào khung chat
+  chatLog.value.push({ role: 'user', text: question });
+  userMessage.value = '';
+  chatStatus.value = 'Đang gửi...';
+
   try {
-    const res = await axios.post(`${base}/chat/pharmacist`, { userId: 'user1', message: userMessage.value });
-    chatLog.value.push({ role: 'user', text: userMessage.value });
+    const res = await axios.post(`${base}/chat/pharmacist`, { userId: 'user1', message: question });
     chatLog.value.push({ role: 'assistant', text: res.data.answer });
-    userMessage.value = '';
     chatStatus.value = '';
   } catch (error) {
-    chatStatus.value = 'Chat failed';
+    chatStatus.value = 'Không gửi được, vui lòng thử lại';
     console.error(error);
   }
 }
@@ -126,15 +138,58 @@ async function sendChat() {
 }
 
 .chat-line {
-  padding: 8px 12px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
   border-radius: 8px;
-  max-width: 80%;
+  max-width: 100%;
 }
 
 .chat-line.user {
-  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.chat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.chat-avatar {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 16px;
+  line-height: 1;
+  background-color: #ebf5fb;
+}
+
+.chat-bubble {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 8px 10px;
+  max-width: 80%;
+}
+
+.chat-line.user .chat-bubble {
   background-color: var(--primary-green);
   color: white;
+}
+
+.chat-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+  opacity: 0.8;
+}
+
+.chat-text {
+  font-size: 0.9rem;
+  line-height: 1.3;
 }
 
 .chat-line.assistant {

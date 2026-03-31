@@ -214,13 +214,16 @@ textarea {
   background: var(--neutral-white);
   text-align: center;
   transition: border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  min-height: 420px;
 }
 
 .product-card:hover {
   border-color: var(--primary-green);
 }
 
-.product-card h3 {
+.product-card h5 {
   color: var(--primary-blue);
   margin-bottom: 10px;
 }
@@ -237,12 +240,17 @@ textarea {
   color: var(--text-light);
   font-size: 14px;
   margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .product-price {
   font-weight: bold;
   color: var(--primary-green);
-  margin-bottom: 5px;
+  margin: unset;
 }
 
 .product-stock {
@@ -252,9 +260,15 @@ textarea {
 
 .product-controls {
   display: flex;
-  flex-direction: row;
   gap: 10px;
-  margin-top: 15px;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.product-controls button,
+.product-controls .detail-btn {
+  flex: 1;
+  min-width: 0;
 }
 
 .qty-input {
@@ -263,13 +277,14 @@ textarea {
 }
 
 .add-btn {
-  /* Sử dụng button styles chung */
+  padding: 20px 10px;
+  font-size: 16px;
 }
 
 .detail-btn {
   background: var(--primary-blue);
   color: var(--neutral-white);
-  padding: 10px;
+  padding: 20px 10px;
   border-radius: 5px;
   text-decoration: none;
   text-align: center;
