@@ -4,22 +4,10 @@
       <h2>Tủ thuốc gia đình</h2>
     </div>
 
-    <div class="floating-cart" :class="{ open: cartOpen }">
-      <button class="floating-cart-btn" @click="cartOpen = !cartOpen">
+    <div class="floating-cart">
+      <router-link to="/cart" class="floating-cart-btn">
         🛒 {{ cart.length }}
-      </button>
-      <div v-if="cartOpen" class="floating-cart-dropdown">
-        <h4>Giỏ hàng</h4>
-        <div v-if="cart.length === 0" class="empty-cart">Giỏ hàng trống</div>
-        <div v-else>
-          <div v-for="item in cart" :key="item.id" class="cart-item">
-            <span>{{ item.name }} x {{ item.quantity }}</span>
-            <span>{{ formatPrice(item.price * item.quantity) }}đ</span>
-          </div>
-          <div class="cart-total">Tổng: {{ formatPrice(cartTotal) }}đ</div>
-          <button @click="checkout" class="checkout-btn">Thanh toán</button>
-        </div>
-      </div>
+      </router-link>
     </div>
 
     <!-- Dòng tìm kiếm -->
@@ -68,7 +56,6 @@ const base = 'http://localhost:3000/api';
 const products = ref([]);
 const cart = ref([]);
 const qty = ref(1);
-const cartOpen = ref(false);
 const categories = ['Tất cả', 'Tiêu hóa', 'Hô hấp', 'Khớp xương', 'Mẹ & Bé', 'Chăm sóc da', 'Đề kháng'];
 const selectedCategory = ref('Tất cả');
 const searchTerm = ref('');
@@ -89,33 +76,33 @@ async function loadProducts() {
   products.value = productsData;
 }
 
+function loadCart() {
+  const savedCart = localStorage.getItem('cart');
+  if (savedCart) {
+    cart.value = JSON.parse(savedCart);
+  }
+}
+
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart.value));
+}
+
 function addToCart(item, amount = 1) {
-  const exists = cart.value.find(p => p.id === item.id);
+  const exists = cart.value.find(p => p.productId === item.productId);
   if (exists) {
     exists.quantity += amount;
   } else {
     cart.value.push({ ...item, quantity: amount });
   }
+  saveCart();
 }
 
 function formatPrice(value) {
   return Number(value).toLocaleString('vi-VN');
 }
 
-const cartTotal = computed(() => cart.value.reduce((sum, item) => sum + item.price * item.quantity, 0));
-
-async function checkout() {
-  if (cart.value.length === 0) return;
-  const order = {
-    userId: 'user1',
-    items: cart.value.map(i => ({ productId: i.id, quantity: i.quantity }))
-  };
-  await axios.post(`${base}/orders`, order);
-  cart.value = [];
-  cartOpen.value = false;
-  alert('Order placed');
+onMounted(() => {
   loadProducts();
-}
-
-onMounted(loadProducts);
+  loadCart();
+});
 </script>

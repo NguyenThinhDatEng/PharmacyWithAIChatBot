@@ -8,12 +8,14 @@ import Contact from './components/Contact.vue';
 import Prescription from './components/Prescription.vue';
 import ProductDetail from './components/ProductDetail.vue';
 import BlogDetail from './components/BlogDetail.vue';
+import Cart from './components/Cart.vue';
 
 const routes = [
   { path: '/', component: Home },
   { path: '/blog', component: Blog },
   { path: '/blog/:id', component: BlogDetail },
   { path: '/shop', component: Shop },
+  { path: '/cart', component: Cart },
   { path: '/product/:id', component: ProductDetail },
   { path: '/services', component: Services },
   { path: '/about', component: About },
