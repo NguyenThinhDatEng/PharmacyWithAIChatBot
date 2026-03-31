@@ -27,7 +27,6 @@
         <h3>{{ p.name }}</h3>
         <p class="product-desc">{{ p.description }}</p>
         <p class="product-price">Giá: {{ p.price }}đ</p>
-        <p class="product-stock">Còn lại: {{ p.stock }}</p>
         <div class="product-controls">
           <button :disabled="p.stock === 0" @click="addToCart(p, 1)" class="add-btn">Thêm vào giỏ</button>
           <router-link :to="`/product/${p.id}`" class="detail-btn">Xem chi tiết</router-link>

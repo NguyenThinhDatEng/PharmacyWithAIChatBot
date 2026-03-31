@@ -1,11 +1,11 @@
 <template>
   <div class="about-page">
-    <h2>VỀ TRƯỜNG THỊ YẾN</h2>
+    <h2>VỀ TRƯƠNG THỊ YẾN</h2>
     <p class="slogan">20 năm đồng hành cùng sức khỏe cộng đồng</p>
     
     <div class="about-content">
       <div class="about-image">
-        <img src="/introduction/TTY.png" alt="Đội ngũ Dược sĩ Trường Thị Yến" />
+        <img src="/introduction/TTY.png" alt="Đội ngũ Dược sĩ Trương Thị Yến" />
       </div>
       
       <div class="about-text">
@@ -38,7 +38,7 @@
           <ul>
             <li>Phát triển lâu dài, sáng tạo.</li>
             <li>Phục vụ tận tâm.</li>
-            <li>Nhà thuốc Trường Thị Yến luôn hướng đến cộng đồng.</li>
+            <li>Nhà thuốc Trương Thị Yến luôn hướng đến cộng đồng.</li>
           </ul>
         </section>
       </div>

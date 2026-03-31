@@ -48,7 +48,7 @@
         <p>Facebook | Instagram | Zalo</p>
       </div>
     </div>
-    <p class="footer-copyright">© 2026 Trường Thị Yến</p>
+    <p class="footer-copyright">© 2026 Trương Thị Yến</p>
   </footer>
 </div>
 </template>

@@ -1,92 +1,310 @@
 [
   {
-    "id": 1,
-    "name": "Paracetamol 500mg",
-    "category": "Tiêu hóa",
-    "price": 15000,
-    "stock": 100,
-    "description": "Thuốc giảm đau, hạ sốt Paracetamol 500mg",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Vitamin C 1000mg",
-    "category": "Đề kháng",
-    "price": 25000,
-    "stock": 80,
-    "description": "Vitamin C tăng cường đề kháng 1000mg",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 3,
-    "name": "Ibuprofen 200mg",
-    "category": "Khớp xương",
-    "price": 20000,
-    "stock": 60,
-    "description": "Thuốc giảm đau khớp Ibuprofen 200mg",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 4,
-    "name": "Amoxicillin 500mg",
-    "category": "Hô hấp",
-    "price": 30000,
-    "stock": 40,
-    "description": "Kháng sinh Amoxicillin 500mg cho nhiễm trùng",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Cetirizine 10mg",
-    "category": "Hô hấp",
-    "price": 18000,
-    "stock": 90,
-    "description": "Thuốc chống dị ứng Cetirizine 10mg",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 6,
-    "name": "Calcium D3 500mg",
-    "category": "Khớp xương",
-    "price": 35000,
-    "stock": 70,
-    "description": "Bổ sung canxi và vitamin D3 500mg",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 7,
-    "name": "Kem Dưỡng Da Eucerin",
+    "productId": "00042319",
+    "name": "Sữa rửa mặt cho da thường và khô CeraVe Hydrating Cleanser 473ml",
+    "volume": "473ml",
+    "price": 390100,
+    "originalPrice": 470000,
+    "discount": "-17%",
+    "promotion": "Giảm ngay 17% khi mua Online 8h - 22h áp dụng đến 31/03",
+    "rating": {
+      "stars": 5,
+      "reviews": 4,
+      "comments": 22
+    },
+    "description": "Công thức với 3 ceramides thiết yếu và hyaluronic acid, giúp làm sạch và giữ ẩm cho da thường và da khô mà không phá vỡ hàng rào bảo vệ da.",
+    "specifications": {
+      "ingredients": ["Aqua", "Glycerin", "Cetearyl Alcohol", "PEG-40 Stearate", "Stearyl Alcohol", "Potassium Phosphate", "Ceramide EOP"],
+      "origin": ["Pháp", "Trung Quốc"],
+      "manufacturer": ["CAP - ETABLISSEMENT DE VICHY", "BEAUTYCOS INTERNATIONAL CO., LTD"],
+      "shelfLife": "36 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "30 ngày"
+    },
     "category": "Chăm sóc da",
-    "price": 120000,
-    "stock": 30,
-    "description": "Kem dưỡng da Eucerin cho da khô",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 8,
-    "name": "Sữa Cho Bé Abbott",
-    "category": "Mẹ & Bé",
-    "price": 450000,
-    "stock": 20,
-    "description": "Sữa công thức cho bé Abbott",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
-  },
-  {
-    "id": 9,
-    "name": "Thuốc Ho Sirop",
-    "category": "Hô hấp",
-    "price": 25000,
     "stock": 50,
-    "description": "Sirop giảm ho cho trẻ em",
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/640x0/filters:quality(90):format(webp)/DSC_03706_e959da7394.jpg"
+  },
+  {
+    "productId": "00051234",
+    "name": "Paracetamol 500mg hộp 20 viên",
+    "volume": "20 viên",
+    "price": 15000,
+    "originalPrice": 18000,
+    "discount": "-17%",
+    "promotion": "Giảm giá đặc biệt cho khách hàng thân thiết",
+    "rating": {
+      "stars": 4.5,
+      "reviews": 12,
+      "comments": 45
+    },
+    "description": "Thuốc giảm đau, hạ sốt Paracetamol 500mg, hộp 20 viên. An toàn cho người lớn và trẻ em trên 12 tuổi.",
+    "specifications": {
+      "ingredients": ["Paracetamol"],
+      "origin": ["Việt Nam"],
+      "manufacturer": ["Công ty Dược phẩm OPC"],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Tiêu hóa",
+    "stock": 100,
     "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
   },
   {
-    "id": 10,
-    "name": "Omega 3 Fish Oil",
+    "productId": "00067890",
+    "name": "Vitamin C 1000mg hộp 60 viên",
+    "volume": "60 viên",
+    "price": 25000,
+    "originalPrice": 30000,
+    "discount": "-17%",
+    "promotion": "Combo vitamin C + D giảm thêm 10%",
+    "rating": {
+      "stars": 4.8,
+      "reviews": 8,
+      "comments": 32
+    },
+    "description": "Vitamin C tăng cường đề kháng 1000mg, hộp 60 viên. Hỗ trợ hệ miễn dịch, tăng cường sức khỏe.",
+    "specifications": {
+      "ingredients": ["Vitamin C", "Tá dược"],
+      "origin": ["Mỹ"],
+      "manufacturer": ["Nature Made"],
+      "shelfLife": "36 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "15 ngày"
+    },
     "category": "Đề kháng",
+    "stock": 80,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00078901",
+    "name": "Ibuprofen 200mg hộp 30 viên",
+    "volume": "30 viên",
+    "price": 20000,
+    "originalPrice": 24000,
+    "discount": "-17%",
+    "promotion": "Mua 2 hộp giảm 5%",
+    "rating": {
+      "stars": 4.2,
+      "reviews": 6,
+      "comments": 18
+    },
+    "description": "Thuốc giảm đau khớp Ibuprofen 200mg, hộp 30 viên. Giảm đau, chống viêm hiệu quả.",
+    "specifications": {
+      "ingredients": ["Ibuprofen"],
+      "origin": ["Việt Nam"],
+      "manufacturer": ["Công ty Dược phẩm TW3"],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Khớp xương",
+    "stock": 60,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00089012",
+    "name": "Amoxicillin 500mg hộp 20 viên",
+    "volume": "20 viên",
+    "price": 30000,
+    "originalPrice": 36000,
+    "discount": "-17%",
+    "promotion": "Kháng sinh bán theo đơn",
+    "rating": {
+      "stars": 4.0,
+      "reviews": 5,
+      "comments": 15
+    },
+    "description": "Kháng sinh Amoxicillin 500mg, hộp 20 viên. Điều trị nhiễm trùng đường hô hấp, tiết niệu.",
+    "specifications": {
+      "ingredients": ["Amoxicillin"],
+      "origin": ["Việt Nam"],
+      "manufacturer": ["Công ty Dược phẩm DHG"],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "Không đổi trả"
+    },
+    "category": "Hô hấp",
+    "stock": 40,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00090123",
+    "name": "Cetirizine 10mg hộp 30 viên",
+    "volume": "30 viên",
+    "price": 18000,
+    "originalPrice": 21600,
+    "discount": "-17%",
+    "promotion": "Thuốc chống dị ứng mùa",
+    "rating": {
+      "stars": 4.3,
+      "reviews": 9,
+      "comments": 28
+    },
+    "description": "Thuốc chống dị ứng Cetirizine 10mg, hộp 30 viên. Giảm ngứa, sổ mũi do dị ứng.",
+    "specifications": {
+      "ingredients": ["Cetirizine"],
+      "origin": ["Việt Nam"],
+      "manufacturer": ["Công ty Dược phẩm Mekophar"],
+      "shelfLife": "36 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "10 ngày"
+    },
+    "category": "Hô hấp",
+    "stock": 90,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00101234",
+    "name": "Calcium D3 500mg hộp 60 viên",
+    "volume": "60 viên",
+    "price": 35000,
+    "originalPrice": 42000,
+    "discount": "-17%",
+    "promotion": "Combo canxi + vitamin D",
+    "rating": {
+      "stars": 4.6,
+      "reviews": 11,
+      "comments": 35
+    },
+    "description": "Bổ sung canxi và vitamin D3 500mg, hộp 60 viên. Tăng cường xương khớp, răng chắc khỏe.",
+    "specifications": {
+      "ingredients": ["Calcium carbonate", "Vitamin D3"],
+      "origin": ["Mỹ"],
+      "manufacturer": ["Nature's Bounty"],
+      "shelfLife": "36 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "15 ngày"
+    },
+    "category": "Khớp xương",
+    "stock": 70,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00112345",
+    "name": "Kem dưỡng da Eucerin Eczema Relief Body Cream 250ml",
+    "volume": "250ml",
+    "price": 120000,
+    "originalPrice": 144000,
+    "discount": "-17%",
+    "promotion": "Kem dưỡng da chuyên biệt",
+    "rating": {
+      "stars": 4.7,
+      "reviews": 15,
+      "comments": 48
+    },
+    "description": "Kem dưỡng da Eucerin cho da khô, eczema. Giúp làm dịu da, giảm ngứa, dưỡng ẩm sâu.",
+    "specifications": {
+      "ingredients": ["Aqua", "Glycerin", "Paraffinum Liquidum", "Decyl Oleate"],
+      "origin": ["Đức"],
+      "manufacturer": ["Beiersdorf AG"],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "30 ngày"
+    },
+    "category": "Chăm sóc da",
+    "stock": 30,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00123456",
+    "name": "Sữa công thức Abbott Grow 900g",
+    "volume": "900g",
+    "price": 450000,
+    "originalPrice": 540000,
+    "discount": "-17%",
+    "promotion": "Sữa cho bé từ 1-5 tuổi",
+    "rating": {
+      "stars": 4.9,
+      "reviews": 20,
+      "comments": 67
+    },
+    "description": "Sữa công thức Abbott Grow cho bé từ 1-5 tuổi. Bổ sung dinh dưỡng toàn diện cho sự phát triển.",
+    "specifications": {
+      "ingredients": ["Sữa bò", "Đường lactose", "Dầu thực vật", "Vitamin tổng hợp"],
+      "origin": ["Hà Lan"],
+      "manufacturer": ["Abbott Laboratories"],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Mẹ & Bé",
+    "stock": 20,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00134567",
+    "name": "Sirop giảm ho cho trẻ em 120ml",
+    "volume": "120ml",
+    "price": 25000,
+    "originalPrice": 30000,
+    "discount": "-17%",
+    "promotion": "Sirop ho cho bé",
+    "rating": {
+      "stars": 4.1,
+      "reviews": 7,
+      "comments": 21
+    },
+    "description": "Sirop giảm ho cho trẻ em, hương cam. Giúp giảm ho, long đờm, dịu cổ họng.",
+    "specifications": {
+      "ingredients": ["Dextromethorphan", "Guaifenesin", "Menthol"],
+      "origin": ["Việt Nam"],
+      "manufacturer": ["Công ty Dược phẩm Traphaco"],
+      "shelfLife": "36 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "10 ngày"
+    },
+    "category": "Hô hấp",
+    "stock": 50,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
+  },
+  {
+    "productId": "00145678",
+    "name": "Omega 3 Fish Oil 1000mg hộp 60 viên",
+    "volume": "60 viên",
     "price": 40000,
+    "originalPrice": 48000,
+    "discount": "-17%",
+    "promotion": "Bổ sung omega 3 tự nhiên",
+    "rating": {
+      "stars": 4.4,
+      "reviews": 10,
+      "comments": 33
+    },
+    "description": "Bổ sung Omega 3 từ dầu cá 1000mg, hộp 60 viên. Hỗ trợ tim mạch, não bộ, thị lực.",
+    "specifications": {
+      "ingredients": ["Dầu cá", "Vitamin E"],
+      "origin": ["Na Uy"],
+      "manufacturer": ["Seven Seas"],
+      "shelfLife": "36 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "15 ngày"
+    },
+    "category": "Đề kháng",
     "stock": 65,
-    "description": "Bổ sung Omega 3 từ dầu cá",
     "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/144x0/filters:quality(90):format(webp)/IMG_2695_e170220951.jpg"
   }
 ]
