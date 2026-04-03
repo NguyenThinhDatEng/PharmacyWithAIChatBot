@@ -10,29 +10,17 @@
 
         <!-- Navigation -->
         <nav class="nav-menu" :class="{ 'nav-open': isMenuOpen }">
-          <router-link to="/" class="nav-link" @click="closeMenu">
-            <i class="fas fa-home"></i> Trang Chủ
-          </router-link>
-          <router-link to="/shop" class="nav-link" @click="closeMenu">
-            <i class="fas fa-capsules"></i> Tủ thuốc
-          </router-link>
-          <router-link to="/blog" class="nav-link" @click="closeMenu">
-            <i class="fas fa-book-medical"></i> Kiến thức
-          </router-link>
-          <router-link to="/services" class="nav-link" @click="closeMenu">
-            <i class="fas fa-hand-holding-medical"></i> Dịch vụ
-          </router-link>
-          <router-link to="/about" class="nav-link" @click="closeMenu">
-            <i class="fas fa-info-circle"></i> Giới thiệu
-          </router-link>
-          <router-link to="/contact" class="nav-link" @click="closeMenu">
-            <i class="fas fa-phone-alt"></i> Liên hệ
-          </router-link>
+          <router-link to="/" class="nav-link" @click="closeMenu">Trang Chủ</router-link>
+          <router-link to="/shop" class="nav-link" @click="closeMenu">Tủ thuốc</router-link>
+          <router-link to="/blog" class="nav-link" @click="closeMenu">Kiến thức y khoa</router-link>
+          <router-link to="/services" class="nav-link" @click="closeMenu">Dịch vụ</router-link>
+          <router-link to="/about" class="nav-link" @click="closeMenu">Giới thiệu</router-link>
+          <router-link to="/contact" class="nav-link" @click="closeMenu">Liên hệ</router-link>
         </nav>
 
         <!-- Hotline -->
         <a href="tel:18001234" class="hotline-btn">
-          <i class="fas fa-headset"></i> 1800 1234
+          <i class="fas fa-phone-volume"></i> 1800 1234
         </a>
 
         <!-- Hamburger -->
@@ -43,6 +31,32 @@
         </div>
       </div>
     </header>
+
+    <!-- Utility Bar (Long Châu style) -->
+    <div class="utility-bar">
+      <div class="utility-inner">
+        <router-link to="/shop" class="utility-item">
+          <i class="fas fa-pills"></i>
+          <span>Cần mua thuốc</span>
+        </router-link>
+        <router-link to="/prescription" class="utility-item">
+          <i class="fas fa-file-prescription"></i>
+          <span>Thuốc theo đơn</span>
+        </router-link>
+        <div class="utility-item" @click="openChat">
+          <i class="fas fa-comment-medical"></i>
+          <span>Tư vấn Dược sĩ</span>
+        </div>
+        <router-link to="/contact" class="utility-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Tìm nhà thuốc</span>
+        </router-link>
+        <router-link to="/blog" class="utility-item">
+          <i class="fas fa-notes-medical"></i>
+          <span>Tra cứu thuốc</span>
+        </router-link>
+      </div>
+    </div>
 
     <main class="container">
       <router-view />
@@ -70,17 +84,17 @@
           <div class="footer-col">
             <h4>Liên hệ</h4>
             <ul>
-              <li><i class="fas fa-phone-alt"></i> Hotline: 1800 1234</li>
-              <li><i class="fas fa-envelope"></i> support@pharmacyai.vn</li>
-              <li><i class="fas fa-map-marker-alt"></i> Dương Sơn, Tam Sơn, Từ Sơn, Bắc Ninh</li>
+              <li><i class="fas fa-phone-volume"></i> Hotline: 1800 1234</li>
+              <li><i class="far fa-envelope"></i> support@pharmacyai.vn</li>
+              <li><i class="fas fa-location-dot"></i> Dương Sơn, Tam Sơn, Từ Sơn, Bắc Ninh</li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Theo dõi</h4>
             <div class="social-links">
               <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
               <a href="#" aria-label="Zalo"><i class="fas fa-comment-dots"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
             <p class="footer-note">Mở cửa: 7:00 - 21:00 hàng ngày</p>
           </div>
@@ -109,6 +123,11 @@ const closeMenu = () => {
   isMenuOpen.value = false;
 };
 
+const openChat = () => {
+  // Trigger chat open by dispatching custom event
+  window.dispatchEvent(new CustomEvent('open-chat'));
+};
+
 const checkMobile = () => {
   isMobile.value = window.innerWidth < 768;
   if (!isMobile.value) isMenuOpen.value = false;
@@ -135,15 +154,48 @@ onUnmounted(() => {
   flex: 1;
 }
 
+/* Utility Bar (Long Châu style) */
+.utility-bar {
+  background: var(--primary);
+  padding: 0;
+}
+
+.utility-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+.utility-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 24px;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.utility-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text-white);
+}
+
+.utility-item i {
+  font-size: 1.25rem;
+}
+
 /* Header nav active state */
 .nav-link {
   border-bottom: 3px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.nav-link i {
-  margin-right: 4px;
-  font-size: 0.8em;
 }
 
 .nav-link.router-link-active {
@@ -290,8 +342,20 @@ onUnmounted(() => {
     display: none;
   }
 
-  .nav-link i {
-    margin-right: 6px;
+  .utility-inner {
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .utility-item {
+    padding: 10px 16px;
+    font-size: 0.6875rem;
+    flex-shrink: 0;
+  }
+
+  .utility-item i {
+    font-size: 1.1rem;
   }
 }
 </style>

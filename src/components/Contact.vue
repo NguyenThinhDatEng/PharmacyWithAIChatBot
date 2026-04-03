@@ -1,14 +1,14 @@
 <template>
   <div class="panel">
     <div class="contact-header">
-      <h2><i class="fas fa-phone-alt"></i> Liên hệ</h2>
+      <h2><i class="fas fa-phone-volume"></i> Liên hệ</h2>
       <p class="section-subtitle">Chúng tôi luôn sẵn sàng hỗ trợ bạn</p>
     </div>
 
     <div class="contact-grid">
       <div class="contact-card">
         <div class="contact-icon-wrap">
-          <i class="fas fa-phone-alt"></i>
+          <i class="fas fa-phone-volume"></i>
         </div>
         <h4>Điện thoại</h4>
         <p>0909 090 090</p>
@@ -29,7 +29,7 @@
       </div>
       <div class="contact-card">
         <div class="contact-icon-wrap">
-          <i class="fas fa-map-marker-alt"></i>
+          <i class="fas fa-location-dot"></i>
         </div>
         <h4>Địa chỉ</h4>
         <p>Dương Sơn, Tam Sơn, Từ Sơn, Bắc Ninh</p>

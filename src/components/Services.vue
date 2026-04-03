@@ -1,7 +1,7 @@
 <template>
   <div class="panel">
     <div class="services-header">
-      <h2><i class="fas fa-hand-holding-medical"></i> Dịch vụ của chúng tôi</h2>
+      <h2><i class="fas fa-hand-holding-medical"></i> Dịch vụ</h2>
       <p class="section-subtitle">Chăm sóc sức khỏe toàn diện cho gia đình bạn</p>
     </div>
     <div class="services-grid">
@@ -23,18 +23,21 @@ import servicesData from '../data/services.json';
 const services = ref([]);
 
 const iconMap = {
-  '💊': 'fas fa-capsules',
-  '🔍': 'fas fa-search',
-  '🚚': 'fas fa-truck',
-  '🤖': 'fas fa-robot',
-  '🏥': 'fas fa-hospital',
-  '❤️': 'fas fa-heart',
+  '💊': 'fas fa-pills',
+  '🔍': 'fas fa-magnifying-glass',
+  '🚚': 'fas fa-truck-medical',
+  '🤖': 'fas fa-laptop-medical',
+  '🏥': 'fas fa-house-medical',
+  '❤️': 'fas fa-heart-pulse',
   '📚': 'fas fa-book-medical',
   '💉': 'fas fa-syringe',
   '🩺': 'fas fa-stethoscope',
-  '👨‍⚕️': 'fas fa-user-md',
-  '📋': 'fas fa-clipboard-list',
-  '🧪': 'fas fa-flask',
+  '👨‍⚕️': 'fas fa-user-nurse',
+  '📋': 'fas fa-list-check',
+  '🧪': 'fas fa-flask-vial',
+  '🩸': 'fas fa-droplet',
+  '🍎': 'fas fa-apple-whole',
+  '⚙️': 'fas fa-gears',
 };
 
 function getIcon(emoji) {

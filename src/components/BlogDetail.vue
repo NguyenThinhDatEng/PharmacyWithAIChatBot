@@ -18,13 +18,13 @@
 
     <div v-else class="not-found">
       <div class="not-found-icon">
-        <i class="fas fa-file-medical-alt"></i>
+        <i class="fas fa-file-circle-xmark"></i>
       </div>
       <h2>Bài viết không tồn tại</h2>
     </div>
 
     <router-link to="/blog" class="back-btn">
-      <i class="fas fa-arrow-left"></i> Quay lại Kiến thức y khoa
+      <i class="fas fa-chevron-left"></i> Quay lại Kiến thức y khoa
     </router-link>
   </div>
 </template>

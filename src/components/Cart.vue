@@ -1,15 +1,15 @@
 <template>
   <div class="cart-page">
-    <h1><i class="fas fa-shopping-cart"></i> Giỏ hàng của bạn</h1>
+    <h1><i class="fas fa-basket-shopping"></i> Giỏ hàng của bạn</h1>
 
     <div v-if="cart.length === 0" class="empty-cart">
       <div class="empty-icon">
-        <i class="fas fa-cart-arrow-down"></i>
+        <i class="fas fa-basket-shopping"></i>
       </div>
       <h3>Giỏ hàng trống</h3>
       <p>Hãy thêm sản phẩm từ tủ thuốc gia đình</p>
       <router-link to="/shop" class="shop-btn">
-        <i class="fas fa-capsules"></i> Tiếp tục mua sắm
+        <i class="fas fa-pills"></i> Tiếp tục mua sắm
       </router-link>
     </div>
 
@@ -33,7 +33,7 @@
           <div class="item-total">
             <p class="total-amount">{{ formatPrice(item.price * item.quantity) }}đ</p>
             <button @click="removeItem(item)" class="remove-btn" aria-label="Xóa sản phẩm">
-              <i class="fas fa-trash-alt"></i> Xóa
+              <i class="fas fa-trash-can"></i> Xóa
             </button>
           </div>
         </div>
@@ -50,10 +50,10 @@
           <span class="total-price">{{ formatPrice(cartTotal) }}đ</span>
         </div>
         <button @click="checkout" class="checkout-btn">
-          <i class="fas fa-credit-card"></i> Thanh toán
+          <i class="fas fa-money-check-dollar"></i> Thanh toán
         </button>
         <router-link to="/shop" class="continue-btn">
-          <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
+          <i class="fas fa-chevron-left"></i> Tiếp tục mua sắm
         </router-link>
       </div>
     </div>
