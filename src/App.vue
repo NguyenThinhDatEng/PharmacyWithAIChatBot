@@ -44,6 +44,9 @@
       </div>
     </header>
 
+    <!-- Category Mega-Nav (Long Châu style) -->
+    <CategoryNav />
+
     <main class="container">
       <router-view />
     </main>
@@ -96,6 +99,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import Chat from './components/Chat.vue';
+import CategoryNav from './components/CategoryNav.vue';
 import Logo from './assets/Logo.png';
 
 const isMenuOpen = ref(false);
