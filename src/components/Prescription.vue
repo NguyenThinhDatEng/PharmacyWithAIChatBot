@@ -8,7 +8,7 @@
     <div class="prescription-form">
       <div class="upload-area" @click="triggerFileInput" @dragover.prevent @drop.prevent="handleDrop">
         <div v-if="!prescriptionFile" class="upload-placeholder">
-          <i class="fas fa-cloud-arrow-up"></i>
+          <i class="fas fa-cloud-upload-alt"></i>
           <p>Kéo thả hoặc nhấn để tải đơn thuốc</p>
           <span>Hỗ trợ: JPG, PNG, PDF</span>
         </div>
@@ -30,12 +30,12 @@
       </div>
 
       <div class="form-group">
-        <label for="prescription-note"><i class="fas fa-pen-to-square"></i> Ghi chú cho dược sĩ</label>
+        <label for="prescription-note"><i class="fas fa-sticky-note"></i> Ghi chú cho dược sĩ</label>
         <textarea id="prescription-note" v-model="prescriptionNote" placeholder="Ví dụ: cần giao gấp, thay thế thuốc tương đương nếu hết..." rows="3"></textarea>
       </div>
 
       <button @click="uploadPrescription" class="submit-btn" :disabled="!prescriptionFile">
-        <i class="fas fa-file-arrow-up"></i> Gửi đơn thuốc
+        <i class="fas fa-paper-plane"></i> Gửi đơn thuốc
       </button>
 
       <div v-if="prescriptionStatus" class="status-message" :class="{ error: prescriptionStatus.includes('failed') }">

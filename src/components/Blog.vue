@@ -1,7 +1,7 @@
 <template>
   <div class="panel">
     <div class="blog-header">
-      <h2><i class="fas fa-notes-medical"></i> Kiến thức y khoa</h2>
+      <h2><i class="fas fa-book-medical"></i> Kiến thức y khoa</h2>
       <p class="section-subtitle">Cập nhật thông tin sức khỏe hữu ích cho gia đình</p>
     </div>
     <div class="blog-grid">
@@ -12,7 +12,7 @@
           <h3>{{ post.title }}</h3>
           <p>{{ post.description }}</p>
           <router-link :to="`/blog/${post.id}`" class="read-more-btn">
-            Đọc tiếp <i class="fas fa-chevron-right"></i>
+            Đọc tiếp <i class="fas fa-arrow-right"></i>
           </router-link>
         </div>
       </div>

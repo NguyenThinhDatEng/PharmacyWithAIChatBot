@@ -18,7 +18,7 @@
         <div class="product-info-section">
           <h1 class="product-title">{{ product.name }}</h1>
           <p class="product-id">
-            <i class="fas fa-hashtag"></i> Mã: {{ product.productId }}
+            <i class="fas fa-barcode"></i> Mã: {{ product.productId }}
           </p>
 
           <!-- Price -->
@@ -29,7 +29,7 @@
           </div>
 
           <div class="promotion-info">
-            <i class="fas fa-tag"></i> {{ product.promotion }}
+            <i class="fas fa-gift"></i> {{ product.promotion }}
           </div>
 
           <!-- Rating -->
@@ -47,10 +47,10 @@
           <!-- Action buttons -->
           <div class="action-buttons">
             <button class="add-to-cart-btn" @click="addToCart(product)">
-              <i class="fas fa-basket-shopping"></i> Thêm vào giỏ hàng
+              <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
             </button>
             <button class="buy-now-btn" @click="buyNow(product)">
-              <i class="fas fa-credit-card"></i> Mua ngay
+              <i class="fas fa-bolt"></i> Mua ngay
             </button>
           </div>
         </div>
@@ -58,7 +58,7 @@
 
       <!-- Description -->
       <div class="product-section">
-        <h2><i class="fas fa-circle-info"></i> Mô tả sản phẩm</h2>
+        <h2><i class="fas fa-info-circle"></i> Mô tả sản phẩm</h2>
         <p class="description-text">{{ product.description }}</p>
         <div class="key-ingredients">
           <h3>Thành phần chính:</h3>
@@ -72,7 +72,7 @@
 
       <!-- Specs -->
       <div class="product-section">
-        <h2><i class="fas fa-list-check"></i> Thông số kỹ thuật</h2>
+        <h2><i class="fas fa-clipboard-list"></i> Thông số kỹ thuật</h2>
         <div class="specs-grid">
           <div class="spec-item">
             <span class="spec-label">Dung tích</span>
@@ -99,11 +99,11 @@
 
       <!-- Policies -->
       <div class="product-section">
-        <h2><i class="fas fa-shield-halved"></i> Chính sách bán hàng</h2>
+        <h2><i class="fas fa-shield-alt"></i> Chính sách bán hàng</h2>
         <div class="policies-list">
           <div class="policy-item">
             <div class="policy-icon-wrap">
-              <i class="fas fa-truck-fast"></i>
+              <i class="fas fa-truck"></i>
             </div>
             <div>
               <strong>Vận chuyển</strong>
@@ -112,7 +112,7 @@
           </div>
           <div class="policy-item">
             <div class="policy-icon-wrap">
-              <i class="fas fa-rotate-left"></i>
+              <i class="fas fa-undo-alt"></i>
             </div>
             <div>
               <strong>Đổi trả</strong>
@@ -125,12 +125,12 @@
 
     <div v-else class="product-not-found">
       <div class="not-found-icon">
-        <i class="fas fa-magnifying-glass"></i>
+        <i class="fas fa-search"></i>
       </div>
       <h2>Sản phẩm không tồn tại</h2>
       <p>Sản phẩm bạn tìm kiếm không có trong hệ thống.</p>
       <router-link to="/shop" class="back-btn">
-        <i class="fas fa-chevron-left"></i> Quay lại Tủ thuốc
+        <i class="fas fa-arrow-left"></i> Quay lại Tủ thuốc
       </router-link>
     </div>
   </div>

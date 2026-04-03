@@ -1,20 +1,20 @@
 <template>
   <div class="panel">
     <div class="shop-header">
-      <h2><i class="fas fa-pills"></i> Tủ thuốc gia đình</h2>
+      <h2><i class="fas fa-capsules"></i> Tủ thuốc gia đình</h2>
       <p class="section-subtitle">Dược phẩm chất lượng, nguồn gốc rõ ràng</p>
     </div>
 
     <div class="floating-cart">
       <router-link to="/cart" class="floating-cart-btn">
-        <i class="fas fa-basket-shopping"></i> {{ cart.length }}
+        <i class="fas fa-shopping-cart"></i> {{ cart.length }}
       </router-link>
     </div>
 
     <!-- Search -->
     <div class="search-bar">
       <div class="search-wrapper">
-        <i class="fas fa-magnifying-glass search-icon"></i>
+        <i class="fas fa-search search-icon"></i>
         <input v-model="searchTerm" type="text" placeholder="Tìm kiếm sản phẩm..." class="search-input" />
       </div>
     </div>
@@ -43,10 +43,10 @@
         <p class="product-price">{{ formatPrice(p.price) }}đ</p>
         <div class="product-controls">
           <button :disabled="p.stock === 0" @click="addToCart(p, 1)" class="add-btn">
-            <i class="fas fa-basket-shopping"></i> Thêm
+            <i class="fas fa-cart-plus"></i> Thêm
           </button>
           <router-link :to="`/product/${p.productId}`" class="detail-btn">
-            <i class="fas fa-circle-info"></i> Chi tiết
+            <i class="fas fa-eye"></i> Chi tiết
           </router-link>
         </div>
       </div>

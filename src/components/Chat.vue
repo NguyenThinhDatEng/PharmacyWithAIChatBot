@@ -10,7 +10,7 @@
     <div class="chat-header">
       <div class="chat-header-info">
         <div class="chat-header-avatar">
-          <i class="fas fa-user-nurse"></i>
+          <i class="fas fa-user-md"></i>
         </div>
         <div>
           <span class="chat-title">Dược sĩ AI</span>
@@ -20,7 +20,7 @@
         </div>
       </div>
       <button class="close-btn" @click="toggleChat" aria-label="Đóng chat">
-        <i class="fas fa-xmark"></i>
+        <i class="fas fa-times"></i>
       </button>
     </div>
 
@@ -28,7 +28,7 @@
       <!-- Welcome message -->
       <div class="chat-welcome" v-if="chatLog.length === 0">
         <div class="welcome-icon">
-          <i class="fas fa-briefcase-medical"></i>
+          <i class="fas fa-stethoscope"></i>
         </div>
         <p>Xin chào! Tôi là Dược sĩ AI, sẵn sàng tư vấn sức khỏe cho bạn.</p>
         <div class="quick-actions">
@@ -42,7 +42,7 @@
         <div v-for="(msg, idx) in chatLog" :key="idx" :class="['chat-line', msg.role]">
           <div class="chat-item">
             <div class="chat-avatar" v-if="msg.role === 'assistant'">
-              <i class="fas fa-user-nurse"></i>
+              <i class="fas fa-user-md"></i>
             </div>
             <div class="chat-bubble">
               <div class="chat-text">{{ msg.text }}</div>
@@ -58,7 +58,7 @@
       <div class="typing-indicator" v-if="isSending">
         <div class="chat-item">
           <div class="chat-avatar">
-            <i class="fas fa-user-nurse"></i>
+            <i class="fas fa-user-md"></i>
           </div>
           <div class="chat-bubble typing-bubble">
             <div class="sending-dots">
@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick, watch, onMounted, onUnmounted } from 'vue';
+import { ref, nextTick, watch } from 'vue';
 import axios from 'axios';
 
 const base = 'http://localhost:3000/api';
@@ -106,18 +106,6 @@ function toggleChat() {
     document.body.classList.remove('chat-open');
   }
 }
-
-function handleOpenChat() {
-  if (!isOpen.value) toggleChat();
-}
-
-onMounted(() => {
-  window.addEventListener('open-chat', handleOpenChat);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('open-chat', handleOpenChat);
-});
 
 function autoResize(e) {
   const el = e.target;

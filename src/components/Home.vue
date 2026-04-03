@@ -3,15 +3,15 @@
     <!-- Hero Banner -->
     <section class="hero-banner">
       <div class="banner-content">
-        <p class="hero-tag"><i class="fas fa-shield-virus"></i> Uy tín - Tận tâm - Chất lượng</p>
+        <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
         <h1>Người bạn đồng hành sức khỏe gia đình bạn</h1>
         <p>Kết hợp tư vấn tận tâm và công nghệ AI hiện đại cho sức khỏe tối ưu.</p>
         <div class="cta-buttons">
           <router-link to="/shop" class="cta-btn primary">
-            <i class="fas fa-pills"></i> Khám phá tủ thuốc
+            <i class="fas fa-capsules"></i> Khám phá tủ thuốc
           </router-link>
           <router-link to="/chat" class="cta-btn outline">
-            <i class="fas fa-comment-medical"></i> Chat với Dược sĩ AI
+            <i class="fas fa-robot"></i> Chat với Dược sĩ AI
           </router-link>
         </div>
       </div>
@@ -20,23 +20,23 @@
       </div>
     </section>
 
-    <!-- Trust Badges (Long Châu style) -->
+    <!-- Trust Badges -->
     <section class="trust-badges">
       <div class="badge-item">
-        <i class="fas fa-truck-medical"></i>
-        <span>Giao hàng toàn quốc</span>
+        <i class="fas fa-truck-fast"></i>
+        <span>Giao hàng nhanh</span>
       </div>
       <div class="badge-item">
-        <i class="fas fa-prescription-bottle-medical"></i>
-        <span>Thuốc chính hãng 100%</span>
+        <i class="fas fa-certificate"></i>
+        <span>Thuốc chính hãng</span>
       </div>
       <div class="badge-item">
-        <i class="fas fa-user-nurse"></i>
-        <span>Dược sĩ tư vấn 24/7</span>
+        <i class="fas fa-headset"></i>
+        <span>Tư vấn 24/7</span>
       </div>
       <div class="badge-item">
-        <i class="fas fa-hand-holding-heart"></i>
-        <span>Đổi trả trong 30 ngày</span>
+        <i class="fas fa-rotate-left"></i>
+        <span>Đổi trả dễ dàng</span>
       </div>
     </section>
 
@@ -47,37 +47,37 @@
       <div class="benefits-grid">
         <div class="benefit-item">
           <div class="benefit-icon-wrap">
-            <i class="fas fa-user-nurse"></i>
+            <i class="fas fa-user-md"></i>
           </div>
           <h6>Dược sĩ tư vấn 24/7</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon-wrap">
-            <i class="fas fa-microscope"></i>
+            <i class="fas fa-search"></i>
           </div>
           <h6>Nguồn gốc minh bạch</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon-wrap">
-            <i class="fas fa-truck-medical"></i>
+            <i class="fas fa-shipping-fast"></i>
           </div>
           <h6>Giao hàng nhanh</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon-wrap">
-            <i class="fas fa-laptop-medical"></i>
+            <i class="fas fa-robot"></i>
           </div>
           <h6>AI thông minh</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon-wrap">
-            <i class="fas fa-house-medical"></i>
+            <i class="fas fa-hospital"></i>
           </div>
           <h6>Chăm sóc toàn diện</h6>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon-wrap">
-            <i class="fas fa-heart-pulse"></i>
+            <i class="fas fa-heart"></i>
           </div>
           <h6>Tận tâm phục vụ</h6>
         </div>
@@ -119,7 +119,7 @@
         </router-link>
       </div>
       <router-link to="/shop" class="view-all-btn">
-        Xem tất cả sản phẩm <i class="fas fa-chevron-right"></i>
+        Xem tất cả sản phẩm <i class="fas fa-arrow-right"></i>
       </router-link>
     </section>
 
@@ -136,7 +136,7 @@
         </div>
       </div>
       <router-link to="/blog" class="view-all-btn">
-        Xem tất cả bài viết <i class="fas fa-chevron-right"></i>
+        Xem tất cả bài viết <i class="fas fa-arrow-right"></i>
       </router-link>
     </section>
   </div>
