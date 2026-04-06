@@ -1,50 +1,210 @@
 [
   {
     "id": 1,
-    "title": "5 mẹo phòng ngừa cảm cúm cho bé tại nhà",
-    "description": "Các mẹo đơn giản, hiệu quả để bảo vệ trẻ khi thời tiết lạnh. Học cách giữ ấm, vệ sinh tay và tăng cường đề kháng cho bé.",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về phòng ngừa cảm cúm...",
-    "publishedAt": "2026-03-21"
+    "title": "Sống chung với hen nặng - Làm sao để kiểm soát bệnh tốt hơn?",
+    "description": "Hen nặng là tình trạng hen phế quản khó kiểm soát, có thể gây ra những cơn khó thở nghiêm trọng và ảnh hưởng lớn đến sức khỏe nếu không được điều trị đúng cách.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/song_chung_voi_hen_nang_lam_sao_de_kiem_soat_benh_tot_hon_0_862188714a.png",
+    "content": "Hen nặng là tình trạng hen phế quản khó kiểm soát, có thể gây ra những cơn khó thở nghiêm trọng và ảnh hưởng lớn đến sức khỏe nếu không được điều trị đúng cách.",
+    "publishedAt": "2026-03-30"
   },
   {
     "id": 2,
-    "title": "Sử dụng kháng sinh đúng cách: 5 điều cần biết",
-    "description": "Hướng dẫn cách dùng kháng sinh đúng liều, đúng thời gian để tránh kháng thuốc. Tầm quan trọng của việc tuân thủ chỉ định bác sĩ.",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về sử dụng kháng sinh...",
-    "publishedAt": "2026-03-22"
+    "title": "Cách điều trị rối loạn nội tiết tố nữ an toàn và hiệu quả nhất",
+    "description": "Cách điều trị rối loạn nội tiết tố nữ an toàn và hiệu quả nhất cần có sự kết hợp giữa điều chỉnh lối sống, chế độ ăn uống và can thiệp y tế khi cần thiết. Trong trường hợp rối loạn nghiêm trọng kèm các triệu chứng như mất kinh hoặc vô sinh, bác sĩ có thể chỉ định dùng thuốc nội tiết hoặc liệu pháp thay thế để điều trị.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/cach_dieu_tri_roi_loan_noi_tiet_to_nu_an_toan_va_hieu_qua_nhat_1_4e5ff4208b.jpg",
+    "content": "Rối loạn nội tiết tố nữ xảy ra khi nồng độ estrogen và progesterone mất cân bằng, có thể do stress, lối sống, bệnh lý hoặc các giai đoạn sinh lý đặc biệt. Việc điều trị an toàn cần kết hợp điều chỉnh dinh dưỡng, cải thiện giấc ngủ, quản lý căng thẳng và can thiệp y tế khi cần. Chủ động theo dõi triệu chứng giúp phụ nữ bảo vệ sức khỏe sinh sản và ổn định chất lượng sống.",
+    "publishedAt": "2026-04-05"
   },
   {
     "id": 3,
-    "title": "Chăm sóc trẻ sơ sinh tại nhà: những điều bố mẹ cần biết",
-    "description": "Cách chăm sóc đúng để bé khỏe mạnh, phát triển tốt. Bao gồm vệ sinh, dinh dưỡng và theo dõi sức khỏe.",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về chăm sóc trẻ sơ sinh...",
-    "publishedAt": "2026-03-10"
+    "title": "Nhịp tim bao nhiêu là nguy hiểm? Khi nào bạn nên đến gặp bác sĩ?",
+    "description": "“Nhịp tim bao nhiêu là nguy hiểm” là câu hỏi nhiều người quan tâm khi theo dõi sức khỏe tim mạch hằng ngày. Nhịp tim không chỉ phản ánh tình trạng hoạt động của tim mà còn là dấu hiệu cảnh báo sớm nhiều vấn đề sức khỏe tiềm ẩn. Hiểu rõ giới hạn an toàn của nhịp tim sẽ giúp bạn chủ động nhận biết bất thường và có hướng chăm sóc phù hợp, bảo vệ cơ thể tốt hơn.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/nhip_tim_bao_nhieu_la_nguy_hiem_khi_nao_ban_nen_den_gap_bac_si_1_d57ca4f41a.jpg",
+    "content": "Nhịp tim khi nghỉ ngơi ở người trưởng thành thường dao động trong khoảng 60 đến 100 lần mỗi phút, nhưng có thể thay đổi tùy tình trạng cơ thể. Nhịp tim chỉ trở nên nguy hiểm khi tăng hoặc giảm bất thường kéo dài, đặc biệt nếu kèm chóng mặt, khó thở, đau ngực hoặc ngất xỉu. Theo dõi sớm các dấu hiệu này giúp bạn chủ động đi khám và bảo vệ sức khỏe tim mạch tốt hơn.",
+    "publishedAt": "2026-04-05"
   },
   {
     "id": 4,
-    "title": "Giữ sức khỏe tim mạch mùa nắng nóng",
-    "description": "Lời khuyên dinh dưỡng và sinh hoạt để phòng ngừa các bệnh tim mạch trong mùa hè.",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về chăm sóc tim mạch...",
-    "publishedAt": "2026-03-20"
+    "title": "Đau khớp cổ tay là gì? Các bệnh lý gây đau khớp cổ tay thường gặp",
+    "description": "Đau khớp cổ tay là tình trạng thường gặp, có thể xuất phát từ chấn thương, thói quen sinh hoạt hoặc nhiều bệnh lý khác nhau. Tình trạng này không chỉ gây khó chịu mà còn ảnh hưởng đến vận động hằng ngày nếu không được chú ý. Bài viết dưới đây sẽ giúp bạn hiểu rõ nguyên nhân, các bệnh liên quan, đối tượng dễ mắc cũng như cách giảm đau và phòng ngừa hiệu quả.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/dau_khop_co_tay_la_gi_cac_benh_ly_gay_dau_khop_co_tay_thuong_gap_1_e7f54f2d60.jpg",
+    "content": "Đau khớp cổ tay có thể xảy ra khi khớp, dây chằng hoặc dây thần kinh bị tổn thương hay quá tải do chấn thương, lặp lại động tác hoặc bệnh lý cơ xương khớp. Tình trạng này gây đau, tê hoặc hạn chế cử động, ảnh hưởng trực tiếp đến sinh hoạt hằng ngày. Nhận biết sớm nguyên nhân giúp kiểm soát triệu chứng và phòng ngừa biến chứng hiệu quả hơn.",
+    "publishedAt": "2026-04-05"
   },
   {
     "id": 5,
-    "title": "5 bài tập giảm đau lưng cho dân văn phòng",
-    "description": "Bài tập đơn giản giúp giảm đau lưng, cải thiện tư thế khi ngồi nhiều.",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về bài tập giảm đau lưng...",
-    "publishedAt": "2026-03-25"
+    "title": "Hiện tượng người mệt mỏi về chiều tối: Nguyên nhân và cách khắc phục",
+    "description": "Nhiều người thường cảm thấy uể oải, thiếu năng lượng vào thời điểm chiều tối. Tình trạng người mệt mỏi về chiều tối có thể xuất phát từ nhiều nguyên nhân khác nhau. Việc hiểu rõ nguyên nhân sẽ giúp bạn tìm ra cách khắc phục phù hợp và cải thiện chất lượng cuộc sống.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/nguoi_met_moi_ve_chieu_toi_60bd5d0a37.jpg",
+    "content": "Người mệt mỏi về chiều tối có thể liên quan đến thiếu ngủ, dinh dưỡng chưa hợp lý, căng thẳng kéo dài hoặc ít vận động. Trong một số trường hợp, đây cũng là dấu hiệu cảnh báo thiếu máu, rối loạn tuyến giáp, rối loạn giấc ngủ hay bệnh mạn tính. Điều chỉnh lối sống và theo dõi triệu chứng giúp cải thiện thể trạng và phát hiện sớm vấn đề sức khỏe tiềm ẩn.",
+    "publishedAt": "2026-04-05"
   },
   {
     "id": 6,
-    "title": "Chế độ ăn tăng đề kháng sau tiêm chủng",
-    "description": "Thực đơn dinh dưỡng giúp cơ thể phục hồi và tăng cường miễn dịch sau tiêm chủng.",
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/768x0/filters:quality(90):format(webp)/viem_phe_quan_kho_tho_85fc069684.jpg",
-    "content": "Chi tiết bài viết về dinh dưỡng sau tiêm chủng...",
-    "publishedAt": "2026-03-28"
+    "title": "Thận bị tổn thương nghiêm trọng bởi những sai lầm trong cách uống nước",
+    "description": "Nước là yếu tố thiết yếu giúp cơ thể duy trì sự sống và hỗ trợ nhiều hoạt động quan trọng, trong đó có chức năng lọc thải của thận. Tuy nhiên, không phải ai cũng uống nước đúng cách. Hãy cùng tìm hiểu những sai lầm phổ biến trong cách uống nước có thể khiến thận bị tổn thương nghiêm trọng.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/than_bi_ton_thuong_nghiem_trong_boi_nhung_sai_lam_trong_cach_uong_nuoc4_f65cdef3e5.jpg",
+    "content": "Những thói quen như uống không đủ nước, nạp quá nhiều nước trong thời gian ngắn, nhịn uống nước để tránh đi tiểu hoặc lạm dụng nước ngọt đều có thể làm tăng gánh nặng cho thận. Nếu kéo dài, các sai lầm này làm tăng nguy cơ sỏi thận, nhiễm trùng đường tiểu và suy giảm chức năng lọc. Uống nước đúng cách là bước đơn giản nhưng rất quan trọng để bảo vệ sức khỏe thận lâu dài.",
+    "publishedAt": "2026-03-30"
+  },
+  {
+    "id": 7,
+    "title": "Biến thể ve sầu của Covid-19 có phải chủng mới không?",
+    "description": "Biến thể ve sầu của Covid-19 có phải là một chủng mới hay chỉ là sự biến đổi của các biến thể đã từng tồn tại? Đây là câu hỏi được đặt ra bởi hàng triệu phụ huynh và cộng đồng, khi số ca mắc có xu hướng tăng nhanh và nguy cơ tái nhiễm ngày càng rõ rệt. Bài viết dưới đây sẽ giúp bạn hiểu rõ hơn về biến thể này để bảo vệ sức khỏe cho gia đình.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/bien_the_ve_sau_cua_covid_19_co_phai_chung_moi_khong_1_7d54aee248.png",
+    "content": "Trong thời gian gần đây, biến thể “Ve sầu” của Covid-19 (BA.3.2) đang trở thành tâm điểm chú ý khi số ca mắc có xu hướng tăng nhanh và gây lo ngại về khả năng lây lan cũng như mức độ nguy hiểm. Liệu đây có phải là một chủng mới, có khác biệt gì so với Omicron hay JN.1, và làm thế nào để bảo vệ con cái trước làn sóng dịch này?",
+    "publishedAt": "2026-04-06"
+  },
+  {
+    "id": 8,
+    "title": "5 lưu ý quan trọng giúp phòng bệnh viêm não mô cầu",
+    "description": "Viêm não mô cầu là bệnh truyền nhiễm nguy hiểm có thể tiến triển nhanh chỉ trong vài giờ. Hiểu rõ chuyên gia khuyến cáo 5 lưu ý quan trọng phòng dịch viêm não mô cầu sẽ giúp mỗi người chủ động bảo vệ sức khỏe cho bản thân và gia đình.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/chuyen_gia_khuyen_cao_5_luu_y_quan_trong_phong_dich_viem_nao_mo_cau_1_a2d1a8277b.png",
+    "content": "Gần đây, các ca viêm não mô cầu xuất hiện rải rác, nhất là tại trường học và ký túc xá. Bệnh có thể tiến triển nhanh và gây biến chứng nặng nếu phát hiện muộn. Chủ động phòng ngừa từ sớm là cách quan trọng để giảm nguy cơ lây nhiễm trong cộng đồng.",
+    "publishedAt": "2026-04-02"
+  },
+  {
+    "id": 9,
+    "title": "7 sai lầm khiến bệnh tay chân miệng trở nặng: Nhiều cha mẹ vẫn mắc phải",
+    "description": "Bệnh tay chân miệng thường lành tính nhưng vẫn có thể diễn tiến nặng nếu chăm sóc sai cách. Nhận biết sớm 7 sai lầm khiến bệnh tay chân miệng trở nặng sẽ giúp cha mẹ chủ động bảo vệ trẻ và hạn chế biến chứng nguy hiểm.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/7_sai_lam_khien_benh_tay_chan_mieng_tro_nang_nhieu_cha_me_van_mac_phai_2_140625dc61.png",
+    "content": "Tay chân miệng là bệnh truyền nhiễm phổ biến ở trẻ nhỏ, nhất là dưới 5 tuổi. Dù đa số tự khỏi, một số trường hợp trở nặng do theo dõi và chăm sóc chưa đúng. Hiểu rõ bệnh và tránh sai lầm giúp giảm biến chứng, hỗ trợ hồi phục nhanh hơn.",
+    "publishedAt": "2026-04-02"
+  },
+  {
+    "id": 10,
+    "title": "Các biến thể và dự báo mới nhất về Covid 2026",
+    "description": "Bước sang năm 2026, tình hình Covid-19 tiếp tục ghi nhận sự xuất hiện của các biến thể mới với khả năng lây lan và né miễn dịch khác nhau. Cùng tìm hiểu về các biến thể và dự báo mới nhất về Covid 2026 qua bài viết dưới đây.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/cac_bien_the_va_du_bao_moi_nhat_ve_covid_2026_5e1c502904.jpg",
+    "content": "Các biến thể Covid-19 trong năm 2026 đang cho thấy xu hướng tiến hóa phức tạp, ảnh hưởng trực tiếp đến hiệu quả miễn dịch và chiến lược kiểm soát dịch. Nắm bắt thông tin dự báo mới nhất từ các tổ chức y tế sẽ giúp người dân chủ động thích ứng, giảm thiểu nguy cơ lây nhiễm và bảo vệ sức khỏe một cách toàn diện. Các biến thể Covid mới nhất gồm những loại nào?",
+    "publishedAt": "2026-04-01"
+  },
+  {
+    "id": 11,
+    "title": "Hà Nội ghi nhận 29 ca COVID-19, biến thể BA.3.2 được theo dõi chặt chẽ",
+    "description": "Theo CDC Hà Nội, từ đầu năm 2026, Thủ đô ghi nhận 29 ca COVID-19, chưa có ca tử vong, người dân được khuyến cáo tiếp tục thực hiện các biện pháp phòng bệnh để đảm bảo an toàn.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/ha_noi_ghi_nhan_29_ca_covid_19_bien_the_ba_3_2_duoc_theo_doi_chat_che_10009_1_22a073cca7.png",
+    "content": "Hà Nội ghi nhận 29 ca COVID-19 từ đầu năm, tăng so với cùng kỳ 2025 Theo số liệu từ Trung tâm Kiểm soát bệnh tật (CDC) Hà Nội, trong tuần từ ngày 20/3 đến 27/3, thành phố ghi nhận 17 trường hợp mắc COVID-19 tại 12 phường, xã. Trước đó một tuần, số ca được báo cáo là 3 trường hợp, cho thấy xu hướng tăng nhẹ trong thời gian gần đây.",
+    "publishedAt": "2026-04-01"
+  },
+  {
+    "id": 12,
+    "title": "Bé 1 tháng tuổi đi ngoài hơn 10 lần/ngày có nguy hiểm không?",
+    "description": "Bé 1 tháng tuổi đi ngoài hơn 10 lần/ngày có phải dấu hiệu bệnh lý? Bài viết sau sẽ giúp mẹ nhận biết dấu hiệu bất thường và cách chăm sóc hệ tiêu hóa non nớt của trẻ.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/be_1_thang_tuoi_di_ngoai_hon_10_lanngay_co_nguy_hiem_khong1_81d7eba3c9.jpg",
+    "content": "Bé 1 tháng tuổi đi ngoài hơn 10 lần/ngày là tình trạng khiến nhiều cha mẹ lo lắng. Tuy nhiên, không phải lúc nào đi ngoài nhiều cũng là dấu hiệu bệnh lý. Bài viết dưới đây từ Nhà thuốc Long Châu sẽ giúp phụ huynh nắm được tần suất đi ngoài bình thường và cách chăm sóc hệ tiêu hóa cho bé đúng cách. Bé 1 tháng tuổi đi ngoài hơn 10 lần/ngày có sao không?",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 13,
+    "title": "Biến thể Covid BA.3.2 \"Ve sầu\" là gì? Có nguy hiểm không?",
+    "description": "Sự xuất hiện của các biến thể mới của virus SARS-CoV-2 thường khiến nhiều người quan tâm, nhất là khi những cái tên như BA.3.2 “Ve sầu” được nhắc đến trên truyền thông. Không chỉ gây tò mò về tên gọi, biến thể này còn làm mọi người lo ngại về khả năng lây lan, mức độ gây bệnh và nguy cơ đối với sức khỏe cộng đồng. Bài viết dưới đây sẽ giúp bạn làm rõ những thông tin trên.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/bien_the_covid_ba32_ve_sau_la_gi_co_nguy_hiem_khong_0_0fbff088fc.png",
+    "content": "Trong bối cảnh các biến thể COVID-19 liên tục xuất hiện, BA.3.2 “Ve sầu” đang thu hút sự chú ý khi được nhắc đến ngày càng nhiều. Dù chưa phải là biến thể phổ biến, nhưng việc chủ quan có thể làm tăng nguy cơ lây lan trong cộng đồng. Vì vậy, cần hiểu rõ đặc tính, mức độ nguy hiểm và cách phòng tránh để kịp thời bảo vệ sức khỏe. Biến thể Covid BA.3.2 \"Ve sầu\" là gì?",
+    "publishedAt": "2026-04-02"
+  },
+  {
+    "id": 14,
+    "title": "Thiền ngủ ngon: Bí quyết thư giãn và cải thiện giấc ngủ",
+    "description": "Thiền ngủ ngon là giải pháp tự nhiên giúp xoa dịu tâm trí, xua tan căng thẳng và mang lại giấc ngủ sâu trọn vẹn. Bài viết này sẽ giúp bạn hiểu rõ cơ chế, khám phá các trường phái phổ biến và nắm vững nguyên tắc để thực hành hiệu quả mỗi đêm.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/bi_quyet_chua_mat_ngu_tu_nhien_cam_nang_thien_ngu_ngon_tu_a_z_1_c63a34c329.png",
+    "content": "Trong nhịp sống bận rộn ngày nay, một giấc ngủ ngon đôi khi lại trở thành điều khó tìm. Công việc, lo toan và căng thẳng khiến nhiều người trằn trọc, khó ngủ hoặc ngủ không sâu. Nếu bạn đã thử nhiều cách mà vẫn chưa cải thiện, thì thiền ngủ ngon có thể là giải pháp tự nhiên giúp bạn lấy lại sự thư thái và giấc ngủ trọn vẹn. Thiền ngủ ngon là gì?",
+    "publishedAt": "2026-04-06"
+  },
+  {
+    "id": 15,
+    "title": "Hướng dẫn cách đọc kết quả siêu âm tuyến giáp chi tiết",
+    "description": "Cách đọc kết quả siêu âm tuyến giáp chuẩn xác sẽ giúp bạn nhanh chóng hiểu rõ tình trạng sức khỏe vùng cổ của mình. Bài viết dưới đây sẽ hướng dẫn chi tiết từng bước phân tích hình ảnh, phân loại TIRADS và những lưu ý quan trọng nhất.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/huong_dan_cach_doc_ket_qua_sieu_am_tuyen_giap_chi_tiet_1_f68a837910.png",
+    "content": "Khi đi khám sức khỏe định kỳ hoặc có các dấu hiệu bất thường ở vùng cổ, siêu âm tuyến giáp là phương pháp chẩn đoán hình ảnh đầu tay được các bác sĩ chỉ định. Tuy nhiên, khi cầm tờ phiếu kết quả trên tay với hàng loạt thuật ngữ y khoa, không ít người bệnh cảm thấy bối rối và lo lắng.",
+    "publishedAt": "2026-04-06"
+  },
+  {
+    "id": 16,
+    "title": "Bác sĩ cảnh báo 5 loại đồ uống âm thầm tàn phá trái tim",
+    "description": "Thực tế, những loại đồ uống bạn tiêu thụ hàng ngày lại có thể gây tổn hại nhanh chóng đến sức khỏe tim mạch. Vì vậy, các chuyên gia khuyến cáo nên hạn chế, thậm chí loại bỏ ngay 5 loại đồ uống sau để bảo vệ trái tim và duy trì sức khỏe lâu dài.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/bac_si_canh_bao_5_loai_do_uong_am_tham_tan_pha_trai_tim_2_5cfde24e5f.jpg",
+    "content": "Các bệnh lý tim mạch hiện đang nằm trong nhóm nguyên nhân gây tử vong hàng đầu trên phạm vi toàn cầu. Dù việc duy trì thói quen vận động thường xuyên và chế độ dinh dưỡng khoa học đóng vai trò then chốt trong việc bảo vệ trái tim, nhưng ít ai nhận ra rằng những thức uống sử dụng hằng ngày cũng có thể âm thầm trở thành “mối đe dọa” đối với sức khỏe tim mạch.",
+    "publishedAt": "2026-03-31"
+  },
+  {
+    "id": 17,
+    "title": "Ig trong xét nghiệm máu là gì? Ý nghĩa và vai trò cần biết",
+    "description": "IG trong xét nghiệm máu là gì là thắc mắc phổ biến khi bạn phát hiện chỉ số bạch cầu non này có sự biến động trên phiếu kết quả. Bài viết này sẽ giúp bạn giải đáp chi tiết ý nghĩa của ig và cách xử lý khoa học nhất để bảo vệ sức khỏe.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/giai_dap_chi_tiet_ig_trong_xet_nghiem_mau_la_gi_1_f2d3a98c0e.png",
+    "content": "Ig trong xét nghiệm máu là viết tắt của Immunoglobulin, hay còn gọi là kháng thể. Đây là thành phần quan trọng giúp đánh giá hệ miễn dịch và phát hiện các bệnh lý liên quan. Việc xét nghiệm Ig hỗ trợ bác sĩ chẩn đoán và theo dõi tình trạng sức khỏe một cách chính xác hơn. Khái niệm Ig trong xét nghiệm máu là gì?",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 18,
+    "title": "Daflon 500mg uống trước hay sau ăn để để đạt hiệu quả?",
+    "description": "Daflon 500mg uống trước hay sau ăn là thắc mắc phổ biến của người bị suy giãn tĩnh mạch và trĩ. Bài viết dưới đây sẽ tổng hợp và giải đáp chi tiết về liều dùng và những lưu ý để thuốc đạt hiệu quả cao nhất.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/daflon_500mg_uong_truoc_hay_sau_an_de_de_dat_hieu_qua_dieu_tri_tot_nhat_1_9fecfc132b.png",
+    "content": "Việc sử dụng thuốc Daflon 500mg đúng thời điểm không chỉ quyết định hiệu quả phục hồi thành mạch, giảm sưng đau nhanh chóng mà còn giúp bảo vệ hệ tiêu hóa của bạn khỏi các tác dụng phụ ngoài ý muốn. Bài viết dưới đây sẽ cung cấp những thông tin y khoa chuẩn xác để giúp bạn giải đáp trọn vẹn vấn đề này, đồng thời hướng dẫn chi tiết cách dùng thuốc an toàn và đạt hiệu quả cao nhất.",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 19,
+    "title": "Sự thật về thuốc trị u nang buồng trứng: Uống loại nào mới thực sự tốt?",
+    "description": "Thuốc trị u nang buồng trứng là giải pháp điều trị bảo tồn an toàn và hiệu quả cho các khối u nhỏ, lành tính. Bài viết này sẽ phân tích chi tiết các nhóm thuốc phổ biến hiện nay cùng những lưu ý khi sử dụng mà bạn cần biết.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/su_that_ve_thuoc_tri_u_nang_buong_trung_uong_loai_nao_moi_thuc_su_tot_1_3b07cf3581.png",
+    "content": "U nang buồng trứng là một trong những vấn đề phụ khoa thường gặp, có thể ảnh hưởng đến sức khỏe sinh sản và chất lượng cuộc sống của phụ nữ. Trong quá trình điều trị, thuốc trị u nang buồng trứng thường được bác sĩ chỉ định nhằm hỗ trợ cải thiện triệu chứng, điều hòa nội tiết và ngăn ngừa biến chứng.",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 20,
+    "title": "Tĩnh mạch hiển lớn là gì? Vai trò và bệnh lý thường gặp",
+    "description": "Tĩnh mạch hiển lớn là tĩnh mạch dài nhất ở chi dưới và đóng vai trò quan trọng trong tuần hoàn máu. Theo dõi ngay để biết cấu trúc và bệnh lý liên quan!",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/tinh_mach_hien_lon_la_gi_vai_tro_va_benh_ly_thuong_gap1_a92080f422.jpg",
+    "content": "Tĩnh mạch hiển lớn là một trong những tĩnh mạch quan trọng nhất của cơ thể, đóng vai trò dẫn máu từ chi dưới trở về tim. Bài viết dưới đây từ Nhà thuốc Long Châu sẽ giúp bạn hiểu rõ hơn về cấu tạo, chức năng cũng như các bệnh lý thường gặp liên quan đến tĩnh mạch này. Tĩnh mạch hiển lớn là gì?",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 21,
+    "title": "Khám phá nguyên nhân xuất huyết não và cách phòng bệnh",
+    "description": "Nguyên nhân xuất huyết não rất đa dạng, có thể do tăng huyết áp hoặc chấn thương,... Tìm hiểu ngay các tác nhân phổ biến để phòng ngừa và điều trị bệnh hiệu quả.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/kham_pha_nguyen_nhan_xuat_huyet_nao_va_cach_phong_benh2_7f7ce10b45.jpg",
+    "content": "Nguyên nhân xuất huyết não là vấn đề được nhiều người quan tâm vì đây là tình trạng nguy hiểm, có thể đe dọa tính mạng. Do đó, nhận biết sớm các yếu tố nguy cơ giúp người bệnh chủ động phòng tránh. Bài viết dưới đây sẽ giúp bạn hiểu rõ nguyên nhân, dấu hiệu và cách phòng ngừa xuất huyết não hiệu quả. Nguyên nhân xuất huyết não do đâu?",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 22,
+    "title": "Tìm hiểu toàn diện về thuốc giảm đau phối hợp Paracetamol + Tramadol",
+    "description": "Paracetamol + Tramadol là sự kết hợp hoàn hảo giúp kiểm soát các cơn đau từ trung bình đến nặng một cách nhanh chóng và hiệu quả. Bài viết này sẽ cung cấp toàn bộ thông tin về cơ chế hoạt động và những lưu ý an toàn khi sử dụng loại thuốc này.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/tim_hieu_toan_dien_ve_thuoc_giam_dau_phoi_hop_paracetamol_tramadol_1_e90b8080ab.png",
+    "content": "Trong y học hiện đại, việc kiểm soát và điều trị các cơn đau từ trung bình đến nặng đòi hỏi những phương pháp can thiệp hiệu quả. Một trong những giải pháp được các bác sĩ chỉ định phổ biến nhất là sử dụng sự kết hợp giữa Paracetamol + Tramadol. Đây là một công thức phối hợp mang lại tác dụng giảm đau mạnh mẽ, nhanh chóng và kéo dài.",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 23,
+    "title": "Uống Fluconazole sáng hay tối: Thời điểm dùng phù hợp hỗ trợ trị nấm",
+    "description": "Fluconazole uống sáng hay tối để đạt hiệu quả tiêu diệt nấm tốt nhất là thắc mắc chung của rất nhiều bệnh nhân. Bài viết này sẽ giúp bạn làm rõ thời điểm dùng thuốc lý tưởng và những lưu ý quan trọng để quá trình điều trị diễn ra an toàn.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/uong_fluconazole_sang_hay_toi_moi_la_thoi_diem_vang_de_tri_dut_diem_nam_ngua_1_96f7ebe4cf.png",
+    "content": "Khi gặp phải các vấn đề về nhiễm trùng nấm, Fluconazole thường là một trong những chỉ định phổ biến nhất từ các bác sĩ chuyên khoa. Tuy nhiên, việc sử dụng thuốc sao cho đúng cách để tối ưu hóa hiệu quả điều trị và giảm thiểu tác dụng phụ luôn là mối quan tâm hàng đầu của người bệnh. Fluconazole là thuốc gì? Fluconazole là một loại thuốc kháng nấm phổ rộng thuộc nhóm triazole.",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": 24,
+    "title": "Uống acid folic trước hay sau khi ăn để đạt hiệu quả hấp thu tối đa?",
+    "description": "Uống acid folic trước hay sau khi ăn để cơ thể hấp thu tốt nhất là thắc mắc của rất nhiều người, đặc biệt là phụ nữ mang thai. Bài viết này sẽ giải đáp chi tiết thời điểm vàng để bổ sung, liều lượng chuẩn và cách chọn loại axit folic an toàn, hiệu quả.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/uong_acid_folic_truoc_hay_sau_khi_an_de_dat_hieu_qua_hap_thu_toi_da_1_6a5c11c5d2.png",
+    "content": "Acid folic là một vi chất dinh dưỡng vô cùng quan trọng đối với sức khỏe con người, đặc biệt là phụ nữ đang trong độ tuổi sinh sản, chuẩn bị mang thai và đang mang thai. Việc bổ sung đúng cách không chỉ đảm bảo sự phát triển toàn diện của thai nhi mà còn bảo vệ sức khỏe của người mẹ. Uống acid folic có tác dụng gì?",
+    "publishedAt": "2026-04-04"
+  },
+  {
+    "id": 25,
+    "title": "[Infographic] Kiểm soát hen nặng - 5 điều cần làm để sống khỏe hơn",
+    "description": "Hen nặng không chỉ gây khó thở mà còn ảnh hưởng đáng kể đến sinh hoạt và chất lượng sống nếu không được kiểm soát tốt. Việc chủ động quản lý bệnh đúng cách giúp giảm nguy cơ lên cơn và duy trì cuộc sống ổn định hơn.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/thumbnail_kiem_soat_hen_nang_5_dieu_can_lam_de_song_khoe_hon_49903721e7.png",
+    "content": "Hen nặng không chỉ gây khó thở mà còn ảnh hưởng đáng kể đến sinh hoạt và chất lượng sống nếu không được kiểm soát tốt. Việc chủ động quản lý bệnh đúng cách giúp giảm nguy cơ lên cơn và duy trì cuộc sống ổn định hơn.",
+    "publishedAt": "2026-03-31"
+  },
+  {
+    "id": 26,
+    "title": "[Infographic] Điều trị hen nặng - Giải pháp mới giúp kiểm soát tốt hơn",
+    "description": "Hen nặng có thể khiến người bệnh lên cơn khó thở lặp lại dù đã điều trị, ảnh hưởng lớn đến chất lượng sống. Những tiến bộ trong điều trị đang mở ra cơ hội kiểm soát bệnh hiệu quả hơn cho nhóm bệnh nhân này.",
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/thumbnail_dieu_tri_hen_nang_giai_phap_moi_giup_kiem_soat_tot_hon_83f70a093f.png",
+    "content": "Hen nặng có thể khiến người bệnh lên cơn khó thở lặp lại dù đã điều trị, ảnh hưởng lớn đến chất lượng sống. Những tiến bộ trong điều trị đang mở ra cơ hội kiểm soát bệnh hiệu quả hơn cho nhóm bệnh nhân này.",
+    "publishedAt": "2026-03-31"
   }
 ]
