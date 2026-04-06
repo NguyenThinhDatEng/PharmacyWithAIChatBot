@@ -10,33 +10,10 @@
           <router-link to="/shop" class="cta-btn primary">
             <i class="fas fa-capsules"></i> Khám phá tủ thuốc
           </router-link>
-          <router-link to="/chat" class="cta-btn outline">
-            <i class="fas fa-robot"></i> Chat với Dược sĩ AI
-          </router-link>
         </div>
       </div>
       <div class="banner-image">
         <img :src="BannerImage" alt="Dược sĩ trao thuốc" />
-      </div>
-    </section>
-
-    <!-- Trust Badges -->
-    <section class="trust-badges">
-      <div class="badge-item">
-        <i class="fas fa-truck-fast"></i>
-        <span>Giao hàng nhanh</span>
-      </div>
-      <div class="badge-item">
-        <i class="fas fa-certificate"></i>
-        <span>Thuốc chính hãng</span>
-      </div>
-      <div class="badge-item">
-        <i class="fas fa-headset"></i>
-        <span>Tư vấn 24/7</span>
-      </div>
-      <div class="badge-item">
-        <i class="fas fa-rotate-left"></i>
-        <span>Đổi trả dễ dàng</span>
       </div>
     </section>
 
