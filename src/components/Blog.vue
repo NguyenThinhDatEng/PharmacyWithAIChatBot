@@ -1,14 +1,19 @@
 <template>
   <div class="panel">
-    <h2>KIẾN THỨC Y KHOA</h2>
+    <div class="blog-header">
+      <h2><i class="fas fa-book-medical"></i> Kiến thức y khoa</h2>
+      <p class="section-subtitle">Cập nhật thông tin sức khỏe hữu ích cho gia đình</p>
+    </div>
     <div class="blog-grid">
       <div v-for="post in blogs" :key="post.id" class="blog-card">
         <img :src="post.image" alt="Blog Image" class="blog-image" />
         <div class="blog-content">
-          <h3>{{ post.title }}</h3>          
-          <p class="post-date">{{ formatDate(post.publishedAt) }}</p>          
+          <p class="post-date"><i class="far fa-calendar-alt"></i> {{ formatDate(post.publishedAt) }}</p>
+          <h3>{{ post.title }}</h3>
           <p>{{ post.description }}</p>
-          <router-link :to="`/blog/${post.id}`" class="read-more-btn">Đọc tiếp</router-link>
+          <router-link :to="`/blog/${post.id}`" class="read-more-btn">
+            Đọc tiếp <i class="fas fa-arrow-right"></i>
+          </router-link>
         </div>
       </div>
     </div>
@@ -34,8 +39,34 @@ const formatDate = (dateString) => {
 onMounted(loadBlogs);
 </script>
 
-<style>
+<style scoped>
+.blog-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.blog-header h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.blog-header h2 i {
+  color: var(--primary);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
 .post-date {
-  color: var(--text-light)
+  font-size: 0.8125rem !important;
+  color: var(--text-muted) !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px !important;
 }
 </style>
