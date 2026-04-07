@@ -1,112 +1,137 @@
 <template>
   <div class="product-detail-page">
     <div v-if="product" class="product-container">
-      <!-- Header sản phẩm -->
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb">
+        <router-link to="/">Trang chủ</router-link>
+        <i class="fas fa-chevron-right"></i>
+        <router-link to="/shop">Tủ thuốc</router-link>
+        <i class="fas fa-chevron-right"></i>
+        <span>{{ product.name }}</span>
+      </nav>
+
+      <!-- Product Header -->
       <div class="product-header">
         <div class="product-image-section">
           <img :src="product.image" :alt="product.name" class="product-main-image" />
         </div>
         <div class="product-info-section">
           <h1 class="product-title">{{ product.name }}</h1>
-          <p class="product-id">Mã sản phẩm: {{ product.productId }}</p>
+          <p class="product-id">
+            <i class="fas fa-barcode"></i> Mã: {{ product.productId }}
+          </p>
 
-          <!-- Thông tin giá & khuyến mãi -->
+          <!-- Price -->
           <div class="price-section">
             <div class="current-price">{{ formatPrice(product.price) }}đ</div>
             <div class="original-price">{{ formatPrice(product.originalPrice) }}đ</div>
             <span class="discount-badge">{{ product.discount }}</span>
           </div>
-          <div class="promotion-info">{{ product.promotion }}</div>
 
-          <!-- Đánh giá & tương tác -->
+          <div class="promotion-info">
+            <i class="fas fa-gift"></i> {{ product.promotion }}
+          </div>
+
+          <!-- Rating -->
           <div class="rating-section">
             <div class="stars">
-              <span v-for="star in 5" :key="star" class="star" :class="{ 'filled': star <= product.rating.stars }">
-                ★
+              <span v-for="star in 5" :key="star" class="star" :class="{ filled: star <= product.rating.stars }">
+                <i class="fas fa-star"></i>
               </span>
             </div>
             <span class="rating-text">
-              {{ product.rating.stars }}/5 ({{ product.rating.reviews }} đánh giá, {{ product.rating.comments }} bình luận)
+              {{ product.rating.stars }}/5 ({{ product.rating.reviews }} đánh giá)
             </span>
           </div>
-          <button class="review-btn">Xem đánh giá & bình luận</button>
+
+          <!-- Action buttons -->
+          <div class="action-buttons">
+            <button class="add-to-cart-btn" @click="addToCart(product)">
+              <i class="fas fa-cart-plus"></i> Thêm vào giỏ hàng
+            </button>
+            <button class="buy-now-btn" @click="buyNow(product)">
+              <i class="fas fa-bolt"></i> Mua ngay
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Mô tả sản phẩm -->
-      <div class="product-description">
-        <h2>Mô tả sản phẩm</h2>
+      <!-- Description -->
+      <div class="product-section">
+        <h2><i class="fas fa-info-circle"></i> Mô tả sản phẩm</h2>
         <p class="description-text">{{ product.description }}</p>
         <div class="key-ingredients">
           <h3>Thành phần chính:</h3>
-          <ul>
-            <li v-for="ingredient in product.specifications.ingredients.slice(0, 5)" :key="ingredient">
+          <div class="ingredient-tags">
+            <span v-for="ingredient in product.specifications.ingredients.slice(0, 5)" :key="ingredient" class="ingredient-tag">
               {{ ingredient }}
-            </li>
-          </ul>
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- Thông số kỹ thuật -->
-      <div class="product-specifications">
-        <h2>Thông số kỹ thuật</h2>
+      <!-- Specs -->
+      <div class="product-section">
+        <h2><i class="fas fa-clipboard-list"></i> Thông số kỹ thuật</h2>
         <div class="specs-grid">
           <div class="spec-item">
-            <span class="spec-label">Dung tích:</span>
+            <span class="spec-label">Dung tích</span>
             <span class="spec-value">{{ product.volume }}</span>
           </div>
           <div class="spec-item">
-            <span class="spec-label">Thành phần:</span>
+            <span class="spec-label">Thành phần</span>
             <span class="spec-value">{{ product.specifications.ingredients.join(', ') }}</span>
           </div>
           <div class="spec-item">
-            <span class="spec-label">Xuất xứ:</span>
+            <span class="spec-label">Xuất xứ</span>
             <span class="spec-value">{{ product.specifications.origin.join(', ') }}</span>
           </div>
           <div class="spec-item">
-            <span class="spec-label">Nhà sản xuất:</span>
+            <span class="spec-label">Nhà sản xuất</span>
             <span class="spec-value">{{ product.specifications.manufacturer.join(', ') }}</span>
           </div>
           <div class="spec-item">
-            <span class="spec-label">Hạn sử dụng:</span>
+            <span class="spec-label">Hạn sử dụng</span>
             <span class="spec-value">{{ product.specifications.shelfLife }}</span>
           </div>
         </div>
       </div>
 
-      <!-- Chính sách bán hàng -->
-      <div class="product-policies">
-        <h2>Chính sách bán hàng</h2>
+      <!-- Policies -->
+      <div class="product-section">
+        <h2><i class="fas fa-shield-alt"></i> Chính sách bán hàng</h2>
         <div class="policies-list">
           <div class="policy-item">
-            <span class="policy-icon">🚚</span>
+            <div class="policy-icon-wrap">
+              <i class="fas fa-truck"></i>
+            </div>
             <div>
-              <strong>Vận chuyển:</strong> {{ product.policies.shipping }}
+              <strong>Vận chuyển</strong>
+              <p>{{ product.policies.shipping }}</p>
             </div>
           </div>
           <div class="policy-item">
-            <span class="policy-icon">↩️</span>
+            <div class="policy-icon-wrap">
+              <i class="fas fa-undo-alt"></i>
+            </div>
             <div>
-              <strong>Đổi trả:</strong> {{ product.policies.return }}
+              <strong>Đổi trả</strong>
+              <p>{{ product.policies.return }}</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Nút hành động -->
-      <div class="action-buttons">
-        <button class="add-to-cart-btn" @click="addToCart(product)">
-          🛒 Thêm vào giỏ hàng
-        </button>
-        <button class="buy-now-btn" @click="buyNow(product)">
-          ⚡ Mua ngay
-        </button>
-      </div>
     </div>
 
     <div v-else class="product-not-found">
+      <div class="not-found-icon">
+        <i class="fas fa-search"></i>
+      </div>
       <h2>Sản phẩm không tồn tại</h2>
-      <router-link to="/shop" class="back-btn">Quay lại Tủ thuốc gia đình</router-link>
+      <p>Sản phẩm bạn tìm kiếm không có trong hệ thống.</p>
+      <router-link to="/shop" class="back-btn">
+        <i class="fas fa-arrow-left"></i> Quay lại Tủ thuốc
+      </router-link>
     </div>
   </div>
 </template>
@@ -120,7 +145,6 @@ const route = useRoute();
 const product = ref(null);
 
 async function loadProduct() {
-  // Find product by productId instead of id
   product.value = productsData.find(p => p.productId === route.params.id);
 }
 
@@ -129,11 +153,19 @@ function formatPrice(price) {
 }
 
 function addToCart(item) {
+  const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const exists = cart.find(p => p.productId === item.productId);
+  if (exists) {
+    exists.quantity += 1;
+  } else {
+    cart.push({ ...item, quantity: 1 });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
   alert(`Đã thêm ${item.name} vào giỏ hàng`);
 }
 
 function buyNow(item) {
-  alert(`Mua ngay: ${item.name}`);
+  addToCart(item);
 }
 
 onMounted(loadProduct);
@@ -143,13 +175,42 @@ onMounted(loadProduct);
 .product-detail-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 16px 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 0.875rem;
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
+
+.breadcrumb i {
+  font-size: 0.625rem;
+  color: var(--text-muted);
+}
+
+.breadcrumb span {
+  color: var(--text-heading);
+  font-weight: 500;
 }
 
 .product-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 24px;
 }
 
 .product-header {
@@ -157,72 +218,88 @@ onMounted(loadProduct);
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: start;
+  background: var(--bg-white);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
 }
 
 .product-image-section {
   display: flex;
   justify-content: center;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
 }
 
 .product-main-image {
   max-width: 100%;
+  max-height: 360px;
   height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+  border-radius: var(--radius-md);
 }
 
 .product-info-section {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 .product-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-heading);
 }
 
 .product-id {
-  color: #666;
-  font-size: 0.9rem;
-  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .price-section {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .current-price {
   font-size: 2rem;
-  font-weight: bold;
-  color: #e74c3c;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: var(--font-heading);
 }
 
 .original-price {
-  font-size: 1.2rem;
-  color: #999;
+  font-size: 1.1rem;
+  color: var(--text-muted);
   text-decoration: line-through;
 }
 
 .discount-badge {
-  background: #e74c3c;
+  background: var(--accent-red);
   color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.8125rem;
 }
 
 .promotion-info {
-  background: #fff3cd;
-  border: 1px solid #ffeaa7;
-  border-radius: 5px;
-  padding: 10px;
-  color: #856404;
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  color: #92400E;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .rating-section {
@@ -237,192 +314,243 @@ onMounted(loadProduct);
 }
 
 .star {
-  color: #ddd;
-  font-size: 1.2rem;
+  color: var(--border);
+  font-size: 1rem;
 }
 
 .star.filled {
-  color: #f39c12;
+  color: var(--accent-amber);
 }
 
 .rating-text {
-  color: #666;
-  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
 }
 
-.review-btn {
-  background: #3498db;
-  color: white;
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.add-to-cart-btn,
+.buy-now-btn {
+  padding: 14px 24px;
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  align-self: flex-start;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
 }
 
-.product-description,
-.product-specifications,
-.product-policies {
-  background: white;
-  border-radius: 10px;
-  padding: 25px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.add-to-cart-btn {
+  background: var(--bg-white);
+  color: var(--primary);
+  border: 2px solid var(--primary);
 }
 
-.product-description h2,
-.product-specifications h2,
-.product-policies h2 {
-  color: #2c3e50;
-  margin-top: 0;
+.add-to-cart-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.buy-now-btn {
+  background: var(--secondary);
+  color: white;
+  border: 2px solid var(--secondary);
+}
+
+.buy-now-btn:hover {
+  background: var(--secondary-dark);
+  border-color: var(--secondary-dark);
+  color: white;
+}
+
+/* Product Sections */
+.product-section {
+  background: var(--bg-white);
+  border-radius: var(--radius-xl);
+  padding: 28px 32px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-light);
+}
+
+.product-section h2 {
+  color: var(--text-heading);
   margin-bottom: 20px;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-section h2 i {
+  color: var(--primary);
+  font-size: 1.1rem;
 }
 
 .description-text {
-  line-height: 1.6;
-  color: #555;
+  line-height: 1.7;
+  color: var(--text-secondary);
   margin-bottom: 20px;
 }
 
 .key-ingredients h3 {
-  color: #2c3e50;
-  margin-bottom: 10px;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+  font-size: 1rem;
 }
 
-.key-ingredients ul {
-  list-style: none;
-  padding: 0;
+.ingredient-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
 }
 
-.key-ingredients li {
-  background: #f8f9fa;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  color: #666;
+.ingredient-tag {
+  background: var(--bg-subtle);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  color: var(--primary);
+  border: 1px solid var(--border-light);
+  font-weight: 500;
 }
 
 .specs-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: 0;
 }
 
 .spec-item {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid #eee;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+  gap: 16px;
 }
 
-.spec-item:last-child {
-  border-bottom: none;
-}
+.spec-item:last-child { border-bottom: none; }
 
 .spec-label {
-  font-weight: bold;
-  color: #2c3e50;
+  font-weight: 600;
+  color: var(--text-heading);
+  font-size: 0.9375rem;
+  flex-shrink: 0;
 }
 
 .spec-value {
-  color: #666;
+  color: var(--text-secondary);
   text-align: right;
+  font-size: 0.9375rem;
 }
 
 .policies-list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 .policy-item {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
 }
 
-.policy-icon {
-  font-size: 1.5rem;
-}
-
-.action-buttons {
+.policy-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: white;
   display: flex;
-  gap: 20px;
+  align-items: center;
   justify-content: center;
-  padding: 30px 0;
-}
-
-.add-to-cart-btn,
-.buy-now-btn {
-  padding: 15px 30px;
-  border: none;
-  border-radius: 8px;
+  flex-shrink: 0;
   font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
-.add-to-cart-btn {
-  background: #27ae60;
-  color: white;
+.policy-item strong {
+  display: block;
+  color: var(--text-heading);
+  margin-bottom: 4px;
 }
 
-.add-to-cart-btn:hover {
-  background: #229954;
+.policy-item p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin: 0;
 }
 
-.buy-now-btn {
-  background: #e74c3c;
-  color: white;
-}
-
-.buy-now-btn:hover {
-  background: #c0392b;
-}
-
+/* Not Found */
 .product-not-found {
   text-align: center;
-  padding: 50px 20px;
+  padding: 80px 24px;
+}
+
+.not-found-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.not-found-icon i {
+  font-size: 2rem;
+  color: var(--text-muted);
+}
+
+.product-not-found p {
+  margin-bottom: 24px;
 }
 
 .back-btn {
-  display: inline-block;
-  background: #3498db;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   text-decoration: none;
-  border-radius: 5px;
-  margin-top: 20px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-dark);
+  color: white;
 }
 
 @media (max-width: 768px) {
   .product-header {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
+    padding: 20px;
   }
 
-  .product-title {
-    font-size: 1.5rem;
-  }
-
-  .current-price {
-    font-size: 1.5rem;
-  }
+  .product-title { font-size: 1.5rem; }
+  .current-price { font-size: 1.5rem; }
 
   .action-buttons {
     flex-direction: column;
   }
 
-  .product-description,
-  .product-specifications,
-  .product-policies {
+  .product-section {
     padding: 20px;
   }
 }
