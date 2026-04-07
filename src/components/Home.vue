@@ -10,6 +10,9 @@
           <router-link to="/shop" class="cta-btn primary">
             <i class="fas fa-capsules"></i> Khám phá tủ thuốc
           </router-link>
+          <router-link to="/chat" class="cta-btn outline">
+            <i class="fas fa-robot"></i> Chat với Dược sĩ AI
+          </router-link>
         </div>
       </div>
       <div class="banner-image">
