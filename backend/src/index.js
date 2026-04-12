@@ -12,6 +12,25 @@ app.use(express.json());
 const uploadDir = path.join(__dirname, '..', 'uploads');
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
+const ordersFile = path.join(__dirname, '..', 'orders.json');
+function loadOrderDatabase() {
+  if (!fs.existsSync(ordersFile)) return {};
+  try {
+    return JSON.parse(fs.readFileSync(ordersFile, 'utf8')) || {};
+  } catch (err) {
+    console.error('Không thể đọc orders.json:', err.message);
+    return {};
+  }
+}
+
+function saveOrderDatabase(data) {
+  try {
+    fs.writeFileSync(ordersFile, JSON.stringify(data, null, 2), 'utf8');
+  } catch (err) {
+    console.error('Không thể ghi orders.json:', err.message);
+  }
+}
+
 // In-memory prototype data
 const blogs = [];
 const products = [
@@ -38,22 +57,75 @@ app.get('/api/products', (req, res) => res.json(products));
 
 // Routes: Orders
 app.post('/api/orders', (req, res) => {
-  const { userId, items } = req.body;
-  if (!userId || !items || !Array.isArray(items) || items.length === 0) {
-    return res.status(400).json({ error: 'userId and non-empty items are required' });
+  const { userId, items, buyer, paymentMethod, deliveryMethod, total } = req.body;
+  if (!buyer || !buyer.phone || !buyer.name || !buyer.address) {
+    return res.status(400).json({ error: 'buyer.name, buyer.phone và buyer.address là bắt buộc' });
   }
-  let total = 0;
+  if (!paymentMethod) {
+    return res.status(400).json({ error: 'paymentMethod is required' });
+  }
+  if (!items || !Array.isArray(items) || items.length === 0) {
+    return res.status(400).json({ error: 'items is required and cannot be empty' });
+  }
+
+  let computedTotal = 0;
   const orderItems = [];
   for (const item of items) {
     const product = products.find(p => p.id === item.productId);
     if (!product) return res.status(400).json({ error: `Product ${item.productId} not found` });
-    if (product.stock < item.quantity) return res.status(400).json({ error: `Product ${product.name} out of stock` });
+    if (product.stock < item.quantity) return res.status(400).json({ error: `Product ${product.name} không đủ số lượng` });
     product.stock -= item.quantity;
-    total += product.price * item.quantity;
-    orderItems.push({ ...product, quantity: item.quantity });
+    computedTotal += product.price * item.quantity;
+    orderItems.push({ id: product.id, name: product.name, price: product.price, quantity: item.quantity });
   }
-  const order = { id: orders.length + 1, userId, items: orderItems, total, status: 'pending', createdAt: new Date() };
+
+  const orderId = orders.length + 1;
+  const order = {
+    id: orderId,
+    userId: userId || 'anonymous',
+    buyer: {
+      name: buyer.name,
+      phone: buyer.phone,
+      email: buyer.email || '',
+      address: buyer.address,
+      note: buyer.note || ''
+    },
+    paymentMethod,
+    deliveryMethod: deliveryMethod || 'delivery',
+    items: orderItems,
+    total: total || computedTotal,
+    status: 'pending',
+    createdAt: new Date()
+  };
+
   orders.push(order);
+
+  const orderData = loadOrderDatabase();
+  const phoneKey = buyer.phone.trim();
+  if (!orderData[phoneKey]) {
+    orderData[phoneKey] = {
+      buyer: {
+        name: buyer.name,
+        phone: buyer.phone,
+        email: buyer.email || '',
+        address: buyer.address,
+        note: buyer.note || ''
+      },
+      orders: []
+    };
+  } else {
+    orderData[phoneKey].buyer = {
+      ...orderData[phoneKey].buyer,
+      name: buyer.name,
+      email: buyer.email || orderData[phoneKey].buyer.email,
+      address: buyer.address,
+      note: buyer.note || orderData[phoneKey].buyer.note
+    };
+  }
+
+  orderData[phoneKey].orders.push(order);
+  saveOrderDatabase(orderData);
+
   res.status(201).json(order);
 });
 

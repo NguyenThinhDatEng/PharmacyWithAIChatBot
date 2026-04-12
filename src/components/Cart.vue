@@ -13,48 +13,125 @@
       </router-link>
     </div>
 
-    <div v-else class="cart-content">
-      <div class="cart-items">
-        <div v-for="item in cart" :key="item.productId" class="cart-item">
-          <img :src="item.image" :alt="item.name" class="item-image" />
-          <div class="item-details">
-            <h3>{{ item.name }}</h3>
-            <p class="item-price">{{ formatPrice(item.price) }}đ</p>
+    <div v-else>
+      <div v-if="!showCheckoutForm" class="cart-content">
+        <div class="cart-items">
+          <div v-for="item in cart" :key="item.productId" class="cart-item">
+            <img :src="item.image" :alt="item.name" class="item-image" />
+            <div class="item-details">
+              <h3>{{ item.name }}</h3>
+              <p class="item-price">{{ formatPrice(item.price) }}đ</p>
+            </div>
+            <div class="quantity-controls">
+              <button @click="decreaseQuantity(item)" class="qty-btn" aria-label="Giảm số lượng">
+                <i class="fas fa-minus"></i>
+              </button>
+              <span class="qty-display">{{ item.quantity }}</span>
+              <button @click="increaseQuantity(item)" class="qty-btn" aria-label="Tăng số lượng">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="item-total">
+              <p class="total-amount">{{ formatPrice(item.price * item.quantity) }}đ</p>
+              <button @click="removeItem(item)" class="remove-btn" aria-label="Xóa sản phẩm">
+                <i class="fas fa-trash-alt"></i> Xóa
+              </button>
+            </div>
           </div>
-          <div class="quantity-controls">
-            <button @click="decreaseQuantity(item)" class="qty-btn" aria-label="Giảm số lượng">
-              <i class="fas fa-minus"></i>
-            </button>
-            <span class="qty-display">{{ item.quantity }}</span>
-            <button @click="increaseQuantity(item)" class="qty-btn" aria-label="Tăng số lượng">
-              <i class="fas fa-plus"></i>
-            </button>
+        </div>
+
+        <div class="cart-summary">
+          <h3>Tóm tắt đơn hàng</h3>
+          <div class="summary-detail">
+            <span>Số sản phẩm:</span>
+            <span>{{ cart.length }}</span>
           </div>
-          <div class="item-total">
-            <p class="total-amount">{{ formatPrice(item.price * item.quantity) }}đ</p>
-            <button @click="removeItem(item)" class="remove-btn" aria-label="Xóa sản phẩm">
-              <i class="fas fa-trash-alt"></i> Xóa
-            </button>
+
+          <div class="summary-row">
+            <span>Tổng cộng:</span>
+            <span class="total-price">{{ formatPrice(cartTotal) }}đ</span>
           </div>
+
+          <button @click="checkout" class="checkout-btn">
+            <i class="fas fa-credit-card"></i> Thanh toán
+          </button>
+
+          <router-link to="/shop" class="continue-btn">
+            <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
+          </router-link>
         </div>
       </div>
 
-      <div class="cart-summary">
-        <h3>Tóm tắt đơn hàng</h3>
-        <div class="summary-detail">
-          <span>Số sản phẩm:</span>
-          <span>{{ cart.length }}</span>
+      <div v-else class="checkout-panel">
+        <div class="checkout-header">
+          <div>
+            <h3>Thanh toán đơn hàng</h3>
+            <p class="checkout-total">Tổng: {{ formatPrice(cartTotal) }}đ</p>
+          </div>
+          <button @click="cancelCheckout" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Quay lại giỏ hàng
+          </button>
         </div>
-        <div class="summary-row">
-          <span>Tổng cộng:</span>
-          <span class="total-price">{{ formatPrice(cartTotal) }}đ</span>
+
+        <div class="checkout-form">
+          <h4>Thông tin người mua</h4>
+          <div class="field-group">
+            <label class="form-field">
+              <span>Họ và tên</span>
+              <input type="text" v-model="buyer.name" placeholder="Nguyễn Văn A" />
+            </label>
+            <label class="form-field">
+              <span>Số điện thoại</span>
+              <input type="tel" v-model="buyer.phone" placeholder="0987654321" />
+            </label>
+            <label class="form-field">
+              <span>Email</span>
+              <input type="email" v-model="buyer.email" placeholder="email@example.com" />
+            </label>
+            <label class="form-field">
+              <span>Địa chỉ</span>
+              <input type="text" v-model="buyer.address" placeholder="Số nhà, đường, quận" />
+            </label>
+            <label class="form-field">
+              <span>Ghi chú</span>
+              <textarea v-model="buyer.note" placeholder="Ghi chú giao hàng hoặc yêu cầu đặc biệt"></textarea>
+            </label>
+          </div>
+
+          <div class="payment-options">
+            <h4>Phương thức thanh toán</h4>
+            <div class="option-group">
+              <label class="radio-label">
+                <input type="radio" v-model="paymentMethod" value="bank_transfer" class="radio-input" />
+                <span class="radio-text">Chuyển khoản ngân hàng</span>
+              </label>
+              <div v-if="paymentMethod === 'bank_transfer'" class="bank-details">
+                <p><strong>Số tài khoản:</strong> 123456789</p>
+                <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                <p><strong>Chủ tài khoản:</strong> Nhà thuốc ABC</p>
+                <small>Vui lòng chuyển khoản theo thông tin trên và xác nhận sau khi thanh toán.</small>
+              </div>
+              <label class="radio-label">
+                <input type="radio" v-model="paymentMethod" value="cash_on_delivery" class="radio-input" />
+                <span class="radio-text">Thanh toán khi nhận hàng</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="delivery-options">
+            <h4>Phương thức nhận hàng</h4>
+            <label class="checkbox-label">
+              <input type="checkbox" v-model="pickupAtPharmacy" class="checkbox-input" />
+              <span class="checkbox-text">Nhận tại nhà thuốc</span>
+            </label>
+            <p v-if="!pickupAtPharmacy" class="delivery-note">Hàng sẽ được giao tận nhà (phí ship tính thêm).</p>
+          </div>
+
+          <div class="checkout-actions">
+            <button @click="submitOrder" class="submit-btn">Xác nhận đơn hàng</button>
+            <button @click="cancelCheckout" class="cancel-btn">Quay lại giỏ hàng</button>
+          </div>
         </div>
-        <button @click="checkout" class="checkout-btn">
-          <i class="fas fa-credit-card"></i> Thanh toán
-        </button>
-        <router-link to="/shop" class="continue-btn">
-          <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
-        </router-link>
       </div>
     </div>
   </div>
@@ -68,6 +145,16 @@ import axios from 'axios';
 const router = useRouter();
 const base = 'http://localhost:3000/api';
 const cart = ref([]);
+const showCheckoutForm = ref(false);
+const buyer = ref({
+  name: '',
+  phone: '',
+  email: '',
+  address: '',
+  note: ''
+});
+const paymentMethod = ref('');
+const pickupAtPharmacy = ref(false);
 
 const cartTotal = computed(() => cart.value.reduce((sum, item) => sum + item.price * item.quantity, 0));
 
@@ -108,20 +195,72 @@ function formatPrice(value) {
   return Number(value).toLocaleString('vi-VN');
 }
 
-async function checkout() {
+function checkout() {
   if (cart.value.length === 0) return;
-  const order = {
-    userId: 'user1',
-    items: cart.value.map(i => ({ productId: i.productId, quantity: i.quantity }))
+  showCheckoutForm.value = true;
+}
+
+function cancelCheckout() {
+  showCheckoutForm.value = false;
+  paymentMethod.value = '';
+  pickupAtPharmacy.value = false;
+  buyer.value = {
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+    note: ''
   };
+}
+
+function validateCheckout() {
+  if (!buyer.value.name.trim()) {
+    alert('Vui lòng nhập họ và tên người mua.');
+    return false;
+  }
+  if (!buyer.value.phone.trim()) {
+    alert('Vui lòng nhập số điện thoại.');
+    return false;
+  }
+  if (!buyer.value.address.trim()) {
+    alert('Vui lòng nhập địa chỉ nhận hàng.');
+    return false;
+  }
+  if (!paymentMethod.value) {
+    alert('Vui lòng chọn phương thức thanh toán.');
+    return false;
+  }
+  return true;
+}
+
+async function submitOrder() {
+  if (!validateCheckout()) return;
+
+  const orderPayload = {
+    userId: 'user1',
+    items: cart.value.map(i => ({ productId: i.productId, quantity: i.quantity })),
+    buyer: {
+      name: buyer.value.name.trim(),
+      phone: buyer.value.phone.trim(),
+      email: buyer.value.email.trim(),
+      address: buyer.value.address.trim(),
+      note: buyer.value.note.trim()
+    },
+    paymentMethod: paymentMethod.value,
+    deliveryMethod: pickupAtPharmacy.value ? 'pickup' : 'delivery',
+    total: cartTotal.value
+  };
+
   try {
-    await axios.post(`${base}/orders`, order);
+    await axios.post(`${base}/orders`, orderPayload);
     cart.value = [];
     saveCart();
+    cancelCheckout();
     alert('Đặt hàng thành công!');
     router.push('/shop');
   } catch (error) {
-    alert('Có lỗi xảy ra, vui lòng thử lại');
+    const message = error.response?.data?.error || 'Có lỗi xảy ra, vui lòng thử lại';
+    alert(message);
     console.error(error);
   }
 }
@@ -399,6 +538,174 @@ onMounted(loadCart);
   color: var(--primary-dark);
 }
 
+.checkout-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.checkout-header h3 {
+  margin: 0;
+}
+
+.checkout-total {
+  margin: 4px 0 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--bg-white);
+  color: var(--text-heading);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.back-btn:hover {
+  background: var(--bg-subtle);
+}
+
+.payment-options {
+  margin-top: 16px;
+}
+
+.payment-options, .delivery-options, .checkout-form {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.checkout-form h4,
+.payment-options h4,
+.delivery-options h4 {
+  margin: 0 0 12px 0;
+  font-size: 1rem;
+  color: var(--text-heading);
+}
+
+.field-group {
+  display: grid;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text-secondary);
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  background: var(--bg-white);
+  color: var(--text-heading);
+}
+
+.form-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.checkout-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.submit-btn,
+.cancel-btn {
+  flex: 1 1 160px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background: var(--primary);
+  color: white;
+}
+
+.submit-btn:hover {
+  background: var(--primary-dark);
+}
+
+.cancel-btn {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  color: var(--text-heading);
+}
+
+.payment-options, .delivery-options {
+  background: var(--bg-white);
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-label, .checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+}
+
+.radio-input, .checkbox-input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.radio-text, .checkbox-text {
+  color: var(--text-secondary);
+}
+
+.bank-details {
+  margin-left: 26px;
+  padding: 12px;
+  background: var(--bg-white);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 0.875rem;
+}
+
+.bank-details p {
+  margin: 4px 0;
+}
+
+.delivery-note {
+  margin-left: 26px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 @media (max-width: 768px) {
   .cart-content {
     grid-template-columns: 1fr;
@@ -422,6 +729,18 @@ onMounted(loadCart);
 
   .cart-summary {
     position: static;
+  }
+
+  .payment-options, .delivery-options {
+    padding: 12px;
+  }
+
+  .bank-details {
+    margin-left: 0;
+  }
+
+  .delivery-note {
+    margin-left: 0;
   }
 }
 </style>
