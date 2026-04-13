@@ -105,7 +105,7 @@
                 <input type="radio" v-model="paymentMethod" value="bank_transfer" class="radio-input" />
                 <span class="radio-text">Chuyển khoản ngân hàng</span>
               </label>
-              <div v-if="paymentMethod === 'bank_transfer'" class="bank-details">
+              <div v-show="paymentMethod === 'bank_transfer'" :class="{ 'bank-details-active': paymentMethod === 'bank_transfer' }" class="bank-details">
                 <p><strong>Số tài khoản:</strong> 123456789</p>
                 <p><strong>Ngân hàng:</strong> Vietcombank</p>
                 <p><strong>Chủ tài khoản:</strong> Nhà thuốc ABC</p>
@@ -141,7 +141,9 @@
 import { ref, onMounted, computed, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios';
+import { useToast } from 'vue-toastification';
 
+const toast = useToast();
 const router = useRouter();
 const base = 'http://localhost:3000/api';
 const cart = ref([]);
@@ -215,19 +217,19 @@ function cancelCheckout() {
 
 function validateCheckout() {
   if (!buyer.value.name.trim()) {
-    alert('Vui lòng nhập họ và tên người mua.');
+    toast.error('Vui lòng nhập họ và tên người mua.');
     return false;
   }
   if (!buyer.value.phone.trim()) {
-    alert('Vui lòng nhập số điện thoại.');
+    toast.error('Vui lòng nhập số điện thoại.');
     return false;
   }
   if (!buyer.value.address.trim()) {
-    alert('Vui lòng nhập địa chỉ nhận hàng.');
+    toast.error('Vui lòng nhập địa chỉ nhận hàng.');
     return false;
   }
   if (!paymentMethod.value) {
-    alert('Vui lòng chọn phương thức thanh toán.');
+    toast.error('Vui lòng chọn phương thức thanh toán.');
     return false;
   }
   return true;
@@ -256,11 +258,11 @@ async function submitOrder() {
     cart.value = [];
     saveCart();
     cancelCheckout();
-    alert('Đặt hàng thành công!');
+    toast.success('Đặt hàng thành công!');
     router.push('/shop');
   } catch (error) {
     const message = error.response?.data?.error || 'Có lỗi xảy ra, vui lòng thử lại';
-    alert(message);
+    toast.error(message);
     console.error(error);
   }
 }
@@ -688,15 +690,19 @@ onMounted(loadCart);
 
 .bank-details {
   margin-left: 26px;
-  padding: 12px;
   background: var(--bg-white);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   font-size: 0.875rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 12px;
 }
 
-.bank-details p {
-  margin: 4px 0;
+.bank-details-active {
+  padding: 12px;
+  max-height: 120px;
 }
 
 .delivery-note {
@@ -729,6 +735,28 @@ onMounted(loadCart);
 
   .cart-summary {
     position: static;
+  }
+
+  .checkout-panel {
+    gap: 16px;
+  }
+
+  .checkout-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .field-group {
+    gap: 12px;
+  }
+
+  .checkout-actions {
+    flex-direction: column;
+  }
+
+  .submit-btn, .cancel-btn {
+    flex: 1;
   }
 
   .payment-options, .delivery-options {
