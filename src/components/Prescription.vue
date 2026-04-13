@@ -50,7 +50,7 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
-const base = 'http://localhost:3000/api';
+const base = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 const prescriptionFile = ref(null);
 const prescriptionNote = ref('');
 const prescriptionStatus = ref('');

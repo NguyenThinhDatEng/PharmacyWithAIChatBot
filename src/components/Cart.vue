@@ -145,7 +145,7 @@ import { useToast } from 'vue-toastification';
 
 const toast = useToast();
 const router = useRouter();
-const base = 'http://localhost:3000/api';
+const base = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 const cart = ref([]);
 const showCheckoutForm = ref(false);
 const buyer = ref({

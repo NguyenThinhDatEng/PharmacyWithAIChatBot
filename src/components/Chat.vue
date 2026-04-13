@@ -108,7 +108,7 @@ import { ref, nextTick, watch } from "vue";
 import axios from "axios";
 import { marked } from "marked";
 
-const base = "http://localhost:3000/api";
+const base = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 const userMessage = ref("");
 const chatLog = ref([]);
 const isSending = ref(false);
