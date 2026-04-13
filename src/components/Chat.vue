@@ -1,6 +1,11 @@
 <template>
   <!-- Floating Chat Icon -->
-  <div class="chat-icon" @click="toggleChat" v-if="!isOpen" aria-label="Mở chat với Dược sĩ AI">
+  <div
+    class="chat-icon"
+    @click="toggleChat"
+    v-if="!isOpen"
+    aria-label="Mở chat với Dược sĩ AI"
+  >
     <i class="fas fa-comment-medical"></i>
     <span class="chat-icon-pulse"></span>
   </div>
@@ -32,20 +37,28 @@
         </div>
         <p>Xin chào! Tôi là Dược sĩ AI, sẵn sàng tư vấn sức khỏe cho bạn.</p>
         <div class="quick-actions">
-          <button @click="quickSend('Tư vấn thuốc cảm cúm')">Thuốc cảm cúm</button>
-          <button @click="quickSend('Vitamin cho trẻ em')">Vitamin trẻ em</button>
+          <button @click="quickSend('Tư vấn thuốc cảm cúm')">
+            Thuốc cảm cúm
+          </button>
+          <button @click="quickSend('Vitamin cho trẻ em')">
+            Vitamin trẻ em
+          </button>
           <button @click="quickSend('Thuốc đau dạ dày')">Đau dạ dày</button>
         </div>
       </div>
 
       <div class="chat-messages">
-        <div v-for="(msg, idx) in chatLog" :key="idx" :class="['chat-line', msg.role]">
+        <div
+          v-for="(msg, idx) in chatLog"
+          :key="idx"
+          :class="['chat-line', msg.role]"
+        >
           <div class="chat-item">
             <div class="chat-avatar" v-if="msg.role === 'assistant'">
               <i class="fas fa-user-md"></i>
             </div>
             <div class="chat-bubble">
-              <div class="chat-text">{{ msg.text }}</div>
+              <div class="chat-text" v-html="msg.text"></div>
             </div>
             <div class="chat-avatar user-avatar" v-if="msg.role === 'user'">
               <i class="fas fa-user"></i>
@@ -78,7 +91,12 @@
         @input="autoResize"
         ref="textareaRef"
       ></textarea>
-      <button @click="sendChat" :disabled="isSending || !userMessage.trim()" class="send-btn" aria-label="Gửi tin nhắn">
+      <button
+        @click="sendChat"
+        :disabled="isSending || !userMessage.trim()"
+        class="send-btn"
+        aria-label="Gửi tin nhắn"
+      >
         <i class="fas fa-paper-plane"></i>
       </button>
     </div>
@@ -86,11 +104,12 @@
 </template>
 
 <script setup>
-import { ref, nextTick, watch } from 'vue';
-import axios from 'axios';
+import { ref, nextTick, watch } from "vue";
+import axios from "axios";
+import { marked } from "marked";
 
-const base = 'http://localhost:3000/api';
-const userMessage = ref('');
+const base = "http://localhost:3000/api";
+const userMessage = ref("");
 const chatLog = ref([]);
 const isSending = ref(false);
 const isOpen = ref(false);
@@ -100,17 +119,17 @@ const textareaRef = ref(null);
 function toggleChat() {
   isOpen.value = !isOpen.value;
   if (isOpen.value) {
-    document.body.classList.add('chat-open');
+    document.body.classList.add("chat-open");
     nextTick(() => textareaRef.value?.focus());
   } else {
-    document.body.classList.remove('chat-open');
+    document.body.classList.remove("chat-open");
   }
 }
 
 function autoResize(e) {
   const el = e.target;
-  el.style.height = 'auto';
-  el.style.height = Math.min(el.scrollHeight, 100) + 'px';
+  el.style.height = "auto";
+  el.style.height = Math.min(el.scrollHeight, 100) + "px";
 }
 
 function scrollToBottom() {
@@ -130,21 +149,29 @@ async function sendChat() {
   const question = userMessage.value.trim();
   if (!question || isSending.value) return;
 
-  chatLog.value.push({ role: 'user', text: question });
-  userMessage.value = '';
+  chatLog.value.push({ role: "user", text: question });
+  userMessage.value = "";
   isSending.value = true;
 
   if (textareaRef.value) {
-    textareaRef.value.style.height = 'auto';
+    textareaRef.value.style.height = "auto";
   }
 
   scrollToBottom();
 
   try {
-    const res = await axios.post(`${base}/chat/pharmacist`, { userId: 'user1', message: question });
-    chatLog.value.push({ role: 'assistant', text: res.data.answer });
+    const res = await axios.post(`${base}/chat/pharmacist`, {
+      userId: "user1",
+      message: question,
+    });
+    // Parse Markdown thành HTML
+    const htmlAnswer = marked.parse(res.data.answer);
+    chatLog.value.push({ role: "assistant", text: htmlAnswer });
   } catch (error) {
-    chatLog.value.push({ role: 'assistant', text: 'Không gửi được, vui lòng thử lại.' });
+    chatLog.value.push({
+      role: "assistant",
+      text: "Không gửi được, vui lòng thử lại.",
+    });
     console.error(error);
   } finally {
     isSending.value = false;
@@ -193,8 +220,14 @@ watch(chatLog, scrollToBottom, { deep: true });
 }
 
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(1.3); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
 }
 
 /* Chat Dialog */
@@ -432,12 +465,24 @@ watch(chatLog, scrollToBottom, { deep: true });
   animation: dot-bounce 1.4s infinite ease-in-out;
 }
 
-.sending-dots span:nth-child(2) { animation-delay: 0.2s; }
-.sending-dots span:nth-child(3) { animation-delay: 0.4s; }
+.sending-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.sending-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
 
 @keyframes dot-bounce {
-  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
-  40% { transform: translateY(-5px); opacity: 1; }
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  40% {
+    transform: translateY(-5px);
+    opacity: 1;
+  }
 }
 
 /* Chat Input */
