@@ -68,7 +68,7 @@
       </div>
 
       <!-- Typing indicator -->
-      <div class="typing-indicator" v-if="isSending && (!chatLog.length || chatLog[chatLog.length - 1]?.text === '')">
+      <div class="typing-indicator" v-if="isSending">
         <div class="chat-item">
           <div class="chat-avatar">
             <i class="fas fa-user-md"></i>
@@ -152,12 +152,20 @@ async function sendChat() {
   userMessage.value = "";
   isSending.value = true;
   if (textareaRef.value) textareaRef.value.style.height = "auto";
-
-  const assistantEntry = reactive({ role: "assistant", text: "", isStreaming: true });
-  chatLog.value.push(assistantEntry);
   scrollToBottom();
 
+  let assistantEntry = null;
   let rawText = "";
+
+  function ensureEntry() {
+    if (!assistantEntry) {
+      assistantEntry = reactive({ role: "assistant", text: "", isStreaming: true });
+      chatLog.value.push(assistantEntry);
+      isSending.value = false;
+    }
+    return assistantEntry;
+  }
+
   try {
     const response = await fetch(`${base}/chat/stream`, {
       method: "POST",
@@ -178,28 +186,34 @@ async function sendChat() {
         if (!line.startsWith("data: ")) continue;
         const payload = line.slice(6).trim();
         if (payload === "[DONE]") {
-          assistantEntry.text = marked.parse(rawText);
-          assistantEntry.isStreaming = false;
+          ensureEntry().text = marked.parse(rawText);
+          ensureEntry().isStreaming = false;
           break outer;
         }
         try {
           const parsed = JSON.parse(payload);
           if (parsed.chunk) {
             rawText += parsed.chunk;
-            assistantEntry.text = rawText;
-            isSending.value = false;
+            ensureEntry().text = marked.parse(rawText);
             scrollToBottom();
           }
         } catch (_) {}
       }
     }
-    if (assistantEntry.isStreaming) {
+    if (assistantEntry?.isStreaming) {
       assistantEntry.text = marked.parse(rawText) || "Không gửi được, vui lòng thử lại.";
       assistantEntry.isStreaming = false;
     }
+    if (!assistantEntry) {
+      chatLog.value.push(reactive({ role: "assistant", text: "Không gửi được, vui lòng thử lại.", isStreaming: false }));
+    }
   } catch (error) {
-    assistantEntry.text = "Không gửi được, vui lòng thử lại.";
-    assistantEntry.isStreaming = false;
+    if (assistantEntry) {
+      assistantEntry.text = "Không gửi được, vui lòng thử lại.";
+      assistantEntry.isStreaming = false;
+    } else {
+      chatLog.value.push(reactive({ role: "assistant", text: "Không gửi được, vui lòng thử lại.", isStreaming: false }));
+    }
     console.error(error);
   } finally {
     isSending.value = false;

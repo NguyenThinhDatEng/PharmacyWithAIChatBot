@@ -5,7 +5,10 @@
       "Bash(node -e \"require\\('dotenv'\\).config\\(\\); const { GoogleGenAI } = require\\('@google/genai'\\); const Groq = require\\('groq-sdk'\\); console.log\\('imports OK'\\);\")",
       "Bash(node -e ' *)",
       "Bash(node src/index.js)",
-      "Bash(grep -E \"\\\\.\\(js|ts\\)$\")"
+      "Bash(grep -E \"\\\\.\\(js|ts\\)$\")",
+      "Bash(node fix_chat.js)",
+      "Bash(mv \"e:/Project/DATN_KIMCHUNG/fix_chat.js\" \"e:/Project/DATN_KIMCHUNG/fix_chat.cjs\")",
+      "Bash(node fix_chat.cjs)"
     ]
   }
 }
