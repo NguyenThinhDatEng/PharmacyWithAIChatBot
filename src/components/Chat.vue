@@ -3,15 +3,15 @@
   <div
     class="chat-icon"
     @click="toggleChat"
-    v-if="!isOpen"
+    v-if="!chatOpen"
     aria-label="Mở chat với Dược sĩ AI"
   >
-    <i class="fas fa-comment-medical"></i>
+    <i class="fas fa-robot"></i>
     <span class="chat-icon-pulse"></span>
   </div>
 
   <!-- Chat Dialog -->
-  <div class="chat-dialog" v-if="isOpen">
+  <div class="chat-dialog" v-if="chatOpen">
     <div class="chat-header">
       <div class="chat-header-info">
         <div class="chat-header-avatar">
@@ -68,7 +68,7 @@
       </div>
 
       <!-- Typing indicator -->
-      <div class="typing-indicator" v-if="isSending">
+      <div class="typing-indicator" v-if="isSending && (!chatLog.length || chatLog[chatLog.length - 1]?.text === '')">
         <div class="chat-item">
           <div class="chat-avatar">
             <i class="fas fa-user-md"></i>
@@ -104,21 +104,20 @@
 </template>
 
 <script setup>
-import { ref, nextTick, watch } from "vue";
-import axios from "axios";
+import { ref, reactive, nextTick, watch } from "vue";
 import { marked } from "marked";
+import { chatOpen } from "../composables/useChat.js";
 
 const base = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
 const userMessage = ref("");
 const chatLog = ref([]);
 const isSending = ref(false);
-const isOpen = ref(false);
 const chatBody = ref(null);
 const textareaRef = ref(null);
 
 function toggleChat() {
-  isOpen.value = !isOpen.value;
-  if (isOpen.value) {
+  chatOpen.value = !chatOpen.value;
+  if (chatOpen.value) {
     document.body.classList.add("chat-open");
     nextTick(() => textareaRef.value?.focus());
   } else {
@@ -152,26 +151,55 @@ async function sendChat() {
   chatLog.value.push({ role: "user", text: question });
   userMessage.value = "";
   isSending.value = true;
+  if (textareaRef.value) textareaRef.value.style.height = "auto";
 
-  if (textareaRef.value) {
-    textareaRef.value.style.height = "auto";
-  }
-
+  const assistantEntry = reactive({ role: "assistant", text: "", isStreaming: true });
+  chatLog.value.push(assistantEntry);
   scrollToBottom();
 
+  let rawText = "";
   try {
-    const res = await axios.post(`${base}/chat/pharmacist`, {
-      userId: "user1",
-      message: question,
+    const response = await fetch(`${base}/chat/stream`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId: "user1", message: question }),
     });
-    // Parse Markdown thành HTML
-    const htmlAnswer = marked.parse(res.data.answer);
-    chatLog.value.push({ role: "assistant", text: htmlAnswer });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buf = "";
+    outer: while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buf += decoder.decode(value, { stream: true });
+      const lines = buf.split("\n"); buf = lines.pop();
+      for (const line of lines) {
+        if (!line.startsWith("data: ")) continue;
+        const payload = line.slice(6).trim();
+        if (payload === "[DONE]") {
+          assistantEntry.text = marked.parse(rawText);
+          assistantEntry.isStreaming = false;
+          break outer;
+        }
+        try {
+          const parsed = JSON.parse(payload);
+          if (parsed.chunk) {
+            rawText += parsed.chunk;
+            assistantEntry.text = rawText;
+            isSending.value = false;
+            scrollToBottom();
+          }
+        } catch (_) {}
+      }
+    }
+    if (assistantEntry.isStreaming) {
+      assistantEntry.text = marked.parse(rawText) || "Không gửi được, vui lòng thử lại.";
+      assistantEntry.isStreaming = false;
+    }
   } catch (error) {
-    chatLog.value.push({
-      role: "assistant",
-      text: "Không gửi được, vui lòng thử lại.",
-    });
+    assistantEntry.text = "Không gửi được, vui lòng thử lại.";
+    assistantEntry.isStreaming = false;
     console.error(error);
   } finally {
     isSending.value = false;

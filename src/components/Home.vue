@@ -10,9 +10,9 @@
           <router-link to="/shop" class="cta-btn primary">
             <i class="fas fa-capsules"></i> Khám phá tủ thuốc
           </router-link>
-          <router-link to="/chat" class="cta-btn outline">
+          <button class="cta-btn outline" @click="openChat">
             <i class="fas fa-robot"></i> Chat với Dược sĩ AI
-          </router-link>
+          </button>
         </div>
       </div>
       <div class="banner-image">
@@ -126,6 +126,11 @@
 import { computed } from 'vue';
 import BannerImage from '../assets/banner.png';
 import blogPosts from '../data/blogPosts.json';
+import { chatOpen } from '../composables/useChat.js';
+
+function openChat() {
+  chatOpen.value = true;
+}
 
 const latestPosts = computed(() => {
   return [...blogPosts]

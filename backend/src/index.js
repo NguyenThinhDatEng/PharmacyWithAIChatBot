@@ -246,6 +246,94 @@ async function CallToAIModel(message) {
   return 'Xin lỗi, hiện tại tôi không trả lời được.';
 }
 
+// Streaming generator functions for SSE
+async function* streamOpenRouter(message) {
+  const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
+  for (const key of keys) {
+    try {
+      console.log('OpenRouter stream: thử key', key.slice(0, 15) + '...');
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: prompt }], stream: true }),
+      });
+      if (!res.ok) { console.error('OR stream key HTTP', res.status); continue; }
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buf += decoder.decode(value, { stream: true });
+        const lines = buf.split('\n'); buf = lines.pop();
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const payload = line.slice(6).trim();
+          if (payload === '[DONE]') return;
+          try { const c = JSON.parse(payload).choices?.[0]?.delta?.content; if (c) yield c; } catch (_) {}
+        }
+      }
+      return;
+    } catch (err) { console.error('OR stream key lỗi:', err.message); }
+  }
+  throw new Error('OpenRouter stream thất bại');
+}
+
+async function* streamGemini(message) {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
+  const stream = await ai.models.generateContentStream({ model: 'gemini-2.5-flash', contents: prompt });
+  for await (const chunk of stream) { if (chunk.text) yield chunk.text; }
+}
+
+async function* streamGroq(message) {
+  const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+  const stream = await groq.chat.completions.create({
+    model: 'llama-3.3-70b-versatile',
+    messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: message }],
+    stream: true,
+  });
+  for await (const chunk of stream) {
+    const c = chunk.choices[0]?.delta?.content; if (c) yield c;
+  }
+}
+
+app.post('/api/chat/stream', async (req, res) => {
+  const { message } = req.body;
+  if (!message) return res.status(400).json({ error: 'message is required' });
+
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  res.flushHeaders();
+
+  const send = (text) => res.write(`data: ${JSON.stringify({ chunk: text })}\n\n`);
+  const done = () => { res.write('data: [DONE]\n\n'); res.end(); };
+
+  async function tryStream(genFn) {
+    for await (const chunk of genFn(message)) send(chunk);
+  }
+
+  try {
+    try { await tryStream(streamOpenRouter); return done(); }
+    catch (err) { console.error('OR stream lỗi, sang Gemini:', err.message); }
+
+    if (process.env.GEMINI_API_KEY) {
+      try { await tryStream(streamGemini); return done(); }
+      catch (err) { console.error('Gemini stream lỗi, sang Groq:', err.message); }
+    }
+
+    if (process.env.GROQ_API_KEY) {
+      try { await tryStream(streamGroq); return done(); }
+      catch (err) { console.error('Groq stream lỗi:', err.message); }
+    }
+
+    send('Xin lỗi, hiện tại tôi không trả lời được.'); done();
+  } catch (err) {
+    if (!res.writableEnded) { send('Xin lỗi, có lỗi xảy ra.'); done(); }
+  }
+});
+
 app.post('/api/chat/pharmacist', async (req, res) => {
   const { userId, message } = req.body;
   if (!message) return res.status(400).json({ error: 'message is required' });

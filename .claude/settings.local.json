@@ -4,7 +4,8 @@
       "Bash(npm install *)",
       "Bash(node -e \"require\\('dotenv'\\).config\\(\\); const { GoogleGenAI } = require\\('@google/genai'\\); const Groq = require\\('groq-sdk'\\); console.log\\('imports OK'\\);\")",
       "Bash(node -e ' *)",
-      "Bash(node src/index.js)"
+      "Bash(node src/index.js)",
+      "Bash(grep -E \"\\\\.\\(js|ts\\)$\")"
     ]
   }
 }

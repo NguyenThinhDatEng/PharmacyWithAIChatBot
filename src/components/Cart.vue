@@ -77,11 +77,11 @@
           <h4>Thông tin người mua</h4>
           <div class="field-group">
             <label class="form-field">
-              <span>Họ và tên</span>
+              <span>Họ và tên <span class="required">*</span></span>
               <input type="text" v-model="buyer.name" placeholder="Nguyễn Văn A" />
             </label>
             <label class="form-field">
-              <span>Số điện thoại</span>
+              <span>Số điện thoại <span class="required">*</span></span>
               <input type="tel" v-model="buyer.phone" placeholder="0987654321" />
             </label>
             <label class="form-field">
@@ -89,42 +89,44 @@
               <input type="email" v-model="buyer.email" placeholder="email@example.com" />
             </label>
             <label class="form-field">
-              <span>Địa chỉ</span>
+              <span>Địa chỉ <span class="required">*</span></span>
               <input type="text" v-model="buyer.address" placeholder="Số nhà, đường, quận" />
             </label>
-            <label class="form-field">
+            <label class="form-field form-field--full">
               <span>Ghi chú</span>
               <textarea v-model="buyer.note" placeholder="Ghi chú giao hàng hoặc yêu cầu đặc biệt"></textarea>
             </label>
           </div>
 
-          <div class="payment-options">
-            <h4>Phương thức thanh toán</h4>
-            <div class="option-group">
-              <label class="radio-label">
-                <input type="radio" v-model="paymentMethod" value="bank_transfer" class="radio-input" />
-                <span class="radio-text">Chuyển khoản ngân hàng</span>
-              </label>
-              <div v-show="paymentMethod === 'bank_transfer'" :class="{ 'bank-details-active': paymentMethod === 'bank_transfer' }" class="bank-details">
-                <p><strong>Số tài khoản:</strong> 123456789</p>
-                <p><strong>Ngân hàng:</strong> Vietcombank</p>
-                <p><strong>Chủ tài khoản:</strong> Nhà thuốc ABC</p>
-                <small>Vui lòng chuyển khoản theo thông tin trên và xác nhận sau khi thanh toán.</small>
+          <div class="payment-delivery-row">
+            <div class="payment-options">
+              <h4>Phương thức thanh toán <span class="required">*</span></h4>
+              <div class="option-group">
+                <label class="radio-label">
+                  <input type="radio" v-model="paymentMethod" value="bank_transfer" class="radio-input" />
+                  <span class="radio-text">Chuyển khoản ngân hàng</span>
+                </label>
+                <div v-show="paymentMethod === 'bank_transfer'" :class="{ 'bank-details-active': paymentMethod === 'bank_transfer' }" class="bank-details">
+                  <p><strong>Số tài khoản:</strong> 123456789</p>
+                  <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                  <p><strong>Chủ tài khoản:</strong> Nhà thuốc ABC</p>
+                  <small>Vui lòng chuyển khoản theo thông tin trên và xác nhận sau khi thanh toán.</small>
+                </div>
+                <label class="radio-label">
+                  <input type="radio" v-model="paymentMethod" value="cash_on_delivery" class="radio-input" />
+                  <span class="radio-text">Thanh toán khi nhận hàng</span>
+                </label>
               </div>
-              <label class="radio-label">
-                <input type="radio" v-model="paymentMethod" value="cash_on_delivery" class="radio-input" />
-                <span class="radio-text">Thanh toán khi nhận hàng</span>
-              </label>
             </div>
-          </div>
 
-          <div class="delivery-options">
-            <h4>Phương thức nhận hàng</h4>
-            <label class="checkbox-label">
-              <input type="checkbox" v-model="pickupAtPharmacy" class="checkbox-input" />
-              <span class="checkbox-text">Nhận tại nhà thuốc</span>
-            </label>
-            <p v-if="!pickupAtPharmacy" class="delivery-note">Hàng sẽ được giao tận nhà (phí ship tính thêm).</p>
+            <div class="delivery-options">
+              <h4>Phương thức nhận hàng</h4>
+              <label class="checkbox-label">
+                <input type="checkbox" v-model="pickupAtPharmacy" class="checkbox-input" />
+                <span class="checkbox-text">Nhận tại nhà thuốc</span>
+              </label>
+              <p v-if="!pickupAtPharmacy" class="delivery-note">Hàng sẽ được giao tận nhà (phí ship tính thêm).</p>
+            </div>
           </div>
 
           <div class="checkout-actions">
@@ -602,7 +604,25 @@ onMounted(loadCart);
 
 .field-group {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
+}
+
+.form-field--full {
+  grid-column: 1 / -1;
+}
+
+.payment-delivery-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 0;
+}
+
+.required {
+  color: #e53e3e;
+  font-weight: 700;
+  margin-left: 2px;
 }
 
 .form-field {
@@ -690,19 +710,21 @@ onMounted(loadCart);
 
 .bank-details {
   margin-left: 26px;
-  background: var(--bg-white);
+  background: var(--bg-subtle);
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   font-size: 0.875rem;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+  transition: max-height 0.35s ease, padding 0.3s ease;
   padding: 0 12px;
+  box-sizing: border-box;
+  width: calc(100% - 26px);
 }
 
 .bank-details-active {
   padding: 12px;
-  max-height: 120px;
+  max-height: 150px;
 }
 
 .delivery-note {
@@ -748,7 +770,12 @@ onMounted(loadCart);
   }
 
   .field-group {
+    grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .payment-delivery-row {
+    grid-template-columns: 1fr;
   }
 
   .checkout-actions {
