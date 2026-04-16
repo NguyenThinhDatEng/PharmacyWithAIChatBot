@@ -157,64 +157,89 @@ app.get('/api/prescriptions/:id', (req, res) => {
 
 app.use('/uploads', express.static(uploadDir));
 
-// Routes: Chat AI with OpenRouter SDK
+// Routes: Chat AI with fallback chain: OpenRouter → Gemini → Groq
 const { OpenRouter } = require('@openrouter/sdk');
+const { GoogleGenAI } = require('@google/genai');
+const Groq = require('groq-sdk');
 
 const keys = process.env.KEYS.split(",");
-
 const MODEL = process.env.MODEL;
 
-async function CallToAIModel(message) {
-  const prompt = `Bạn là dược sĩ chuyên nghiệp. Trả lời ngắn gọn, lịch sự, an toàn, khuyến nghị khám chuyên gia nếu cần. Người dùng hỏi: "${message}"`;
+const SYSTEM_PROMPT = 'Bạn là dược sĩ chuyên nghiệp. Trả lời ngắn gọn, lịch sự, an toàn, khuyến nghị khám chuyên gia nếu cần.';
 
-  let fullContent = '';
-
-  console.log("MODEL:", MODEL);
-  console.log("keys:", keys);
-
-  const isStream = false; // set true nếu muốn nhận từng phần trả lời, false để nhận toàn bộ khi xong
+async function callOpenRouter(message) {
+  const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
   for (const key of keys) {
-    const openRouter = new OpenRouter({
-      apiKey: key,
-    });
-
+    const openRouter = new OpenRouter({ apiKey: key });
     try {
-      console.log('Đang thử với key:', key.slice(0, 15) + '...');
+      console.log('OpenRouter: thử key', key.slice(0, 15) + '...');
       const result = await openRouter.chat.send({
         chatGenerationParams: {
           model: MODEL,
           messages: [{ role: 'user', content: prompt }],
-          stream: isStream,
+          stream: false,
         }
       });
-
-      if (isStream) {
-        for await (const chunk of result) {
-          if ('error' in chunk) {
-            console.error(`Stream error: ${chunk.error.message}`);
-            throw new Error(chunk.error.message);
-          }
-          const content = chunk.choices?.[0]?.delta?.content;
-          if (content) {
-            fullContent += content;
-          }
-        }
-      } else {
-        if (result.error) {
-          console.error(`Error: ${result.error.message}`);
-          throw new Error(result.error.message);
-        }
-        const content = result.choices?.[0]?.message?.content;
-        if (content) {
-          fullContent += content;
-        }
-      }
-
-      if (fullContent) return fullContent;
+      if (result.error) throw new Error(result.error.message);
+      const content = result.choices?.[0]?.message?.content;
+      if (content) return content;
     } catch (err) {
-      console.error('Key lỗi, thử key tiếp theo...', err.message);
-      fullContent = ''; // reset để thử lại với key khác
-      continue;
+      console.error('OpenRouter key lỗi, thử tiếp...', err.message);
+    }
+  }
+  throw new Error('Tất cả OpenRouter keys đều thất bại');
+}
+
+async function callGemini(message) {
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+  });
+  return response.text;
+}
+
+async function callGroq(message) {
+  const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+  const completion = await groq.chat.completions.create({
+    model: 'llama-3.3-70b-versatile',
+    messages: [
+      { role: 'system', content: SYSTEM_PROMPT },
+      { role: 'user', content: message },
+    ],
+  });
+  return completion.choices[0].message.content;
+}
+
+async function CallToAIModel(message) {
+  // 1. OpenRouter
+  try {
+    const content = await callOpenRouter(message);
+    if (content) return content;
+  } catch (err) {
+    console.error('OpenRouter thất bại, chuyển sang Gemini...', err.message);
+  }
+
+  // 2. Fallback: Google Gemini
+  if (process.env.GEMINI_API_KEY) {
+    try {
+      console.log('Fallback: thử Google Gemini...');
+      const content = await callGemini(message);
+      if (content) return content;
+    } catch (err) {
+      console.error('Gemini lỗi, chuyển sang Groq...', err.message);
+    }
+  }
+
+  // 3. Fallback: Groq
+  if (process.env.GROQ_API_KEY) {
+    try {
+      console.log('Fallback: thử Groq...');
+      const content = await callGroq(message);
+      if (content) return content;
+    } catch (err) {
+      console.error('Groq lỗi:', err.message);
     }
   }
 
