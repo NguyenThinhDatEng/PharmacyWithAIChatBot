@@ -22,10 +22,13 @@
       "Bash(curl -s -X PATCH https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0 -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' -H 'Content-Type: application/json' -d '{\"autoDeploy\":\"no\"}' -w '\\\\nHTTP_STATUS:%{http_code}')",
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Deploy ID:', d.get\\('id','?'\\), '| Status:', d.get\\('status','?'\\)\\)\")",
       "Bash(curl -s 'https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0/deploys?limit=1' -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ')",
-      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); dep=d[0].get\\('deploy',{}\\); print\\('Status:', dep.get\\('status','?'\\), '| ID:', dep.get\\('id','?'\\)\\)\")"
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); dep=d[0].get\\('deploy',{}\\); print\\('Status:', dep.get\\('status','?'\\), '| ID:', dep.get\\('id','?'\\)\\)\")",
+      "Bash(curl -s -X PUT https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0/env-vars -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' -H 'Content-Type: application/json' -d '[{\"key\":\"MODEL\",\"value\":\"google/gemma-3n-e4b-it:free\"},{\"key\":\"PORT\",\"value\":\"3000\"},{\"key\":\"KEYS\",\"value\":\"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\"},{\"key\":\"GEMINI_API_KEY\",\"value\":\"AQ.Ab8RN6JoSURZSW-MDt2N8VYMszCA7vlTaRQj94rWKKwJ4kTsew\"},{\"key\":\"GROQ_API_KEY\",\"value\":\"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\"},{\"key\":\"NOTION_TOKEN\",\"value\":\"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\"},{\"key\":\"NOTION_DATABASE_ID\",\"value\":\"3456ba65f1b180028273de99dae7f761\"}]')",
+      "Bash(xargs grep *)"
     ],
     "additionalDirectories": [
-      "C:\\Users\\thinh\\.claude"
+      "C:\\Users\\thinh\\.claude",
+      "E:\\Project\\DATN_KIMCHUNG\\.claude\\skills"
     ]
   }
 }

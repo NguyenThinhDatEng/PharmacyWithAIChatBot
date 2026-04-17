@@ -1,0 +1,43 @@
+{
+  "0963689218": {
+    "buyer": {
+      "name": "Nguyễn Văn Thịnh",
+      "phone": "0963689218",
+      "email": "",
+      "address": "123",
+      "note": ""
+    },
+    "orders": [
+      {
+        "id": 1,
+        "userId": "user1",
+        "buyer": {
+          "name": "Nguyễn Văn Thịnh",
+          "phone": "0963689218",
+          "email": "",
+          "address": "123",
+          "note": ""
+        },
+        "paymentMethod": "cash_on_delivery",
+        "deliveryMethod": "delivery",
+        "items": [
+          {
+            "id": "00045363",
+            "name": "Viên uống bổ sung lợi khuẩn, hỗ trợ giảm rối loạn tiêu hóa Premium Omexxel Colon Health (60 viên)",
+            "price": 649000,
+            "quantity": 1
+          },
+          {
+            "id": "00501598",
+            "name": "Men Tiêu Hoá Ginkid bổ sung lợi khuẩn, giảm đầy bụng, khó tiêu, chướng bụng (4 vỉ x 5 ống x 5ml)",
+            "price": 140000,
+            "quantity": 1
+          }
+        ],
+        "total": 789000,
+        "status": "pending",
+        "createdAt": "2026-04-17T14:36:31.312Z"
+      }
+    ]
+  }
+}
