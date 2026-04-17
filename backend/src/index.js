@@ -34,11 +34,15 @@ function saveOrderDatabase(data) {
 
 // In-memory prototype data
 const blogs = [];
-const products = [
-  { id: 1, name: 'Viên uống bổ sung vitamin C', price: 120000, stock: 50 },
-  { id: 2, name: 'Thuốc cảm cúm ABC', price: 85000, stock: 80 },
-  { id: 3, name: 'Kem bôi chống viêm', price: 95000, stock: 40 },
-];
+const rawProducts = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '../../src/data/products.json'), 'utf-8')
+);
+const products = rawProducts.map(p => ({
+  id: p.productId,
+  name: p.name,
+  price: p.price,
+  stock: 9999,
+}));
 const orders = [];
 const prescriptions = [];
 const chatHistory = [];
