@@ -8,7 +8,21 @@
       "Bash(grep -E \"\\\\.\\(js|ts\\)$\")",
       "Bash(node fix_chat.js)",
       "Bash(mv \"e:/Project/DATN_KIMCHUNG/fix_chat.js\" \"e:/Project/DATN_KIMCHUNG/fix_chat.cjs\")",
-      "Bash(node fix_chat.cjs)"
+      "Bash(node fix_chat.cjs)",
+      "Bash(curl -s -X PUT https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0/env-vars -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' -H 'Content-Type: application/json' -d '[ *)",
+      "Bash(curl -s -X POST https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0/deploys -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' -H 'Content-Type: application/json' -d '{\"clearCache\":\"do_not_clear\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s -X POST https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0/deploys -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' -H 'Content-Type: application/json' -d '{\"clearCache\":\"do_not_clear\"}' -w '\\\\nHTTP_STATUS:%{http_code}')",
+      "Bash(curl -s -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' 'https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0/deploys?limit=1')",
+      "Read(//c/Users/thinh/.claude/**)",
+      "Bash(curl -s -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0)",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const j=JSON.parse\\(d\\); console.log\\('autoDeploy:', j.service?.autoDeploy, '\\\\nbranch:', j.service?.repo?.branch || j.service?.branch\\);\")",
+      "Bash(curl -s -H \"Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ\" \"https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0\")",
+      "Read(//c/Temp/**)",
+      "Bash(curl -s -X PATCH https://api.render.com/v1/services/srv-d7f7n07lk1mc73d6o8q0 -H 'Authorization: Bearer rnd_sKIdaQGXLSkuJIIf5jGk0bMTOjUJ' -H 'Content-Type: application/json' -d '{\"autoDeploy\":\"no\"}' -w '\\\\nHTTP_STATUS:%{http_code}')"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\thinh\\.claude"
     ]
   }
 }

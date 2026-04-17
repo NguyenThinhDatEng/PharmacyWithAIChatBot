@@ -162,6 +162,23 @@ const { OpenRouter } = require('@openrouter/sdk');
 const { GoogleGenAI } = require('@google/genai');
 const Groq = require('groq-sdk');
 
+function validateEnvKeys() {
+  const keys = (process.env.KEYS || '').split(',').map(k => k.trim()).filter(Boolean);
+  if (keys.length === 0) console.warn('[CONFIG] KEYS is empty — OpenRouter will fail');
+  else keys.forEach(k => {
+    if (!k.startsWith('sk-or-v1-')) console.warn(`[CONFIG] OpenRouter key có thể không hợp lệ (expected sk-or-v1-...): ${k.slice(0, 12)}...`);
+  });
+
+  const gemini = process.env.GEMINI_API_KEY || '';
+  if (!gemini) console.warn('[CONFIG] GEMINI_API_KEY is empty — Gemini fallback will fail');
+
+  const groq = process.env.GROQ_API_KEY || '';
+  if (groq && !groq.startsWith('gsk_')) {
+    console.warn(`[CONFIG] GROQ_API_KEY không hợp lệ (expected gsk_...): ${groq.slice(0, 12)}...`);
+  }
+}
+validateEnvKeys();
+
 const keys = process.env.KEYS.split(",");
 const MODEL = process.env.MODEL;
 
@@ -194,7 +211,7 @@ async function callGemini(message) {
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
   const response = await ai.models.generateContent({
-    model: 'gemini-2.5-flash',
+    model: 'gemini-2.5-flash-lite',
     contents: prompt,
   });
   return response.text;
