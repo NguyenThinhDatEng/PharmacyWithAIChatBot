@@ -70,7 +70,7 @@ const base = 'http://localhost:3000/api';
 const products = ref([]);
 const cart = ref([]);
 const qty = ref(1);
-const categories = ['Tất cả', 'Tiêu hóa', 'Hô hấp', 'Khớp xương', 'Mẹ & Bé', 'Chăm sóc da', 'Đề kháng'];
+const categories = ['Tất cả', 'Thực phẩm chức năng', 'Tiêu hóa', 'Hô hấp', 'Khớp xương', 'Mẹ & Bé', 'Chăm sóc da', 'Đề kháng'];
 const selectedCategory = ref('Tất cả');
 const searchTerm = ref('');
 

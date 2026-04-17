@@ -108,6 +108,20 @@ const featuredProductsByCategory = (category, faIcon) =>
 
 const productCategories = [
   {
+    id: 'thuc-pham-chuc-nang',
+    label: 'Thực phẩm chức năng',
+    href: '/shop',
+    faIcon: 'fas fa-leaf',
+    subcategories: [
+      { id: 'tpcn-1', label: 'Chống lão hóa', href: '/shop', faIcon: 'fas fa-seedling' },
+      { id: 'tpcn-2', label: 'Vitamin tổng hợp', href: '/shop', faIcon: 'fas fa-tablets' },
+      { id: 'tpcn-3', label: 'Hỗ trợ đường huyết', href: '/shop', faIcon: 'fas fa-tint' },
+      { id: 'tpcn-4', label: 'DHA não bộ & mắt', href: '/shop', faIcon: 'fas fa-brain' },
+      { id: 'tpcn-5', label: 'Hồng sâm - sâm', href: '/shop', faIcon: 'fas fa-spa' },
+      { id: 'tpcn-6', label: 'Sức khỏe răng miệng', href: '/shop', faIcon: 'fas fa-tooth' },
+    ],
+  },
+  {
     id: 'tieu-hoa',
     label: 'Tiêu hóa',
     href: '/shop',

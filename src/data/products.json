@@ -14,9 +14,23 @@
     },
     "description": "Cốm vi sinh Lacto Biomin Gold giúp bổ sung lợi khuẩn đường ruột, lysin, kẽm, acid amin, khoáng chất và các vitamin (B1, B2, B6) cho cơ thể.",
     "specifications": {
-      "ingredients": ["Bacillus clausii", "Bacillus subtilis", "Bacillus coagulans", "Inulin", "L-Lysine hydrochloride", "Taurine", "Vitamin B1", "Vitamin B2", "Vitamin B6"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["Hdpharma"],
+      "ingredients": [
+        "Bacillus clausii",
+        "Bacillus subtilis",
+        "Bacillus coagulans",
+        "Inulin",
+        "L-Lysine hydrochloride",
+        "Taurine",
+        "Vitamin B1",
+        "Vitamin B2",
+        "Vitamin B6"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "Hdpharma"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -25,7 +39,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 40,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_9747_0837e2146a.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_9747_0837e2146a.png",
+    "soldCount": 320
   },
   {
     "productId": "00502653",
@@ -42,9 +57,18 @@
     },
     "description": "LiveSpo DIA 30 hỗ trợ giảm các triệu chứng tiêu chảy cấp tính, rối loạn tiêu hoá. Bổ sung lợi khuẩn ở dạng bào tử giúp hỗ trợ cân bằng hệ vi sinh đường ruột.",
     "specifications": {
-      "ingredients": ["Bacillus coagulans", "Bacillus subtilis", "Bacillus clausii", "Nước cất"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["LiveSpo Pharma"],
+      "ingredients": [
+        "Bacillus coagulans",
+        "Bacillus subtilis",
+        "Bacillus clausii",
+        "Nước cất"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "LiveSpo Pharma"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -53,7 +77,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 35,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_05147_afc678a00f.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_05147_afc678a00f.png",
+    "soldCount": 280
   },
   {
     "productId": "00345419",
@@ -70,9 +95,23 @@
     },
     "description": "Gasso Max chứa chiết xuất từ các thành phần thiên nhiên cùng các loại enzym, hợp chất hữu cơ tốt cho hệ tiêu hoá. Sản phẩm phù hợp cho người trưởng thành bị đầy hơi, hấp thu kém, đau dạ dày.",
     "specifications": {
-      "ingredients": ["Bromelain", "Papain", "Ginger Root Powder", "Licorice Root", "Cranberry Concentrate", "Cinnamon Bark", "Peppermint Leaves Power", "Fennel Seed Power", "Betaine Hydrochloride"],
-      "origin": ["Hoa Kỳ"],
-      "manufacturer": ["Vitamins For Life"],
+      "ingredients": [
+        "Bromelain",
+        "Papain",
+        "Ginger Root Powder",
+        "Licorice Root",
+        "Cranberry Concentrate",
+        "Cinnamon Bark",
+        "Peppermint Leaves Power",
+        "Fennel Seed Power",
+        "Betaine Hydrochloride"
+      ],
+      "origin": [
+        "Hoa Kỳ"
+      ],
+      "manufacturer": [
+        "Vitamins For Life"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -81,7 +120,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 25,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/00345419_gasso_max_thao_duoc_ho_tro_tieu_hoa_9444_6328_large_1a28a201ca.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/00345419_gasso_max_thao_duoc_ho_tro_tieu_hoa_9444_6328_large_1a28a201ca.jpg",
+    "soldCount": 450
   },
   {
     "productId": "00031902",
@@ -98,9 +138,21 @@
     },
     "description": "Dạ Dày Hải Thượng Vương hỗ trợ giảm acid dịch vị, bảo vệ niêm mạc dạ dày. Hỗ trợ giảm triệu chứng ợ chua, đau thượng vị, trào ngược dạ dày thực quản do viêm loét dạ dày tá tràng.",
     "specifications": {
-      "ingredients": ["Piperine", "Fucoidan", "Magie Hydroxit", "Tam thất bắc", "Xạ đen", "Chè dây", "Nano Curcumin"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["Công ty Cổ phần Dược phẩm Quốc tế Dolexphar"],
+      "ingredients": [
+        "Piperine",
+        "Fucoidan",
+        "Magie Hydroxit",
+        "Tam thất bắc",
+        "Xạ đen",
+        "Chè dây",
+        "Nano Curcumin"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "Công ty Cổ phần Dược phẩm Quốc tế Dolexphar"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -109,7 +161,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 30,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_09959_504f8a9544.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_09959_504f8a9544.jpg",
+    "soldCount": 190
   },
   {
     "productId": "00047381",
@@ -126,9 +179,21 @@
     },
     "description": "Bio Plus Kenko giúp bổ sung một số vi khuẩn có lợi cho hệ tiêu hóa, hỗ trợ cân bằng hệ vi sinh đường ruột, giúp giảm các triệu chứng rối loạn tiêu hóa do loạn khuẩn đường ruột.",
     "specifications": {
-      "ingredients": ["Isomaltoligosaccharides", "Mật ong", "Chất xơ hòa tan", "Vi khuẩn acid lactic", "Bifidobacteria", "Galacto-oligosaccharides", "Heat-killed Enterococcus faecalis EC-12"],
-      "origin": ["Nhật Bản"],
-      "manufacturer": ["KENKO"],
+      "ingredients": [
+        "Isomaltoligosaccharides",
+        "Mật ong",
+        "Chất xơ hòa tan",
+        "Vi khuẩn acid lactic",
+        "Bifidobacteria",
+        "Galacto-oligosaccharides",
+        "Heat-killed Enterococcus faecalis EC-12"
+      ],
+      "origin": [
+        "Nhật Bản"
+      ],
+      "manufacturer": [
+        "KENKO"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -137,7 +202,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 20,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_01888_3d01e5bc4d.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_01888_3d01e5bc4d.jpg",
+    "soldCount": 380
   },
   {
     "productId": "00501425",
@@ -154,9 +220,16 @@
     },
     "description": "LiveSpo Clausy chứa 2 tỷ bào tử lợi khuẩn Bacillus Clausii trong 5ml nước cất vừa đủ, giúp phục hồi và cân bằng hệ vi sinh đường ruột, giảm các triệu chứng rối loạn tiêu hóa như ăn không tiêu, đi ngoài phân sống, tiêu chảy do loạn khuẩn đường ruột.",
     "specifications": {
-      "ingredients": ["Bacillus clausii", "Nước cất"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["LiveSpo Pharma"],
+      "ingredients": [
+        "Bacillus clausii",
+        "Nước cất"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "LiveSpo Pharma"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -165,7 +238,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 45,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_03069_de090fdc3c.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_03069_de090fdc3c.jpg",
+    "soldCount": 260
   },
   {
     "productId": "00021585",
@@ -182,9 +256,17 @@
     },
     "description": "LiveSpo Colon bổ sung vi sinh vật có lợi, kích thích và tăng cường tiêu hóa, cân bằng hệ vi sinh đường ruột. Sản phẩm hỗ trợ giảm viêm đại tràng, tiêu chảy, táo bón và giảm đầy bụng, đau bụng khi dùng sữa tươi, bia, rượu.",
     "specifications": {
-      "ingredients": ["Bacillus clausii", "Bacillus subtilis", "Nước cất"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["LiveSpo Pharma"],
+      "ingredients": [
+        "Bacillus clausii",
+        "Bacillus subtilis",
+        "Nước cất"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "LiveSpo Pharma"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -193,7 +275,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 28,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00021585_livespo_colon_phoenik_20_ong_x_5ml_1708_62e8_large_85f5365830.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00021585_livespo_colon_phoenik_20_ong_x_5ml_1708_62e8_large_85f5365830.jpg",
+    "soldCount": 310
   },
   {
     "productId": "00004290",
@@ -210,9 +293,17 @@
     },
     "description": "Lactomin Plus bổ sung vi khuẩn có ích, giúp tái lập cân bằng hệ vi sinh đường ruột, hạn chế sự xâm nhập của vi khuẩn có hại, từ đó hỗ trợ phòng ngừa tình trạng rối loạn tiêu hóa như táo bón, tiêu chảy.",
     "specifications": {
-      "ingredients": ["Lactobacillus plantarum", "Lactobacillus acidophilus", "Bifidobacterium animalis subsp. lactis"],
-      "origin": ["Hàn Quốc"],
-      "manufacturer": ["Novarex Co., Ltd."],
+      "ingredients": [
+        "Lactobacillus plantarum",
+        "Lactobacillus acidophilus",
+        "Bifidobacterium animalis subsp. lactis"
+      ],
+      "origin": [
+        "Hàn Quốc"
+      ],
+      "manufacturer": [
+        "Novarex Co., Ltd."
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -221,7 +312,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 33,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00004290_lactomin_plus_ho_tro_phong_ngua_benh_duong_ruot_2678_63a9_large_e6399c9293.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00004290_lactomin_plus_ho_tro_phong_ngua_benh_duong_ruot_2678_63a9_large_e6399c9293.jpg",
+    "soldCount": 175
   },
   {
     "productId": "00045363",
@@ -238,9 +330,16 @@
     },
     "description": "Premium Omexxel Colon Health là thực phẩm chức năng giúp bổ sung lợi khuẩn cho đường ruột, hỗ trợ cải thiện các vấn đề liên quan đến hệ tiêu hóa và duy trì sức khỏe đường ruột.",
     "specifications": {
-      "ingredients": ["Bacillus coagulans", "Dịch chiết hạt cỏ Cà ri"],
-      "origin": ["Hoa Kỳ"],
-      "manufacturer": ["OMEXXEL"],
+      "ingredients": [
+        "Bacillus coagulans",
+        "Dịch chiết hạt cỏ Cà ri"
+      ],
+      "origin": [
+        "Hoa Kỳ"
+      ],
+      "manufacturer": [
+        "OMEXXEL"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -249,7 +348,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 18,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_09575_9d277a67c4.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_09575_9d277a67c4.png",
+    "soldCount": 295
   },
   {
     "productId": "00501598",
@@ -266,9 +366,15 @@
     },
     "description": "Ginkid Men Tiêu Hoá giúp cân bằng và tăng cường chức năng hệ tiêu hóa trong trường hợp loạn khuẩn đường ruột như tiêu chảy, rối loạn tiêu hóa ở trẻ do dùng kháng sinh hoặc ngộ độc thức ăn.",
     "specifications": {
-      "ingredients": ["Bacillus clausii"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["GINKID"],
+      "ingredients": [
+        "Bacillus clausii"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "GINKID"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -277,7 +383,8 @@
     },
     "category": "Tiêu hóa",
     "stock": 26,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00501598_ginkid_men_tieu_hoa_4x5_ong_5ml_3251_62f9_large_fee78b2a80.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00501598_ginkid_men_tieu_hoa_4x5_ong_5ml_3251_62f9_large_fee78b2a80.jpg",
+    "soldCount": 420
   },
   {
     "productId": "00046168",
@@ -294,9 +401,17 @@
     },
     "description": "Siro HoAtex chứa dược liệu húng chanh, núc nác, tinh dầu bạch đàn có tác dụng chỉ khái, hóa đàm. Siro HoAtex dùng trị ho, giảm ho trong viêm họng, viêm phế quản, viêm khí quản (viêm đường hô hấp).",
     "specifications": {
-      "ingredients": ["Húng chanh (45.00g)", "Núc nác (11.25g)", "Tinh dầu bạch đàn (119.52mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["OPC"],
+      "ingredients": [
+        "Húng chanh (45.00g)",
+        "Núc nác (11.25g)",
+        "Tinh dầu bạch đàn (119.52mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "OPC"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -305,7 +420,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09091_c011071423.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09091_c011071423.jpg",
+    "soldCount": 240
   },
   {
     "productId": "00041206",
@@ -322,9 +438,15 @@
     },
     "description": "Siro Deslotid dùng trong các trường hợp viêm mũi dị ứng: Hắt hơi, sổ mũi, nghẹt mũi, ngứa mũi họng và ngứa, chảy nước mắt, phản ứng dị ứng da: Mày đay, ngứa, phát ban.",
     "specifications": {
-      "ingredients": ["Desloratadin (0.5mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["OPV"],
+      "ingredients": [
+        "Desloratadin (0.5mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "OPV"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -333,7 +455,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03708_13e61d63ab.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03708_13e61d63ab.jpg",
+    "soldCount": 180
   },
   {
     "productId": "00033574",
@@ -350,9 +473,15 @@
     },
     "description": "Thuốc Tocemux được sản xuất bởi Công ty Cổ phần Dược phẩm Trường Thọ, có thành phần chính là Acetylcystein, được chỉ định trong trường hợp dùng làm thuốc tiêu chất nhầy trong bệnh nhầy nhớt (mucoviscidosis) ( xơ nang tuyến tụy), bệnh lý hô hấp có đờm nhầy quánh như trong viêm phế quản cấp và mạn, và làm sạch thường quy trong mở khí quản.",
     "specifications": {
-      "ingredients": ["Acetylcysteine (200mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["TRƯỜNG THỌ"],
+      "ingredients": [
+        "Acetylcysteine (200mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "TRƯỜNG THỌ"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -361,7 +490,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00033574_tocemux_200mg_truong_tho_10x10_5856_622e_large_de4abf9405.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00033574_tocemux_200mg_truong_tho_10x10_5856_622e_large_de4abf9405.jpg",
+    "soldCount": 360
   },
   {
     "productId": "00003786",
@@ -378,9 +508,16 @@
     },
     "description": "Siro HoAstex của Công ty Cổ Phần Dược Phẩm OPC, thành phần chính húng chanh, núc nác, cineol, là thuốc giảm ho được sử dụng để điều trị ho, giảm ho trong viêm họng, viêm phế quản, viêm khí quản... (viêm đường hô hấp).",
     "specifications": {
-      "ingredients": ["cineol (0.08)", "Húng chanh (45.00)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["OPC"],
+      "ingredients": [
+        "cineol (0.08)",
+        "Húng chanh (45.00)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "OPC"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -389,7 +526,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/IMG_3537_3de6221c8a.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/IMG_3537_3de6221c8a.jpg",
+    "soldCount": 290
   },
   {
     "productId": "00014017",
@@ -406,9 +544,15 @@
     },
     "description": "Viên ngậm Strepsils Throat Irritation & Cough Reckitt Benckiser là thuốc làm tan chất nhầy trong các bệnh đường hô hấp có tăng tiết chất nhầy (long đờm). Thuốc cũng được dùng để làm lỏng các chất nhầy đặc trong các bệnh phế quản và phổi cấp và mãn tính.",
     "specifications": {
-      "ingredients": ["Ambroxol (15mg)"],
-      "origin": ["Anh"],
-      "manufacturer": ["RECKITT BENCKISER HEALTHCARE MANUFACTURING (THAILAND)., LTD"],
+      "ingredients": [
+        "Ambroxol (15mg)"
+      ],
+      "origin": [
+        "Anh"
+      ],
+      "manufacturer": [
+        "RECKITT BENCKISER HEALTHCARE MANUFACTURING (THAILAND)., LTD"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -417,7 +561,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_07757_779b571eb8.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_07757_779b571eb8.jpg",
+    "soldCount": 510
   },
   {
     "productId": "00002353",
@@ -434,9 +579,15 @@
     },
     "description": "Deslotid của Công Ty Cổ Phần Dược Phẩm OPV, thành phần chính desloratadine, là thuốc dùng để điều trị viêm mũi dị ứng: Sổ mũi, hắt hơi, nghẹt mũi, ngứa mũi họng và ngứa, chảy nước mắt; phản ứng dị ứng da: Mày đay, ngứa, phát ban.",
     "specifications": {
-      "ingredients": ["Desloratadin (0.5mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["OPV"],
+      "ingredients": [
+        "Desloratadin (0.5mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "OPV"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -445,7 +596,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00002353_deslotid_7075_624f_large_f35423108b.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00002353_deslotid_7075_624f_large_f35423108b.jpg",
+    "soldCount": 195
   },
   {
     "productId": "00016250",
@@ -462,9 +614,15 @@
     },
     "description": "Thuốc STAR®BENKO có thành phần chính là Benzalkonium. Đây là thuốc được sử dụng để điều trị tại chỗ các bệnh nhiễm khuẩn đường miệng họng như đau họng, viêm miệng, viêm nướu.",
     "specifications": {
-      "ingredients": ["Benzalkonium (1mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY CỔ PHẦN DƯỢC PHẨM OPV"],
+      "ingredients": [
+        "Benzalkonium (1mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY CỔ PHẦN DƯỢC PHẨM OPV"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -473,7 +631,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/IMG_2076_411f5eafaf.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/IMG_2076_411f5eafaf.jpg",
+    "soldCount": 275
   },
   {
     "productId": "00021378",
@@ -490,9 +649,17 @@
     },
     "description": "HoAstex là sản phẩm của Công ty cổ phần dược phẩm OPC, có tác dụng điều trị ho, giảm ho trong viêm họng , viêm phế quản, viêm khí quản... (viêm đường hô hấp). Thuốc được bào chế dạng siro có các thành phần như: Húng chanh (Folium Plectranthi amboinici), núc nác (Cortex Oroxyli), cineol (Cineolum). Hoastex bào chế dưới dạng siro thuốc, hộp 30 gói 5 ml.",
     "specifications": {
-      "ingredients": ["Húng chanh (2.5g)", "cineol (4.625mg)", "Núc nác (0.625g)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY CỔ PHẦN DƯỢC PHẨM OPC"],
+      "ingredients": [
+        "Húng chanh (2.5g)",
+        "cineol (4.625mg)",
+        "Núc nác (0.625g)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY CỔ PHẦN DƯỢC PHẨM OPC"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -501,7 +668,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00021378_hoastex_opc_30_goi_x_5ml_8784_60f5_large_7b2f569fe3.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00021378_hoastex_opc_30_goi_x_5ml_8784_60f5_large_7b2f569fe3.jpg",
+    "soldCount": 335
   },
   {
     "productId": "00029309",
@@ -518,9 +686,15 @@
     },
     "description": "Thuốc siro Ambroxol là sản phẩm của Dược Danapha được sử dụng trong trị liệu tiêu chất nhầy đường hô hấp trong trường hợp ho có đờm liên quan đến các bệnh phế quản phổi cấp tính và mạn tính. Thuốc được chỉ định cho trẻ từ 2 tuổi trở lên, thanh thiếu niên và người lớn.",
     "specifications": {
-      "ingredients": ["Ambroxol hydroclorid (0.3% (kl/tt))"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["DANAPHA"],
+      "ingredients": [
+        "Ambroxol hydroclorid (0.3% (kl/tt))"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "DANAPHA"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -529,7 +703,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/ambroxol_df300ff6c2.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/ambroxol_df300ff6c2.jpg",
+    "soldCount": 165
   },
   {
     "productId": "00030246",
@@ -546,9 +721,15 @@
     },
     "description": "Viên ngậm Strepsils Maxpro có tác dụng chống viêm trong các trường hợp viêm họng nặng. Làm giảm đau họng lên đến 3 giờ ở người lớn và trẻ em trên 12 tuổi.",
     "specifications": {
-      "ingredients": ["Flurbiprofen (8.75mg)"],
-      "origin": ["Anh"],
-      "manufacturer": ["RB"],
+      "ingredients": [
+        "Flurbiprofen (8.75mg)"
+      ],
+      "origin": [
+        "Anh"
+      ],
+      "manufacturer": [
+        "RB"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -557,7 +738,8 @@
     },
     "category": "Hô hấp",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_07744_e97585bea0.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_07744_e97585bea0.jpg",
+    "soldCount": 480
   },
   {
     "productId": "00021932",
@@ -574,9 +756,29 @@
     },
     "description": "Happy Mom Jpanwell bổ sung một số Vitamin và khoáng chất cho cơ thể, hỗ trợ tăng cường sức khỏe, tăng cường sức đề kháng cho bà mẹ trước, trong và sau thai kỳ.",
     "specifications": {
-      "ingredients": ["Axit Folic (0.80mg)", "Vitamin D3 (4mg)", "Nicotinamide (10mg)", "Vitamin B2 (10mg)", "Dầu thực vật (14.18mg)", "Pyricosphate sắt (19mg)", "Vitamin B12 (20mg)", "Vitamin B1 (24mg)", "Apha-tocopherol 50 (26.76mg)", "Dầu cá (48.050mg)", "Oxit magiê (57mg)", "Tảo bẹ (62.5mg)", "Vitamin C (100mg)", "Bột Omegavie (100mg)", "Men chứa kẽm (160mg)"],
-      "origin": ["Nhật Bản"],
-      "manufacturer": ["SBK TOYAMA CO., LTD."],
+      "ingredients": [
+        "Axit Folic (0.80mg)",
+        "Vitamin D3 (4mg)",
+        "Nicotinamide (10mg)",
+        "Vitamin B2 (10mg)",
+        "Dầu thực vật (14.18mg)",
+        "Pyricosphate sắt (19mg)",
+        "Vitamin B12 (20mg)",
+        "Vitamin B1 (24mg)",
+        "Apha-tocopherol 50 (26.76mg)",
+        "Dầu cá (48.050mg)",
+        "Oxit magiê (57mg)",
+        "Tảo bẹ (62.5mg)",
+        "Vitamin C (100mg)",
+        "Bột Omegavie (100mg)",
+        "Men chứa kẽm (160mg)"
+      ],
+      "origin": [
+        "Nhật Bản"
+      ],
+      "manufacturer": [
+        "SBK TOYAMA CO., LTD."
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -585,7 +787,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00021932_happy_mom_jpanwell_60v_5688_5ff7_large_8cba32414f.JPG"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00021932_happy_mom_jpanwell_60v_5688_5ff7_large_8cba32414f.JPG",
+    "soldCount": 390
   },
   {
     "productId": "00046403",
@@ -602,9 +805,27 @@
     },
     "description": "Dung dịch vệ sinh Bimunica là sản phẩm được thiết kế riêng giúp làm sạch vùng kín, duy trì hàng rào bảo vệ tự nhiên và ngăn ngừa kích ứng và các bệnh âm đạo.",
     "specifications": {
-      "ingredients": ["Aqua", "Cocamidopropyl", "Betaine", "Sodium Coco-sulfate", "Coco-Glucoside", "Glycerin", "Citrus Unshiu Peel Extract", "Inulin", "Alpha-Glucan Oligosaccharide", "Allantoin", "Aloe (aloe barbadensis)", "Gossypium Herbaceum extract", "Chamomilla Recutita Flower extract"],
-      "origin": ["Hoa Kỳ"],
-      "manufacturer": ["Dina+LLC"],
+      "ingredients": [
+        "Aqua",
+        "Cocamidopropyl",
+        "Betaine",
+        "Sodium Coco-sulfate",
+        "Coco-Glucoside",
+        "Glycerin",
+        "Citrus Unshiu Peel Extract",
+        "Inulin",
+        "Alpha-Glucan Oligosaccharide",
+        "Allantoin",
+        "Aloe (aloe barbadensis)",
+        "Gossypium Herbaceum extract",
+        "Chamomilla Recutita Flower extract"
+      ],
+      "origin": [
+        "Hoa Kỳ"
+      ],
+      "manufacturer": [
+        "Dina+LLC"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -613,7 +834,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09568_adc7da8783.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09568_adc7da8783.jpg",
+    "soldCount": 145
   },
   {
     "productId": "00050678",
@@ -630,9 +852,37 @@
     },
     "description": "Mom Care giúp bổ sung một số vitamin và khoáng chất cho cơ thể, giúp tăng cường sức khỏe, sức đề kháng cho phụ nữ đang trong và sau giai đoạn thai kỳ.",
     "specifications": {
-      "ingredients": ["Vitamin C (73.34mg)", "Glycine (50mg)", "Canxi (44mg)", "Magie (40mg)", "Vỏ chanh (20mg)", "Chất xơ hòa tan (20mg)", "Dầu cá tinh luyện (18mg)", "Dầu Cọ (2mg)", "Tảo xoắn (20mg)", "Sắt Heme (16mg)", "Men chứa kẽm (10mg)", "thực vật lên men (10mg)", "Vitamin B3 (8.66mg)", "Vitamin E (4.2mg)", "Vitamin B5 (3.84mg)", "Vitamin B2 (0.94mg)", "Vitamin B1 (0.88mg)", "Vitamin B6 (0.86mg)", "Vitamin A (0.616mg)", "Axit Folic (0.176mg)", "Vitamin D (0.00404mg)", "Vitamin B12 (0.00192mg)", "Bột Men Baker (0.3mg)"],
-      "origin": ["Nhật Bản"],
-      "manufacturer": ["Have fun Factory Co., Ltd"],
+      "ingredients": [
+        "Vitamin C (73.34mg)",
+        "Glycine (50mg)",
+        "Canxi (44mg)",
+        "Magie (40mg)",
+        "Vỏ chanh (20mg)",
+        "Chất xơ hòa tan (20mg)",
+        "Dầu cá tinh luyện (18mg)",
+        "Dầu Cọ (2mg)",
+        "Tảo xoắn (20mg)",
+        "Sắt Heme (16mg)",
+        "Men chứa kẽm (10mg)",
+        "thực vật lên men (10mg)",
+        "Vitamin B3 (8.66mg)",
+        "Vitamin E (4.2mg)",
+        "Vitamin B5 (3.84mg)",
+        "Vitamin B2 (0.94mg)",
+        "Vitamin B1 (0.88mg)",
+        "Vitamin B6 (0.86mg)",
+        "Vitamin A (0.616mg)",
+        "Axit Folic (0.176mg)",
+        "Vitamin D (0.00404mg)",
+        "Vitamin B12 (0.00192mg)",
+        "Bột Men Baker (0.3mg)"
+      ],
+      "origin": [
+        "Nhật Bản"
+      ],
+      "manufacturer": [
+        "Have fun Factory Co., Ltd"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -641,7 +891,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00544_3c66d47fd2.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00544_3c66d47fd2.png",
+    "soldCount": 420
   },
   {
     "productId": "00503294",
@@ -658,9 +909,25 @@
     },
     "description": "Prenatal One cung cấp DHA, vitamin và khoáng chất thiết yếu, giúp cân bằng dinh dưỡng cho phụ nữ đang mang thai và sau khi sinh.",
     "specifications": {
-      "ingredients": ["Folic Acid (1mg)", "Vitamin B6 (1.9mg)", "Vitamin B5 (6mg)", "Vitamin E (10iu)", "Vitamin B3 (18mg)", "Magnesium (25mg)", "Iron (Ferrous Fumarate) (45mg)", "Vitamin C (80mg)", "Calcium Carbonate (110mg)", "DHA (150mg)", "Vitamin D3 (400iu)"],
-      "origin": ["Hoa Kỳ"],
-      "manufacturer": ["VITAMINS FOR LIFE LABORATORIES"],
+      "ingredients": [
+        "Folic Acid (1mg)",
+        "Vitamin B6 (1.9mg)",
+        "Vitamin B5 (6mg)",
+        "Vitamin E (10iu)",
+        "Vitamin B3 (18mg)",
+        "Magnesium (25mg)",
+        "Iron (Ferrous Fumarate) (45mg)",
+        "Vitamin C (80mg)",
+        "Calcium Carbonate (110mg)",
+        "DHA (150mg)",
+        "Vitamin D3 (400iu)"
+      ],
+      "origin": [
+        "Hoa Kỳ"
+      ],
+      "manufacturer": [
+        "VITAMINS FOR LIFE LABORATORIES"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -669,7 +936,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00115_72e83dcffe.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00115_72e83dcffe.jpg",
+    "soldCount": 360
   },
   {
     "productId": "00021616",
@@ -686,9 +954,23 @@
     },
     "description": "Prenatal One cung cấp DHA, vitamin và khoáng chất thiết yếu giúp cân bằng dinh dưỡng cho phụ nữ đang mang thai và sau khi sinh, giúp thai nhi phát triển khỏe mạnh.",
     "specifications": {
-      "ingredients": ["Vitamin D3 (400iu)", "Calcium Carbonate (110mg)", "Iron (45mg)", "Magnesium (25mg)", "Vitamin B3 (18mg)", "Vitamin E (10iu)", "Vitamin B5 (6mg)", "Vitamin B6 (1.9mg)", "Acid folic (1mg)"],
-      "origin": ["Hoa Kỳ"],
-      "manufacturer": ["VITAMINS FOR LIFE LABORATORIES"],
+      "ingredients": [
+        "Vitamin D3 (400iu)",
+        "Calcium Carbonate (110mg)",
+        "Iron (45mg)",
+        "Magnesium (25mg)",
+        "Vitamin B3 (18mg)",
+        "Vitamin E (10iu)",
+        "Vitamin B5 (6mg)",
+        "Vitamin B6 (1.9mg)",
+        "Acid folic (1mg)"
+      ],
+      "origin": [
+        "Hoa Kỳ"
+      ],
+      "manufacturer": [
+        "VITAMINS FOR LIFE LABORATORIES"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -697,7 +979,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00021616_prenatal_one_30_vien_8270_6327_large_b7aaa7b503.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00021616_prenatal_one_30_vien_8270_6327_large_b7aaa7b503.jpg",
+    "soldCount": 285
   },
   {
     "productId": "00040135",
@@ -714,9 +997,38 @@
     },
     "description": "Precare Mama Diamond bổ sung DHA, EPA, các vitamin, khoáng chất và acid amin cho phụ nữ mang thai và trong thời kỳ cho con bú. Duy trì sức khỏe nâng cao sức đề kháng cho bà mẹ.",
     "specifications": {
-      "ingredients": ["DHA (125mg)", "EPA (30mg)", "L-Carnitine (25mg)", "Calci from milk (20mg)", "Kẽm oxide (15mg)", "Lysine HCl (12.5mg)", "Sắt fumarate (11mg)", "Phốt pho (10mg)", "Magie oxide (8.3mg)", "Vitamin B3 (5mg)", "Vitamin B5 (5mg)", "Vitamin E (2iu)", "Vitamin B1 (1.5mg)", "Vitamin B2 (1.5mg)", "Vitamin B6 (1.5mg)", "Axit Folic (450mcg)", "Đồng sulfate (0.78mg)", "Mangan sulfate (0.61mg)", "Vitamin A (600iu)", "Vitamin D3 (400iu)", "KIO3 (13mcg)", "Vitamin H (80mcg)", "Vitamin K2 (0,15%) (0.05mg)", "Selen (2‰) (0.05mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY DƯỢC PHẨM VÀ THƯƠNG MẠI THÀNH CÔNG - TNHH"],
+      "ingredients": [
+        "DHA (125mg)",
+        "EPA (30mg)",
+        "L-Carnitine (25mg)",
+        "Calci from milk (20mg)",
+        "Kẽm oxide (15mg)",
+        "Lysine HCl (12.5mg)",
+        "Sắt fumarate (11mg)",
+        "Phốt pho (10mg)",
+        "Magie oxide (8.3mg)",
+        "Vitamin B3 (5mg)",
+        "Vitamin B5 (5mg)",
+        "Vitamin E (2iu)",
+        "Vitamin B1 (1.5mg)",
+        "Vitamin B2 (1.5mg)",
+        "Vitamin B6 (1.5mg)",
+        "Axit Folic (450mcg)",
+        "Đồng sulfate (0.78mg)",
+        "Mangan sulfate (0.61mg)",
+        "Vitamin A (600iu)",
+        "Vitamin D3 (400iu)",
+        "KIO3 (13mcg)",
+        "Vitamin H (80mcg)",
+        "Vitamin K2 (0,15%) (0.05mg)",
+        "Selen (2‰) (0.05mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY DƯỢC PHẨM VÀ THƯƠNG MẠI THÀNH CÔNG - TNHH"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -725,7 +1037,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09581_5712979ba0.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09581_5712979ba0.jpg",
+    "soldCount": 440
   },
   {
     "productId": "00040296",
@@ -742,9 +1055,16 @@
     },
     "description": "ProMUM DHA alg bổ sung DHA cho phụ nữ có thai và cho con bú. Hỗ trợ tốt cho sự phát triển của thai nhi và trẻ bú mẹ.",
     "specifications": {
-      "ingredients": ["Dầu tảo Schizochytrium sp (1000mg)", "Vitamin E (6mg)"],
-      "origin": ["Ba Lan"],
-      "manufacturer": ["Exim Pharma"],
+      "ingredients": [
+        "Dầu tảo Schizochytrium sp (1000mg)",
+        "Vitamin E (6mg)"
+      ],
+      "origin": [
+        "Ba Lan"
+      ],
+      "manufacturer": [
+        "Exim Pharma"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -753,7 +1073,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09300_68669e0539.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_09300_68669e0539.png",
+    "soldCount": 310
   },
   {
     "productId": "00500357",
@@ -770,9 +1091,29 @@
     },
     "description": "Premom Gold cung cấp vitamin và khoáng chất cần thiết cho phụ nữ trong giai đoạn chuẩn bị mang thai.",
     "specifications": {
-      "ingredients": ["Vitamin B12 (0.002mg)", "Folic Acid (0.4mg)", "Vitamin B1 (1.5mg)", "Vitamin B2 (1.5mg)", "Nấm linh chi (2.5mg)", "Men khoáng (2.5mg)", "Natri sắt citrate (2.5mg)", "Canxi từ san hô (5mg)", "Kẽm (5mg)", "Sắt (5mg)", "chiết xuất nhau thai heo (10mg)", "Vitamin C (20mg)", "L-Arginine (100mg)", "Chiết xuất nấm men bia (50mg)", "Chiết xuất Maca (20mg)"],
-      "origin": ["Nhật Bản"],
-      "manufacturer": ["GENSEI CO.,LTD"],
+      "ingredients": [
+        "Vitamin B12 (0.002mg)",
+        "Folic Acid (0.4mg)",
+        "Vitamin B1 (1.5mg)",
+        "Vitamin B2 (1.5mg)",
+        "Nấm linh chi (2.5mg)",
+        "Men khoáng (2.5mg)",
+        "Natri sắt citrate (2.5mg)",
+        "Canxi từ san hô (5mg)",
+        "Kẽm (5mg)",
+        "Sắt (5mg)",
+        "chiết xuất nhau thai heo (10mg)",
+        "Vitamin C (20mg)",
+        "L-Arginine (100mg)",
+        "Chiết xuất nấm men bia (50mg)",
+        "Chiết xuất Maca (20mg)"
+      ],
+      "origin": [
+        "Nhật Bản"
+      ],
+      "manufacturer": [
+        "GENSEI CO.,LTD"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -781,7 +1122,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00500357_vien_uong_ho_tro_phu_nu_truoc_khi_mang_thai_premom_gold_jpanwell_60v_8227_6298_large_ae1845b873.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00500357_vien_uong_ho_tro_phu_nu_truoc_khi_mang_thai_premom_gold_jpanwell_60v_8227_6298_large_ae1845b873.jpg",
+    "soldCount": 175
   },
   {
     "productId": "00018337",
@@ -798,9 +1140,20 @@
     },
     "description": "Bộ 3 chai nước xông tắm cho mẹ sau sinh Tabame với thành phần chiết xuất từ thiên nhiên sẽ giúp cho các mẹ sau sinh tăng cường sức khỏe, phòng được các bệnh sản hậu, làm sạch, kháng khuẩn, giảm đau, giảm stress,...Sản phẩm phù hợp cho các bà mẹ sau sinh, phụ nữ sẩy thai, mệt mỏi và mới ốm dậy. Đặc biệt khi sử dụng 6 chai, sản phụ không cần kiêng cữ.",
     "specifications": {
-      "ingredients": ["Cơm cháy (37 )", "Đơn lá đỏ (1%)", "Bướm bạc đỏ (25 )", "Dây ông lão (30 )", "Chù dù (25 )", "Sung (37%)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["LA TERRE FRANC"],
+      "ingredients": [
+        "Cơm cháy (37 )",
+        "Đơn lá đỏ (1%)",
+        "Bướm bạc đỏ (25 )",
+        "Dây ông lão (30 )",
+        "Chù dù (25 )",
+        "Sung (37%)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "LA TERRE FRANC"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -809,7 +1162,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00018337_combo_tabame_herbe_250ml_x_3_chai_nuoc_xong_tam_goi_cho_ba_me_sau_sinh_2687_5d15_large_b37fad9c78.JPG"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00018337_combo_tabame_herbe_250ml_x_3_chai_nuoc_xong_tam_goi_cho_ba_me_sau_sinh_2687_5d15_large_b37fad9c78.JPG",
+    "soldCount": 220
   },
   {
     "productId": "00345407",
@@ -826,9 +1180,34 @@
     },
     "description": "Vital Pregna bổ sung acid folic đồng thời cung cấp các vitamin và khoáng chất cần thiết cho bà mẹ trong quá trình chuẩn bị mang thai, đang mang thai và thời kỳ cho con bú. Hỗ trợ tăng cường sức khỏe.",
     "specifications": {
-      "ingredients": ["Vitamin E (12mg)", "Beta carotene (2mg)", "Dầu cá (176mg)", "Vitamin D3 (5Mcg)", "Vitamin B5 (6mg)", "Vitamin B1 (1.2mg)", "Vitamin B2 (1.5mg)", "Vitamin B6 (2mg)", "Acid folic (400Mcg)", "Biotin (60Mcg)", "Vitamin B3 (15mg)", "Vitamin B12 (2Mcg)", "Sắt (14mg)", "magnesi (60mg)", "Kẽm (5mg)", "Copper (1mg)", "Iod (150mcg)", "DHA (126mg)", "Vitamin C (80mg)", "Đồng (1mg)"],
-      "origin": ["Đức"],
-      "manufacturer": ["QUEISSER PHARMA GMBH & CO.KG"],
+      "ingredients": [
+        "Vitamin E (12mg)",
+        "Beta carotene (2mg)",
+        "Dầu cá (176mg)",
+        "Vitamin D3 (5Mcg)",
+        "Vitamin B5 (6mg)",
+        "Vitamin B1 (1.2mg)",
+        "Vitamin B2 (1.5mg)",
+        "Vitamin B6 (2mg)",
+        "Acid folic (400Mcg)",
+        "Biotin (60Mcg)",
+        "Vitamin B3 (15mg)",
+        "Vitamin B12 (2Mcg)",
+        "Sắt (14mg)",
+        "magnesi (60mg)",
+        "Kẽm (5mg)",
+        "Copper (1mg)",
+        "Iod (150mcg)",
+        "DHA (126mg)",
+        "Vitamin C (80mg)",
+        "Đồng (1mg)"
+      ],
+      "origin": [
+        "Đức"
+      ],
+      "manufacturer": [
+        "QUEISSER PHARMA GMBH & CO.KG"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -837,7 +1216,8 @@
     },
     "category": "Mẹ & Bé",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/aktiv_vital_pregnal_30v_00345407_7_4bc309ca17.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/aktiv_vital_pregnal_30v_00345407_7_4bc309ca17.png",
+    "soldCount": 395
   },
   {
     "productId": "00047373",
@@ -854,9 +1234,22 @@
     },
     "description": "Viên vai gáy Abipha dùng điều trị các chứng đau cơ, xương, khớp, viêm khớp, thoái hóa khớp, viêm quanh khớp vai, đau vai gáy do co cứng cơ, hội chứng vai tay, thoái hóa cột sống cổ và các chứng đau từ lưng ra hai tay.",
     "specifications": {
-      "ingredients": ["Hoàng kỳ", "Xích thược", "Khương hoạt", "Khương hoàng", "Phòng phong", "Đương quy", "Cam thảo", "Can khương"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["Abipha"],
+      "ingredients": [
+        "Hoàng kỳ",
+        "Xích thược",
+        "Khương hoạt",
+        "Khương hoàng",
+        "Phòng phong",
+        "Đương quy",
+        "Cam thảo",
+        "Can khương"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "Abipha"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -865,7 +1258,8 @@
     },
     "category": "Khớp xương",
     "stock": 32,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_09934_66374ea472.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_09934_66374ea472.jpg",
+    "soldCount": 265
   },
   {
     "productId": "00501891",
@@ -882,9 +1276,29 @@
     },
     "description": "Xương khớp Trường Phúc có công dụng ích can bổ thận, bổ khí huyết, khu phong tán hàn trừ thấp, thông kinh hoạt lạc; dùng trong các trường hợp can thận hư, phong hàn thấp gây đau nhức mỏi, thắt lưng, đầu gối và các bệnh đau khớp, đau dây thần kinh.",
     "specifications": {
-      "ingredients": ["Phòng phong", "Độc hoạt", "Tang ký sinh", "Tần giao", "Tế tân", "Bạch linh", "Ngưu tất", "Đỗ trọng", "Bạch thược", "Quế chi", "Đảng sâm", "Sinh địa", "Xuyên khung", "Đương quy", "Cam thảo"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["TRƯỜNG PHÚC"],
+      "ingredients": [
+        "Phòng phong",
+        "Độc hoạt",
+        "Tang ký sinh",
+        "Tần giao",
+        "Tế tân",
+        "Bạch linh",
+        "Ngưu tất",
+        "Đỗ trọng",
+        "Bạch thược",
+        "Quế chi",
+        "Đảng sâm",
+        "Sinh địa",
+        "Xuyên khung",
+        "Đương quy",
+        "Cam thảo"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "TRƯỜNG PHÚC"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -893,7 +1307,8 @@
     },
     "category": "Khớp xương",
     "stock": 28,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00501891_7317_631e_large_5ad83881d2.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00501891_7317_631e_large_5ad83881d2.jpg",
+    "soldCount": 310
   },
   {
     "productId": "00022043",
@@ -910,9 +1325,16 @@
     },
     "description": "CalciD Soft Usa - Nic Pharma cung cấp calci và vitamin D cho cơ thể trong các trường hợp trẻ còi xương, trẻ đang phát triển, loãng xương ở người già, co giật do giảm calci huyết, phụ nữ mang thai và cho con bú.",
     "specifications": {
-      "ingredients": ["Calci carbonat", "Vitamin D3"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["Usa - Nic Pharma"],
+      "ingredients": [
+        "Calci carbonat",
+        "Vitamin D3"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "Usa - Nic Pharma"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -921,7 +1343,8 @@
     },
     "category": "Khớp xương",
     "stock": 36,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00022043_calcid_soft_usa_nic_pharma_10x10_4283_62ad_large_63c17ef507.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00022043_calcid_soft_usa_nic_pharma_10x10_4283_62ad_large_63c17ef507.jpg",
+    "soldCount": 480
   },
   {
     "productId": "00033098",
@@ -938,9 +1361,15 @@
     },
     "description": "Thuốc bột Glucosamine có thành phần chính là glucosamine sulfate, được sử dụng để làm giảm triệu chứng của thoái hóa khớp gối nhẹ và trung bình.",
     "specifications": {
-      "ingredients": ["Glucosamin sulfate"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["STADA"],
+      "ingredients": [
+        "Glucosamin sulfate"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "STADA"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -949,7 +1378,8 @@
     },
     "category": "Khớp xương",
     "stock": 42,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00033098_glucosamine_stada_1500mg_sachet_30_goi_6826_61c9_large_1014aa0dec.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00033098_glucosamine_stada_1500mg_sachet_30_goi_6826_61c9_large_1014aa0dec.jpg",
+    "soldCount": 540
   },
   {
     "productId": "00018614",
@@ -966,9 +1396,16 @@
     },
     "description": "Thuốc Natecal D3 có thành phần chính gồm Calcium 600mg và Cholecalciferol 400IU, dùng để điều trị và phục hồi sự thiếu vitamin D kết hợp với calci ở người cao tuổi, đồng thời hỗ trợ điều trị đặc hiệu ở bệnh nhân loãng xương.",
     "specifications": {
-      "ingredients": ["Calcium", "Cholecalciferol"],
-      "origin": ["Ý"],
-      "manufacturer": ["ITALFARMACO S.P.A."],
+      "ingredients": [
+        "Calcium",
+        "Cholecalciferol"
+      ],
+      "origin": [
+        "Ý"
+      ],
+      "manufacturer": [
+        "ITALFARMACO S.P.A."
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -977,7 +1414,8 @@
     },
     "category": "Khớp xương",
     "stock": 24,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_00100_abc103f79f.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_00100_abc103f79f.png",
+    "soldCount": 390
   },
   {
     "productId": "00007853",
@@ -994,9 +1432,15 @@
     },
     "description": "Viartril S gói có hoạt chất glucosamine sulfate, có tác dụng giảm triệu chứng thoái hóa khớp gối nhẹ và trung bình.",
     "specifications": {
-      "ingredients": ["Glucosamin sulfate"],
-      "origin": ["Ý"],
-      "manufacturer": ["Rottapharm"],
+      "ingredients": [
+        "Glucosamin sulfate"
+      ],
+      "origin": [
+        "Ý"
+      ],
+      "manufacturer": [
+        "Rottapharm"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1005,7 +1449,8 @@
     },
     "category": "Khớp xương",
     "stock": 22,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00007853_viartril_s_1223_62a7_large_0020b65a27.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/00007853_viartril_s_1223_62a7_large_0020b65a27.jpg",
+    "soldCount": 620
   },
   {
     "productId": "00001518",
@@ -1022,9 +1467,16 @@
     },
     "description": "Viên sủi Calcium Hasan dùng phòng và hỗ trợ điều trị bệnh loãng xương ở phụ nữ mãn kinh, người cao tuổi và các đối tượng có nguy cơ cao; đồng thời bổ sung calci trong các trường hợp còi xương, nhuyễn xương, mất xương cấp và mạn.",
     "specifications": {
-      "ingredients": ["Calci lactat", "Calci carbonat"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["Hasan"],
+      "ingredients": [
+        "Calci lactat",
+        "Calci carbonat"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "Hasan"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1033,7 +1485,8 @@
     },
     "category": "Khớp xương",
     "stock": 44,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/IMG_3111_454869e597.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/IMG_3111_454869e597.jpg",
+    "soldCount": 285
   },
   {
     "productId": "00001431",
@@ -1050,9 +1503,16 @@
     },
     "description": "Briozcal là thuốc bổ sung canxi 500mg kết hợp vitamin D3 trong một viên nén, giúp giảm nguy cơ loãng xương và được dùng để phòng và điều trị loãng xương ở phụ nữ và người có nguy cơ cao.",
     "specifications": {
-      "ingredients": ["Calci carbonat", "Cholecalciferol"],
-      "origin": ["Hoa Kỳ"],
-      "manufacturer": ["Bridge Healthcare"],
+      "ingredients": [
+        "Calci carbonat",
+        "Cholecalciferol"
+      ],
+      "origin": [
+        "Hoa Kỳ"
+      ],
+      "manufacturer": [
+        "Bridge Healthcare"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1061,7 +1521,8 @@
     },
     "category": "Khớp xương",
     "stock": 26,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/IMG_2266_e76c6a10d4.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/IMG_2266_e76c6a10d4.jpg",
+    "soldCount": 175
   },
   {
     "productId": "00013776",
@@ -1078,9 +1539,16 @@
     },
     "description": "Caldihasan có thành phần chính là calci carbonat và cholecalciferol, dùng để bổ sung khoáng chất và vitamin; phòng và điều trị loãng xương ở người lớn, còi xương ở trẻ em và bổ sung calci, vitamin D trong giai đoạn tăng trưởng.",
     "specifications": {
-      "ingredients": ["Calci carbonat", "Cholecalciferol"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["Hasan - Dermapharm"],
+      "ingredients": [
+        "Calci carbonat",
+        "Cholecalciferol"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "Hasan - Dermapharm"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1089,7 +1557,8 @@
     },
     "category": "Khớp xương",
     "stock": 40,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/IMG_2328_89edc7895e.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/IMG_2328_89edc7895e.jpg",
+    "soldCount": 340
   },
   {
     "productId": "00005274",
@@ -1106,9 +1575,18 @@
     },
     "description": "Thuốc PM NextG Cal do Probiotec Pharma sản xuất, có công dụng bổ sung canxi trong trường hợp thiếu canxi và giúp điều trị loãng xương. Thuốc phù hợp cho người bị loãng xương hoặc thiếu canxi.",
     "specifications": {
-      "ingredients": ["Vitamin K1", "Cholecalciferol", "Calcium", "Phosphorus"],
-      "origin": ["Úc"],
-      "manufacturer": ["MBC"],
+      "ingredients": [
+        "Vitamin K1",
+        "Cholecalciferol",
+        "Calcium",
+        "Phosphorus"
+      ],
+      "origin": [
+        "Úc"
+      ],
+      "manufacturer": [
+        "MBC"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1117,7 +1595,8 @@
     },
     "category": "Khớp xương",
     "stock": 20,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/nextg_92f642101c.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/nextg_92f642101c.jpg",
+    "soldCount": 210
   },
   {
     "productId": "00032388",
@@ -1134,9 +1613,16 @@
     },
     "description": "Dung dịch uống Calcium Corbière Extra chứa Calcium glubionate và Calcium lactobionate, dùng bổ sung canxi trong hỗ trợ điều trị loãng xương và tình trạng thiếu canxi, đặc biệt ở phụ nữ mang thai, cho con bú, trẻ em đang lớn, giai đoạn hồi phục và gãy xương.",
     "specifications": {
-      "ingredients": ["Calcium glubionate", "Calcium lactobionate"],
-      "origin": ["Pháp"],
-      "manufacturer": ["Sanofi"],
+      "ingredients": [
+        "Calcium glubionate",
+        "Calcium lactobionate"
+      ],
+      "origin": [
+        "Pháp"
+      ],
+      "manufacturer": [
+        "Sanofi"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1145,7 +1631,8 @@
     },
     "category": "Khớp xương",
     "stock": 30,
-    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_02581_2f1a3f2f6b.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/375x0/filters:quality(90):format(webp)/DSC_02581_2f1a3f2f6b.jpg",
+    "soldCount": 455
   },
   {
     "productId": "00044791",
@@ -1162,9 +1649,30 @@
     },
     "description": "JMsolution Marine Luminous Pearl Deep Moisture Mask là bộ sản phẩm chăm sóc cho da bao gồm: Step 1 - Marine waterfull essence: Tinh chất tăng cường dưỡng ẩm cho da. Step 2 – Marine Luminous Mask: Mặt nạ dưỡng ẩm và dưỡng trắng. Step 3 – Marine All Face Eye Cream: Kem dưỡng quanh vùng mắt.",
     "specifications": {
-      "ingredients": ["Water", "Glycerin", "Dipropylene glycol", "sea water", "Butylene glycol", "1,2-Hexanediol", "Hydrolyzed Collagen", "hydrolyzed conchiolin protein", "Pearl Extract", "Undaria Pinnatifida Extract", "Codium pragiie extract", "Enteromorpha compressa extract", "Laminaria Angustata Extract", "Salicornia herbacea extract", "Sodium hyaluronate", "Hydrolyzed Hyaluronic Acid"],
-      "origin": ["Hàn Quốc"],
-      "manufacturer": ["JOR R&D CO., LTD"],
+      "ingredients": [
+        "Water",
+        "Glycerin",
+        "Dipropylene glycol",
+        "sea water",
+        "Butylene glycol",
+        "1,2-Hexanediol",
+        "Hydrolyzed Collagen",
+        "hydrolyzed conchiolin protein",
+        "Pearl Extract",
+        "Undaria Pinnatifida Extract",
+        "Codium pragiie extract",
+        "Enteromorpha compressa extract",
+        "Laminaria Angustata Extract",
+        "Salicornia herbacea extract",
+        "Sodium hyaluronate",
+        "Hydrolyzed Hyaluronic Acid"
+      ],
+      "origin": [
+        "Hàn Quốc"
+      ],
+      "manufacturer": [
+        "JOR R&D CO., LTD"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1173,7 +1681,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_05112_acb915307e.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_05112_acb915307e.png",
+    "soldCount": 380
   },
   {
     "productId": "00049565",
@@ -1190,9 +1699,32 @@
     },
     "description": "Kem bôi giúp giảm ngứa, làm dịu, kích ứng do: Hăm tã, bỏng nắng, côn trùng đốt, da tổn thương sau khi triệt lông và cạo râu. Kem dưỡng da, giúp da mềm mịn, giúp dưỡng ẩm da, làm dịu da.",
     "specifications": {
-      "ingredients": ["Aqua", "Betaine", "Hydrogenated Polyisobutene", "C15-19 Alkane", "C20-22 Alcohols", "C20-22 Alkyl Phosphate", "Ethylhexyl Stearate", "Maltodextrin", "Cetyl alcohol", "Canola oil", "Capric/Capric triglyceride", "Olea europaea leaf", "triethanolamine", "Butyrospermum Parkii Butter", "Caprylyl glycol", "Hydroxyethyl Acrylate", "Parfum", "Triethyl citrate"],
-      "origin": ["Ý"],
-      "manufacturer": ["FARMACEUTICI  DOTT. CICCARELLI S.P.A."],
+      "ingredients": [
+        "Aqua",
+        "Betaine",
+        "Hydrogenated Polyisobutene",
+        "C15-19 Alkane",
+        "C20-22 Alcohols",
+        "C20-22 Alkyl Phosphate",
+        "Ethylhexyl Stearate",
+        "Maltodextrin",
+        "Cetyl alcohol",
+        "Canola oil",
+        "Capric/Capric triglyceride",
+        "Olea europaea leaf",
+        "triethanolamine",
+        "Butyrospermum Parkii Butter",
+        "Caprylyl glycol",
+        "Hydroxyethyl Acrylate",
+        "Parfum",
+        "Triethyl citrate"
+      ],
+      "origin": [
+        "Ý"
+      ],
+      "manufacturer": [
+        "FARMACEUTICI  DOTT. CICCARELLI S.P.A."
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1201,7 +1733,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_01131_6136a3a49a.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_01131_6136a3a49a.png",
+    "soldCount": 290
   },
   {
     "productId": "00044797",
@@ -1218,9 +1751,27 @@
     },
     "description": "Nước tẩy trang JMSolution Derma Care Centella Cleansing Water Clear giúp loại bỏ lớp trang điểm và làm sạch da. Sản phẩm thích hợp cho làn da dầu mụn với chiết xuất từ cây rau má lành tính, hỗ trợ diệt khuẩn giúp ngăn ngừa mụn và giảm vết đỏ do mụn gây ra.",
     "specifications": {
-      "ingredients": ["Water", "Peg-6 Caprylic", "Butylene glycol", "1,2-Hexanediol", "Phenoxyethanol", "PEG-7 Glyceryl Cocoate", "Peg-40 Hydrogenated Castor Oil", "Disodium EDTA", "Ethylhexyl Glycerin", "Centella Asiatica Leaf Extract", "Fragrance", "Glycerin", "Panthenol"],
-      "origin": ["Hàn Quốc"],
-      "manufacturer": ["JOR R&D CO., LTD"],
+      "ingredients": [
+        "Water",
+        "Peg-6 Caprylic",
+        "Butylene glycol",
+        "1,2-Hexanediol",
+        "Phenoxyethanol",
+        "PEG-7 Glyceryl Cocoate",
+        "Peg-40 Hydrogenated Castor Oil",
+        "Disodium EDTA",
+        "Ethylhexyl Glycerin",
+        "Centella Asiatica Leaf Extract",
+        "Fragrance",
+        "Glycerin",
+        "Panthenol"
+      ],
+      "origin": [
+        "Hàn Quốc"
+      ],
+      "manufacturer": [
+        "JOR R&D CO., LTD"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1229,7 +1780,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_04740_8ade38f685.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_04740_8ade38f685.jpg",
+    "soldCount": 310
   },
   {
     "productId": "00041654",
@@ -1246,9 +1798,27 @@
     },
     "description": "Sáp dưỡng ẩm Vaseline Fobelife là sản phẩm làm mềm da , làm dịu da khi bị: Khô rát, nứt nẻ. Sản phẩm giúp dưỡng môi mềm mịn căng mọng , cải thiện vùng da bị khô, bong tróc, nứt nẻ .",
     "specifications": {
-      "ingredients": ["Petrolatum", "Paraffinum Liquidum", "Cetearyl Alcohol", "Disodium EDTA", "Panthenol", "Hydrogenated Olive Oil", "Olea Europaea", "Fruit Oil", "Oil Unsaponifiables", "Euphorbia Cerifera (Candelilla) Wax", "Fragrance", "DMHC Hydantoin", "Linoleic acid & Linolenic acid (Vitamin F)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["Công ty cổ phần Fobelife"],
+      "ingredients": [
+        "Petrolatum",
+        "Paraffinum Liquidum",
+        "Cetearyl Alcohol",
+        "Disodium EDTA",
+        "Panthenol",
+        "Hydrogenated Olive Oil",
+        "Olea Europaea",
+        "Fruit Oil",
+        "Oil Unsaponifiables",
+        "Euphorbia Cerifera (Candelilla) Wax",
+        "Fragrance",
+        "DMHC Hydantoin",
+        "Linoleic acid & Linolenic acid (Vitamin F)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "Công ty cổ phần Fobelife"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1257,7 +1827,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/vaseline_50g_4_03428700c2.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/vaseline_50g_4_03428700c2.jpg",
+    "soldCount": 425
   },
   {
     "productId": "00006940",
@@ -1274,9 +1845,25 @@
     },
     "description": "Gel làm sạch và sát khuẩn da Subạc là sản phẩm có công dụng làm sạch da, kháng khuẩn, chăm sóc và bảo vệ da, làm dịu da khi bị: Rôm sảy, mụn nhọt, zona, viêm da, herpes, thủy đậu, bỏng, bị sưng tấy do muỗi/côn trùng đốt… Góp phần kích thích tái tạo tế bào da mới và ngăn ngừa sẹo.",
     "specifications": {
-      "ingredients": ["Nước tinh khiết", "Propylene glycol", "Dung dịch Nano bạc", "Citric Acid", "Chitosan", "Glycerin", "hydroxyethylcellulose", "Nipagin", "Propylparaben", "Azadirachta indica extract", "Kẽm salicylate"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ SẢN XUẤT ÂU CƠ"],
+      "ingredients": [
+        "Nước tinh khiết",
+        "Propylene glycol",
+        "Dung dịch Nano bạc",
+        "Citric Acid",
+        "Chitosan",
+        "Glycerin",
+        "hydroxyethylcellulose",
+        "Nipagin",
+        "Propylparaben",
+        "Azadirachta indica extract",
+        "Kẽm salicylate"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY CỔ PHẦN ĐẦU TƯ VÀ SẢN XUẤT ÂU CƠ"
+      ],
       "shelfLife": "60 tháng"
     },
     "policies": {
@@ -1285,7 +1872,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00006940_su_bac_gel_lam_sach_sat_khuan_da_8596_63aa_large_5e8c66eecc.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00006940_su_bac_gel_lam_sach_sat_khuan_da_8596_63aa_large_5e8c66eecc.jpg",
+    "soldCount": 195
   },
   {
     "productId": "00032141",
@@ -1302,9 +1890,20 @@
     },
     "description": "Nhũ tương có chứa 1% Urê giúp làm mềm, làm mịn da, dưỡng ẩm, dưỡng da, giảm khô, thô ráp và nứt nẻ da. Bảo vệ da, làm dịu da, đem lại cho da cảm giác dễ chịu sau khi sử dụng. Sản phẩm thích hợp dành chăm sóc da rất khô, da nhạy cảm và da bị mẩn đỏ, đặc biệt dùng được cho trẻ sơ sinh và trẻ nhỏ.",
     "specifications": {
-      "ingredients": ["Polyglyceryl-3 Methylglucose Distearate", "Hydrogenated Polydecene", "Glycerin", "Glyceryl stearate", "Caprylic/capric triglycerides", "Aqua/ Water"],
-      "origin": ["Ba Lan"],
-      "manufacturer": ["ZIAJA"],
+      "ingredients": [
+        "Polyglyceryl-3 Methylglucose Distearate",
+        "Hydrogenated Polydecene",
+        "Glycerin",
+        "Glyceryl stearate",
+        "Caprylic/capric triglycerides",
+        "Aqua/ Water"
+      ],
+      "origin": [
+        "Ba Lan"
+      ],
+      "manufacturer": [
+        "ZIAJA"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1313,7 +1912,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/nhu_tuong_duong_am_lam_mem_da_ziaja_1_ure_baniphar_400ml_00032141_1_0e074d8b71.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/nhu_tuong_duong_am_lam_mem_da_ziaja_1_ure_baniphar_400ml_00032141_1_0e074d8b71.png",
+    "soldCount": 265
   },
   {
     "productId": "C052300000460",
@@ -1330,9 +1930,55 @@
     },
     "description": "Mặt nạ Banobagi Stem Cell Vitamin Mask Whitening & Tone-up chiết xuất từ cà rốt và phức hợp vitamin giúp làm sáng da, chăm sóc chuyên sâu cho làn da đều màu, hỗ trợ nâng tông da.",
     "specifications": {
-      "ingredients": ["Water", "Methylpropanediol", "Niacinamide", "Panthenol", "acrylates/C10-30 alkyl acrylate crosspolymer", "Chlorphenesin", "Hydroxyacetophenone", "Tromethamine", "Sodium hyaluronate", "Allantoin", "Trehalose", "Xanthan gum", "Adenosine", "Dipotassium Glycyrrhizate", "Disodium EDTA", "Thiamine HCl", "Riboflavin", "Niacin", "Carnitine HCl", "Pantothenic acid", "Biotin", "Folic Acid", "Acid Ascorbic", "Tocopherol", "Candida albicans", "1,2-Hexanediol", "Cyclodextrin", "Maltodextrin", "Glyceryl Linoleate", "Polygonum Root", "Lime (citrus)", "Macadamia Ternifolia Seed Oil", "Cocos Nucifera (Coconut) Oil", "Glyceryl Linolenate", "Malus Domestica Fruit Water", "Glyceryl Arachidonate", "Sodium Citrate", "Camellia Sinensis Leaf Extract", "Citric Acid", "Cyanocobalamin", "Ascorbyl palmitate"],
-      "origin": ["Hàn Quốc"],
-      "manufacturer": ["C&TECH CORP."],
+      "ingredients": [
+        "Water",
+        "Methylpropanediol",
+        "Niacinamide",
+        "Panthenol",
+        "acrylates/C10-30 alkyl acrylate crosspolymer",
+        "Chlorphenesin",
+        "Hydroxyacetophenone",
+        "Tromethamine",
+        "Sodium hyaluronate",
+        "Allantoin",
+        "Trehalose",
+        "Xanthan gum",
+        "Adenosine",
+        "Dipotassium Glycyrrhizate",
+        "Disodium EDTA",
+        "Thiamine HCl",
+        "Riboflavin",
+        "Niacin",
+        "Carnitine HCl",
+        "Pantothenic acid",
+        "Biotin",
+        "Folic Acid",
+        "Acid Ascorbic",
+        "Tocopherol",
+        "Candida albicans",
+        "1,2-Hexanediol",
+        "Cyclodextrin",
+        "Maltodextrin",
+        "Glyceryl Linoleate",
+        "Polygonum Root",
+        "Lime (citrus)",
+        "Macadamia Ternifolia Seed Oil",
+        "Cocos Nucifera (Coconut) Oil",
+        "Glyceryl Linolenate",
+        "Malus Domestica Fruit Water",
+        "Glyceryl Arachidonate",
+        "Sodium Citrate",
+        "Camellia Sinensis Leaf Extract",
+        "Citric Acid",
+        "Cyanocobalamin",
+        "Ascorbyl palmitate"
+      ],
+      "origin": [
+        "Hàn Quốc"
+      ],
+      "manufacturer": [
+        "C&TECH CORP."
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1341,7 +1987,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00025_00386132d2.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00025_00386132d2.jpg",
+    "soldCount": 440
   },
   {
     "productId": "00021179",
@@ -1358,9 +2005,17 @@
     },
     "description": "Baifem K là gel dưỡng ẩm, giảm khô, thô ráp da, giúp da trở nên mềm mịn. Làm dịu da và mang lại cho da cảm giác dễ chịu sau sử dụng. Bảo vệ da trước các tác nhân có hại từ môi trường bên ngoài. Gia tăng độ đàn hồi da và làm săn chắc da. Thích hợp dùng chăm sóc cho da và cơ quan sinh dục ngoài cho mọi đối tượng và mọi độ tuổi. Đặc biệt trong các trường hợp: Da bị mẩn đỏ, da nhạy cảm do nhiều nguyên nhân.",
     "specifications": {
-      "ingredients": ["Hoàng cầm", "Acid lactic", "Tá dược vừa đủ"],
-      "origin": ["Ba Lan"],
-      "manufacturer": ["HERBAPOL"],
+      "ingredients": [
+        "Hoàng cầm",
+        "Acid lactic",
+        "Tá dược vừa đủ"
+      ],
+      "origin": [
+        "Ba Lan"
+      ],
+      "manufacturer": [
+        "HERBAPOL"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1369,7 +2024,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03105_629349d90f.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03105_629349d90f.png",
+    "soldCount": 175
   },
   {
     "productId": "00042951",
@@ -1386,9 +2042,27 @@
     },
     "description": "Serum Uriage Cica Daily RépArateur Intense giúp dưỡng ẩm và phục hồi diện mạo của da, giúp tăng cường hàng rào và độ ẩm của da, dưỡng da sáng mịn và khỏe mạnh.",
     "specifications": {
-      "ingredients": ["Aqua", "Glycerin", "Diglycerin", "1,2-Hexanediol", "Inulin", "Panthenol", "Xanthan gum", "Sodium hyaluronate", "Propanediol", "Centella Asiatica Leaf Extract", "Citric Acid", "Zinc gluconate", "Glutamylamidoethyl Indole"],
-      "origin": ["Pháp"],
-      "manufacturer": ["LABORATOIRES DERMATOLOGIQUES D'URIAGE"],
+      "ingredients": [
+        "Aqua",
+        "Glycerin",
+        "Diglycerin",
+        "1,2-Hexanediol",
+        "Inulin",
+        "Panthenol",
+        "Xanthan gum",
+        "Sodium hyaluronate",
+        "Propanediol",
+        "Centella Asiatica Leaf Extract",
+        "Citric Acid",
+        "Zinc gluconate",
+        "Glutamylamidoethyl Indole"
+      ],
+      "origin": [
+        "Pháp"
+      ],
+      "manufacturer": [
+        "LABORATOIRES DERMATOLOGIQUES D'URIAGE"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1397,7 +2071,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00039_f5898ab4cc.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00039_f5898ab4cc.png",
+    "soldCount": 355
   },
   {
     "productId": "00502115",
@@ -1414,9 +2089,25 @@
     },
     "description": "Ziaja Med Mocznik 3% là sản phẩm chăm sóc da chứa 3% Urê giúp làm mềm, dưỡng ẩm, giảm khô, thô ráp da. Làm dịu da và giúp da trở nên mềm mịn. Giúp gia tăng độ đàn hồi da. Thích hợp chăm sóc cho da khô, da thô ráp, da bị mẩn đỏ và da nhạy cảm.",
     "specifications": {
-      "ingredients": ["Aqua", "Isononyl Isononanoate", "Butylene Glycol Dicaprylate/Dicaprate", "Glycerin", "propylen glycol", "Urea", "Dimethicone", "Cetearyl Alcohol", "Glyceryl stearate", "Peg-100 stearate", "Potassium Cetyl Phosphate"],
-      "origin": ["Ba Lan"],
-      "manufacturer": ["ZIAJA"],
+      "ingredients": [
+        "Aqua",
+        "Isononyl Isononanoate",
+        "Butylene Glycol Dicaprylate/Dicaprate",
+        "Glycerin",
+        "propylen glycol",
+        "Urea",
+        "Dimethicone",
+        "Cetearyl Alcohol",
+        "Glyceryl stearate",
+        "Peg-100 stearate",
+        "Potassium Cetyl Phosphate"
+      ],
+      "origin": [
+        "Ba Lan"
+      ],
+      "manufacturer": [
+        "ZIAJA"
+      ],
       "shelfLife": "Không rõ"
     },
     "policies": {
@@ -1425,7 +2116,8 @@
     },
     "category": "Chăm sóc da",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03041_c73db6a140.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03041_c73db6a140.jpg",
+    "soldCount": 285
   },
   {
     "productId": "00002794",
@@ -1442,9 +2134,21 @@
     },
     "description": "Thuốc Enervon là chế phẩm bổ sung để điều trị thiếu vitamin C và B ở người lớn và thanh thiếu niên trên 16 tuổi trong trường hợp thiếu hụt hoặc tăng nhu cầu như thời kì tăng trưởng nhanh, mệt mỏi, các trường hợp gắng sức về tinh thần và thể chất.",
     "specifications": {
-      "ingredients": ["Vitamin B12 (5mcg)", "Vitamin B1 (50mg)", "Vitamin B2 (20mg)", "Vitamin B3 (50mg)", "Vitamin B5 (20mg)", "Vitamin B6 (5mg)", "Vitamin C (500mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["UNITED"],
+      "ingredients": [
+        "Vitamin B12 (5mcg)",
+        "Vitamin B1 (50mg)",
+        "Vitamin B2 (20mg)",
+        "Vitamin B3 (50mg)",
+        "Vitamin B5 (20mg)",
+        "Vitamin B6 (5mg)",
+        "Vitamin C (500mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "UNITED"
+      ],
       "shelfLife": "48 tháng"
     },
     "policies": {
@@ -1453,7 +2157,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00179_0731a36ace.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_00179_0731a36ace.png",
+    "soldCount": 510
   },
   {
     "productId": "00501615",
@@ -1470,9 +2175,17 @@
     },
     "description": "Thuốc Palkids là sản phẩm của Công ty Cổ phần Dược Apimed có chứa hoạt chất Calcium Carbonate, Acid Ascorbic, L-Lysin HCL. Đây là thuốc giúp bổ sung calci, vitamin cho cơ thể nhằm tăng cường sức khỏe, hỗ trợ điều trị suy nhược cơ thể, cải thiện tình trạng sút cân, chán ăn, mệt mỏi.",
     "specifications": {
-      "ingredients": ["Calcium Carbonate (12.8mg)", "Acid Ascorbic (72.4mg)", "L-Lysin HCL (28.33mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["APIMED"],
+      "ingredients": [
+        "Calcium Carbonate (12.8mg)",
+        "Acid Ascorbic (72.4mg)",
+        "L-Lysin HCL (28.33mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "APIMED"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1481,7 +2194,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/palkids_608b2494b1.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/palkids_608b2494b1.jpg",
+    "soldCount": 380
   },
   {
     "productId": "00501124",
@@ -1498,9 +2212,17 @@
     },
     "description": "Thuốc Palkids là sản phẩm của Công Ty Cổ Phần Dược Apimed, có thành phần chính là Acid Ascorbic, Lysin HCl, Calcium carbonat. Đây là thuốc được sử dụng trong những trường hợp đang gặp các vấn đề sau: Suy nhược chức năng thường là các rối loạn tổng trạng: Suy nhược cơ thể, sút cân, chán ăn, mệt mỏi, lao lực, thời kỳ dưỡng bệnh,…",
     "specifications": {
-      "ingredients": ["Acid Ascorbic (72.4mg)", "Lysin HCl (28.33mg)", "Calcium carbonat (12.8mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY CỔ PHẦN DƯỢC APIMED"],
+      "ingredients": [
+        "Acid Ascorbic (72.4mg)",
+        "Lysin HCl (28.33mg)",
+        "Calcium carbonat (12.8mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY CỔ PHẦN DƯỢC APIMED"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1509,7 +2231,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/palkids_b7f6e99139.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/palkids_b7f6e99139.jpg",
+    "soldCount": 295
   },
   {
     "productId": "00000650",
@@ -1526,9 +2249,15 @@
     },
     "description": "Thuốc Althax là sản phẩm của Mediplantex chứa hoạt chất Thymomodulin có tác dụng hỗ trợ dự phòng tái phát nhiễm khuẩn hô hấp ở trẻ em và người lớn; viêm mũi dị ứng, dự phòng tái phát dị ứng thức ăn; cải thiện các triệu chứng lâm sàng ở bệnh nhân HIV/AIDS và tăng cường hệ miễn dịch đã suy giảm ở người cao tuổi.",
     "specifications": {
-      "ingredients": ["Thymomodulin (120mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY CP DƯỢC PHẨM TW MEDIPLANTEX"],
+      "ingredients": [
+        "Thymomodulin (120mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY CP DƯỢC PHẨM TW MEDIPLANTEX"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1537,7 +2266,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00000650_althax_160mg_7925_6423_large_b6db276348.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00000650_althax_160mg_7925_6423_large_b6db276348.jpg",
+    "soldCount": 165
   },
   {
     "productId": "00018707",
@@ -1554,9 +2284,15 @@
     },
     "description": "Vitamin C KABI 500 mg/ 5 mL của Công ty Cổ phần Fresenius Kabi Việt Nam, thành phần chính là acid ascorbic, dùng để phòng và điều trị bệnh scorbut, các trường hợp khác cần bổ sung vitamin C, khi sự thiếu hụt là cấp tính hoặc không thể dùng đường uống.",
     "specifications": {
-      "ingredients": ["Vitamin C (500mg)"],
-      "origin": ["Đức"],
-      "manufacturer": ["CÔNG TY CỔ PHẦN FRESENIUS KABI VIỆT NAM"],
+      "ingredients": [
+        "Vitamin C (500mg)"
+      ],
+      "origin": [
+        "Đức"
+      ],
+      "manufacturer": [
+        "CÔNG TY CỔ PHẦN FRESENIUS KABI VIỆT NAM"
+      ],
       "shelfLife": "24 tháng"
     },
     "policies": {
@@ -1565,7 +2301,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00018707_vitamin_c_kabi_bidiphar_500mg5ml_6_ong_2988_5be2_large_6ad2e60476.JPG"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00018707_vitamin_c_kabi_bidiphar_500mg5ml_6_ong_2988_5be2_large_6ad2e60476.JPG",
+    "soldCount": 220
   },
   {
     "productId": "00029332",
@@ -1582,9 +2319,15 @@
     },
     "description": "Dung dịch uống Thytodux là sản phẩm của Công ty cổ phần dược phẩm Trung Ương 3, có hoạt chất chính là Thymomodulin. Thuốc dùng hỗ trợ dự phòng tái phát nhiễm khuẩn hô hấp ở trẻ em và người lớn, viêm mũi dị ứng, hỗ trợ dự phòng tái phát dị ứng thức ăn, hỗ trợ cải thiện các triệu chứng lâm sàng ở bệnh nhân HIV/AIDS, hỗ trợ tăng cường hệ miễn dịch đã suy giảm ở người cao tuổi.",
     "specifications": {
-      "ingredients": ["Thymomodulin (60 )"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY CỔ PHẦN DƯỢC PHẨM TRUNG ƯƠNG 3"],
+      "ingredients": [
+        "Thymomodulin (60 )"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY CỔ PHẦN DƯỢC PHẨM TRUNG ƯƠNG 3"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1593,7 +2336,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00029332_thytodux_60mg10ml_trung_uong_3_4x5_ong_10ml_9011_60a7_large_07ddf1271d.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00029332_thytodux_60mg10ml_trung_uong_3_4x5_ong_10ml_9011_60a7_large_07ddf1271d.jpg",
+    "soldCount": 340
   },
   {
     "productId": "00502294",
@@ -1610,9 +2354,15 @@
     },
     "description": "Thuốc GreenPam Hard Capsule là sản phẩm của Medica Korea có thành phần hoạt chất Thymomodulin. Đây là thuốc dùng hỗ trợ tăng cường hệ miễn dịch đã suy giảm ở người cao tuổi.",
     "specifications": {
-      "ingredients": ["Thymomodulin (80mg)"],
-      "origin": ["Hàn Quốc"],
-      "manufacturer": ["Medica Korea"],
+      "ingredients": [
+        "Thymomodulin (80mg)"
+      ],
+      "origin": [
+        "Hàn Quốc"
+      ],
+      "manufacturer": [
+        "Medica Korea"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1621,7 +2371,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/green_pam_e946e0cd4c.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/green_pam_e946e0cd4c.jpg",
+    "soldCount": 275
   },
   {
     "productId": "00033484",
@@ -1638,9 +2389,15 @@
     },
     "description": "Thuốc Antikans là sản phẩm của Armephaco, có thành phần chính là Thymomodulin. Đây là thuốc được sử dụng để hỗ trợ dự phòng tái phát nhiễm khuẩn hô hấp ở trẻ em và người lớn; viêm mũi dị ứng, hỗ trợ dự phòng tái phát dị ứng thức ăn; hỗ trợ cải thiện triệu chứng lâm sàng ở bệnh nhân HIV/AIDS; hỗ trợ tăng cường hệ miễn dịch đã suy giảm ở người cao tuổi.",
     "specifications": {
-      "ingredients": ["Thymomodulin (80mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CÔNG TY TNHH MTV 120 ARMEPHACO"],
+      "ingredients": [
+        "Thymomodulin (80mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CÔNG TY TNHH MTV 120 ARMEPHACO"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1649,7 +2406,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03721_796451962d.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_03721_796451962d.jpg",
+    "soldCount": 195
   },
   {
     "productId": "00001439",
@@ -1666,9 +2424,15 @@
     },
     "description": "Thuốc Broncho-Vaxom Adults là sản phẩm của OM Pharma, có thành phần chính là chất ly giải vi khuẩn đông khô của Haemophilus influenzae. Đây là thuốc được sử dụng để điều trị tăng cường miễn dịch, phòng ngừa nhiễm khuẩn tái phát đường hô hấp và nhiễm khuẩn cấp kịch phát của viêm phế quản mạn tính.",
     "specifications": {
-      "ingredients": ["Chất ly giải vi khuẩn đông khô của Haemophilus influenzae (7mg)"],
-      "origin": ["Swaziland"],
-      "manufacturer": ["OM PHARMA"],
+      "ingredients": [
+        "Chất ly giải vi khuẩn đông khô của Haemophilus influenzae (7mg)"
+      ],
+      "origin": [
+        "Swaziland"
+      ],
+      "manufacturer": [
+        "OM PHARMA"
+      ],
       "shelfLife": "60 tháng"
     },
     "policies": {
@@ -1677,7 +2441,8 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_08476_2890da2df3.png"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/DSC_08476_2890da2df3.png",
+    "soldCount": 580
   },
   {
     "productId": "00029881",
@@ -1694,9 +2459,15 @@
     },
     "description": "Citropholi của chi nhánh Công ty TNHH Dược phẩm Dược liệu Mộc Hoa Tràm, thành phần chính là cốm vân chi. Citropholi là thuốc tăng cường hệ miễn dịch cơ thể như nâng cao thể trạng cho bệnh nhân ung thư đang điều trị bằng hóa trị hay xạ trị, bệnh nhân nhiễm HIV, viêm gan, tăng sức đề kháng bệnh tật. Citropholi được bào chế dưới dạng viên nang cứng, màu tím bạc, bột thuốc trong nang màu nâu thơm mùi dược liệu, đóng gói theo quy cách hộp 10 vỉ x 10 viên.",
     "specifications": {
-      "ingredients": ["Cốm Vân chi (500mg)"],
-      "origin": ["Việt Nam"],
-      "manufacturer": ["CHI NHÁNH CÔNG TY TNHH DPDL MỘC HOA TRÀM"],
+      "ingredients": [
+        "Cốm Vân chi (500mg)"
+      ],
+      "origin": [
+        "Việt Nam"
+      ],
+      "manufacturer": [
+        "CHI NHÁNH CÔNG TY TNHH DPDL MỘC HOA TRÀM"
+      ],
       "shelfLife": "36 tháng"
     },
     "policies": {
@@ -1705,6 +2476,244 @@
     },
     "category": "Đề kháng",
     "stock": 50,
-    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00029881_citropholi_500mg_moc_hoa_tram_10x10_7332_6124_large_97b439c692.jpg"
+    "image": "https://cdn.nhathuoclongchau.com.vn/v1/static/00029881_citropholi_500mg_moc_hoa_tram_10x10_7332_6124_large_97b439c692.jpg",
+    "soldCount": 260
+  },
+  {
+    "productId": "FC001001",
+    "name": "Viên uống hỗ trợ chống lão hóa, cải thiện làn da và tăng đề kháng NM Spermidine Plus (60 viên)",
+    "volume": "Hộp 60 viên",
+    "price": 6675000,
+    "originalPrice": 8900000,
+    "discount": "-25%",
+    "promotion": "Hỗ trợ chống lão hóa tế bào, cải thiện làn da và tăng cường đề kháng.",
+    "rating": {
+      "stars": 4.9,
+      "reviews": 312,
+      "comments": 18
+    },
+    "description": "NM Spermidine Plus chứa Spermidine chiết xuất từ mầm lúa mì, kết hợp cùng các dưỡng chất chống oxy hóa cao cấp giúp hỗ trợ chống lão hóa tế bào từ bên trong, cải thiện làn da và tăng cường hệ miễn dịch.",
+    "specifications": {
+      "ingredients": [
+        "Spermidine",
+        "Resveratrol",
+        "Quercetin",
+        "Vitamin C",
+        "Vitamin E",
+        "Zinc"
+      ],
+      "origin": [
+        "Nhật Bản"
+      ],
+      "manufacturer": [
+        "NM Healthcare Japan"
+      ],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Thực phẩm chức năng",
+    "stock": 150,
+    "soldCount": 2450,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_08880_009cf2ede8.jpg"
+  },
+  {
+    "productId": "FC001002",
+    "name": "Viên sủi giúp bổ sung các vitamin cho cơ thể Kudos Daily Vitamins (Tuýp 20 viên)",
+    "volume": "Tuýp 20 viên",
+    "price": 125100,
+    "originalPrice": 139000,
+    "discount": "-10%",
+    "promotion": "Bổ sung đầy đủ vitamin và khoáng chất thiết yếu hàng ngày cho cơ thể.",
+    "rating": {
+      "stars": 4.8,
+      "reviews": 528,
+      "comments": 42
+    },
+    "description": "Kudos Daily Vitamins dạng viên sủi với hương cam tươi mát, cung cấp đầy đủ 12 loại vitamin và 8 khoáng chất thiết yếu, giúp tăng cường năng lượng và sức đề kháng mỗi ngày.",
+    "specifications": {
+      "ingredients": [
+        "Vitamin C",
+        "Vitamin B Complex",
+        "Vitamin D3",
+        "Calcium",
+        "Magnesium",
+        "Zinc",
+        "Iron",
+        "Folic Acid"
+      ],
+      "origin": [
+        "Đức"
+      ],
+      "manufacturer": [
+        "Kudos Biochem Ltd"
+      ],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Thực phẩm chức năng",
+    "stock": 280,
+    "soldCount": 1980,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_09335_24b9811179.jpg"
+  },
+  {
+    "productId": "FC001003",
+    "name": "Viên uống hỗ trợ ổn định đường huyết Premium Omexxel Blood Sugar Health (60 viên)",
+    "volume": "Hộp 60 viên",
+    "price": 476000,
+    "originalPrice": 595000,
+    "discount": "-20%",
+    "promotion": "Hỗ trợ ổn định đường huyết, tăng cường chức năng tuyến tụy.",
+    "rating": {
+      "stars": 4.7,
+      "reviews": 285,
+      "comments": 24
+    },
+    "description": "Premium Omexxel Blood Sugar Health kết hợp Berberine, chiết xuất quế, lá dâu tằm và các thảo mộc quý giúp hỗ trợ kiểm soát lượng đường trong máu, tăng độ nhạy insulin và bảo vệ tế bào tuyến tụy.",
+    "specifications": {
+      "ingredients": [
+        "Berberine HCl",
+        "Cinnamon Bark Extract",
+        "Mulberry Leaf Extract",
+        "Bitter Melon Extract",
+        "Chromium",
+        "Alpha Lipoic Acid"
+      ],
+      "origin": [
+        "Hoa Kỳ"
+      ],
+      "manufacturer": [
+        "Omexxel Nutraceuticals"
+      ],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Thực phẩm chức năng",
+    "stock": 200,
+    "soldCount": 1650,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_09384_b9a30a1717.jpg"
+  },
+  {
+    "productId": "FC001004",
+    "name": "Viên hỗ trợ phát triển não bộ và sức khỏe mắt cho bé Brauer Baby & Kids DHA (60 viên)",
+    "volume": "Hộp 60 viên",
+    "price": 388800,
+    "originalPrice": 486000,
+    "discount": "-20%",
+    "promotion": "Hỗ trợ phát triển não bộ, thị giác và hệ thần kinh cho trẻ.",
+    "rating": {
+      "stars": 4.9,
+      "reviews": 641,
+      "comments": 55
+    },
+    "description": "Brauer Baby & Kids Ultra Pure DHA cung cấp DHA tinh khiết từ dầu cá hồi tự nhiên, hỗ trợ phát triển não bộ, thị lực và hệ thần kinh toàn diện cho trẻ từ 2 tuổi trở lên.",
+    "specifications": {
+      "ingredients": [
+        "DHA (Omega-3)",
+        "EPA",
+        "Vitamin D3",
+        "Vitamin E"
+      ],
+      "origin": [
+        "Úc"
+      ],
+      "manufacturer": [
+        "Brauer Natural Medicine"
+      ],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Thực phẩm chức năng",
+    "stock": 175,
+    "soldCount": 2180,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_09544_d2a3970fcb.jpg"
+  },
+  {
+    "productId": "FC001005",
+    "name": "Nước Hồng Sâm Hongsamjin Plus Korean Red Ginseng (15 gói x 70ml)",
+    "volume": "Hộp 15 gói x 70ml",
+    "price": 490000,
+    "originalPrice": 490000,
+    "discount": "0%",
+    "promotion": "Mua 2 tặng 1 - Bổ khí huyết, tăng cường sinh lực, hỗ trợ sức đề kháng.",
+    "rating": {
+      "stars": 4.8,
+      "reviews": 892,
+      "comments": 78
+    },
+    "description": "Nước Hồng Sâm Hongsamjin Plus được chiết xuất từ hồng sâm Hàn Quốc 6 năm tuổi đạt chuẩn KGC, giàu Ginsenoside giúp bổ khí huyết, phục hồi thể lực, cải thiện trí nhớ và tăng cường hệ miễn dịch.",
+    "specifications": {
+      "ingredients": [
+        "Hồng sâm Hàn Quốc 6 năm tuổi",
+        "Ginsenoside Rg1",
+        "Ginsenoside Rb1",
+        "Ginsenoside Rg3",
+        "Nước tinh khiết"
+      ],
+      "origin": [
+        "Hàn Quốc"
+      ],
+      "manufacturer": [
+        "Korea Ginseng Corp (KGC)"
+      ],
+      "shelfLife": "24 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Thực phẩm chức năng",
+    "stock": 320,
+    "soldCount": 2890,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_05151_0c39e73eec.png"
+  },
+  {
+    "productId": "FC001006",
+    "name": "Chai xịt hỗ trợ điều trị nhiệt miệng và tay chân miệng Aloclair Plus 15ml",
+    "volume": "Hộp x 15ml",
+    "price": 229000,
+    "originalPrice": 229000,
+    "discount": "0%",
+    "promotion": "Hỗ trợ điều trị nhiệt miệng, loét miệng, viêm lợi nhanh chóng.",
+    "rating": {
+      "stars": 4.6,
+      "reviews": 1204,
+      "comments": 96
+    },
+    "description": "Aloclair Plus dạng xịt chứa Hyaluronic Acid, chiết xuất Aloe Vera và Glycyrrhetinic Acid tạo lớp màng bảo vệ vết loét, giúp giảm đau, kháng khuẩn và đẩy nhanh quá trình lành thương vùng miệng.",
+    "specifications": {
+      "ingredients": [
+        "Hyaluronic Acid",
+        "Aloe Vera Extract",
+        "Glycyrrhetinic Acid",
+        "Polyvinylpyrrolidone"
+      ],
+      "origin": [
+        "Anh"
+      ],
+      "manufacturer": [
+        "Alliance Pharma plc"
+      ],
+      "shelfLife": "36 tháng"
+    },
+    "policies": {
+      "shipping": "Miễn phí",
+      "return": "7 ngày"
+    },
+    "category": "Thực phẩm chức năng",
+    "stock": 420,
+    "soldCount": 1520,
+    "image": "https://cdn.nhathuoclongchau.com.vn/unsafe/425x0/filters:quality(90):format(webp)/DSC_05265_70502b89e4.jpg"
   }
 ]

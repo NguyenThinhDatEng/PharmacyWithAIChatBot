@@ -34,15 +34,28 @@ function saveOrderDatabase(data) {
 
 // In-memory prototype data
 const blogs = [];
-const rawProducts = JSON.parse(
-  fs.readFileSync(path.join(__dirname, '../../src/data/products.json'), 'utf-8')
-);
+const productsFile = path.join(__dirname, '../../src/data/products.json');
+const rawProducts = JSON.parse(fs.readFileSync(productsFile, 'utf-8'));
 const products = rawProducts.map(p => ({
   id: p.productId,
   name: p.name,
   price: p.price,
   stock: 9999,
+  soldCount: p.soldCount || 0,
 }));
+
+function persistSoldCount() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(productsFile, 'utf-8'));
+    products.forEach(p => {
+      const item = raw.find(r => r.productId === p.id);
+      if (item) item.soldCount = p.soldCount;
+    });
+    fs.writeFileSync(productsFile, JSON.stringify(raw, null, 2), 'utf-8');
+  } catch (err) {
+    console.error('Không thể cập nhật soldCount:', err.message);
+  }
+}
 const orders = [];
 const prescriptions = [];
 const chatHistory = [];
@@ -113,6 +126,7 @@ app.post('/api/orders', (req, res) => {
     if (!product) return res.status(400).json({ error: `Product ${item.productId} not found` });
     if (product.stock < item.quantity) return res.status(400).json({ error: `Product ${product.name} không đủ số lượng` });
     product.stock -= item.quantity;
+    product.soldCount = (product.soldCount || 0) + item.quantity;
     computedTotal += product.price * item.quantity;
     orderItems.push({ id: product.id, name: product.name, price: product.price, quantity: item.quantity });
   }
@@ -137,6 +151,7 @@ app.post('/api/orders', (req, res) => {
   };
 
   orders.push(order);
+  persistSoldCount();
 
   const orderData = loadOrderDatabase();
   const phoneKey = buyer.phone.trim();
