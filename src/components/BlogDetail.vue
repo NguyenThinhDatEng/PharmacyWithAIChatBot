@@ -11,9 +11,7 @@
 
       <h1>{{ blog.title }}</h1>
       <img :src="blog.image" :alt="blog.title" class="blog-detail-image" />
-      <div class="blog-body">
-        <p>{{ blog.content }}</p>
-      </div>
+      <div class="blog-body" v-html="blog.content"></div>
     </div>
 
     <div v-else class="not-found">
@@ -89,10 +87,40 @@ onMounted(() => {
   box-shadow: var(--shadow-md);
 }
 
-.blog-body p {
+.blog-body :deep(p) {
   line-height: 1.8;
   color: var(--text-secondary);
   font-size: 1.0625rem;
+  margin-bottom: 1.25rem;
+}
+
+.blog-body :deep(h2) {
+  font-size: 1.375rem;
+  color: var(--text-heading);
+  margin: 2rem 0 0.75rem;
+  line-height: 1.4;
+}
+
+.blog-body :deep(h3) {
+  font-size: 1.125rem;
+  color: var(--text-heading);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.blog-body :deep(ul),
+.blog-body :deep(ol) {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.blog-body :deep(li) {
+  margin-bottom: 0.4rem;
+}
+
+.blog-body :deep(strong) {
+  color: var(--text-heading);
 }
 
 .not-found {

@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { Client } = require('@notionhq/client');
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -41,6 +42,39 @@ const products = [
 const orders = [];
 const prescriptions = [];
 const chatHistory = [];
+
+const notion = process.env.NOTION_TOKEN
+  ? new Client({ auth: process.env.NOTION_TOKEN })
+  : null;
+
+async function pushOrderToNotion(order) {
+  if (!notion || !process.env.NOTION_DATABASE_ID) return;
+  const itemsText = order.items.map(i => `${i.name} x${i.quantity}`).join(', ');
+  const paymentLabel = order.paymentMethod === 'bank_transfer' ? 'Chuyển khoản' : 'COD';
+  const deliveryLabel = order.deliveryMethod === 'pickup' ? 'Nhận tại quầy' : 'Giao tận nhà';
+  try {
+    await notion.pages.create({
+      parent: { database_id: process.env.NOTION_DATABASE_ID },
+      properties: {
+        'Tên đơn hàng':   { title:      [{ text: { content: `ĐH#${order.id} - ${order.buyer.name}` } }] },
+        'Trạng thái TT':  { select:     { name: 'Chưa thanh toán' } },
+        'Phương thức TT': { select:     { name: paymentLabel } },
+        'Trạng thái đơn': { select:     { name: 'Chờ xử lý' } },
+        'Hình thức nhận': { select:     { name: deliveryLabel } },
+        'Khách hàng':     { rich_text:  [{ text: { content: order.buyer.name } }] },
+        'Số điện thoại':  { phone_number: order.buyer.phone },
+        'Địa chỉ':        { rich_text:  [{ text: { content: order.buyer.address } }] },
+        'Sản phẩm':       { rich_text:  [{ text: { content: itemsText } }] },
+        'Tổng tiền (VNĐ)':{ number:     order.total },
+        'Ghi chú':        { rich_text:  [{ text: { content: order.buyer.note || '' } }] },
+        'Thời gian đặt':  { date:       { start: new Date(order.createdAt).toISOString() } },
+      },
+    });
+    console.log(`Notion: đã lưu ĐH#${order.id}`);
+  } catch (err) {
+    console.error('Notion push lỗi:', err.message);
+  }
+}
 
 // Routes: Blog
 app.get('/api/blogs', (req, res) => res.json(blogs));
@@ -125,6 +159,7 @@ app.post('/api/orders', (req, res) => {
 
   orderData[phoneKey].orders.push(order);
   saveOrderDatabase(orderData);
+  pushOrderToNotion(order);
 
   res.status(201).json(order);
 });
