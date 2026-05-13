@@ -4,8 +4,7 @@
       <div class="header-container">
         <!-- Logo -->
         <router-link to="/" class="logo">
-          <img :src="Logo" alt="Nhà thuốc Trương Thị Yến" class="logo-img" />
-          <span class="brand-name">Trương Thị Yến</span>
+          <img src="/logo1.png" alt="Nhà thuốc Trương Thị Yến" class="logo-img logo-main" />
         </router-link>
 
         <!-- Navigation -->
@@ -31,8 +30,8 @@
         </nav>
 
         <!-- Hotline -->
-        <a href="tel:18001234" class="hotline-btn">
-          <i class="fas fa-headset"></i> 1800 1234
+        <a href="tel:0982805669" class="hotline-btn">
+          <i class="fas fa-headset"></i> 0982 805 669
         </a>
 
         <!-- Hamburger -->
@@ -57,7 +56,7 @@
       <div class="footer-inner">
         <div class="footer-grid">
           <div class="footer-col footer-brand">
-            <img :src="Logo" alt="Logo" class="footer-logo" />
+            <img src="/logo1.png" alt="Logo" class="footer-logo" />
             <h4>Nhà thuốc Trương Thị Yến</h4>
             <p>Đồng hành cùng sức khỏe gia đình Việt. Tư vấn tận tâm, dược phẩm chất lượng.</p>
           </div>
@@ -73,18 +72,13 @@
           <div class="footer-col">
             <h4>Liên hệ</h4>
             <ul>
-              <li><i class="fas fa-phone-alt"></i> Hotline: 1800 1234</li>
-              <li><i class="fas fa-envelope"></i> support@pharmacyai.vn</li>
+              <li><i class="fas fa-phone-alt"></i> Hotline: 0982 805 669</li>
+              <li><i class="fas fa-envelope"></i> sale@nhathuoctruongthiyen.id.vn</li>
               <li><i class="fas fa-map-marker-alt"></i> Dương Sơn, Tam Sơn, Từ Sơn, Bắc Ninh</li>
             </ul>
           </div>
           <div class="footer-col">
             <h4>Theo dõi</h4>
-            <div class="social-links">
-              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Zalo"><i class="fas fa-comment-dots"></i></a>
-            </div>
             <p class="footer-note">Mở cửa: 7:00 - 21:00 hàng ngày</p>
           </div>
         </div>
@@ -137,6 +131,13 @@ onUnmounted(() => {
 
 .container {
   flex: 1;
+}
+
+/* Logo */
+.logo-main {
+  width: auto;
+  height: 52px;
+  object-fit: contain;
 }
 
 /* Header nav active state */
