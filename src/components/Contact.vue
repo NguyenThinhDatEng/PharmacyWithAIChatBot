@@ -14,8 +14,8 @@
               <i class="fas fa-phone-alt"></i>
             </div>
             <div>
-              <h4>Điện thoại</h4>
-              <p><a href="tel:0909090090">0909 090 090</a></p>
+              <h4>Hotline</h4>
+              <p><a href="tel:0982805669">0982 805 669</a></p>
             </div>
           </li>
           <li class="contact-item">
@@ -24,16 +24,7 @@
             </div>
             <div>
               <h4>Email</h4>
-              <p><a href="mailto:contact@pharmacyai.com">contact@pharmacyai.com</a></p>
-            </div>
-          </li>
-          <li class="contact-item">
-            <div class="contact-icon-wrap">
-              <i class="fab fa-facebook-f"></i>
-            </div>
-            <div>
-              <h4>Facebook</h4>
-              <p><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">facebook.com</a></p>
+              <p><a href="mailto:sale@nhathuoctruongthiyen.id.vn">sale@nhathuoctruongthiyen.id.vn</a></p>
             </div>
           </li>
           <li class="contact-item">

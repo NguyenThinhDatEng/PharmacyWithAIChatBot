@@ -62,10 +62,12 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 import axios from 'axios';
+import { useRoute } from 'vue-router';
 import productsData from '../data/products.json';
 
+const route = useRoute();
 const base = 'http://localhost:3000/api';
 const products = ref([]);
 const cart = ref([]);
@@ -114,9 +116,21 @@ function formatPrice(value) {
   return Number(value).toLocaleString('vi-VN');
 }
 
+function applyRouteCategory() {
+  const cat = route.query.category;
+  if (cat && categories.includes(cat)) {
+    selectedCategory.value = cat;
+  } else {
+    selectedCategory.value = 'Tất cả';
+  }
+}
+
+watch(() => route.query.category, applyRouteCategory);
+
 onMounted(() => {
   loadProducts();
   loadCart();
+  applyRouteCategory();
 });
 </script>
 

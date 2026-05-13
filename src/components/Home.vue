@@ -1,71 +1,52 @@
 <template>
   <div class="home">
-    <!-- Hero Banner -->
+    <!-- Hero Banner Carousel -->
     <section class="hero-banner">
-      <div class="banner-content">
-        <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
-        <h1>Người bạn đồng hành sức khỏe gia đình bạn</h1>
-        <p>Kết hợp tư vấn tận tâm và công nghệ AI hiện đại cho sức khỏe tối ưu.</p>
-        <div class="cta-buttons">
-          <router-link to="/shop" class="cta-btn primary">
-            <i class="fas fa-capsules"></i> Khám phá tủ thuốc
-          </router-link>
-          <button class="cta-btn outline" @click="openChat">
-            <i class="fas fa-robot"></i> Chat với Dược sĩ AI
-          </button>
+      <div class="banner-carousel">
+        <div
+          class="banner-slide"
+          v-for="(banner, index) in banners"
+          :key="index"
+          :class="{ active: currentBanner === index }"
+          :style="{ backgroundImage: `url(${banner})` }"
+        ></div>
+        <!-- Overlay + CTA always visible -->
+        <div class="banner-overlay">
+          <div class="banner-content">
+            <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
+            <div class="cta-buttons">
+              <router-link to="/shop" class="cta-btn primary">
+                <i class="fas fa-capsules"></i> Khám phá tủ thuốc
+              </router-link>
+              <button class="cta-btn outline" @click="openChat">
+                <i class="fas fa-robot"></i> Chat với Dược sĩ AI
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="banner-image">
-        <img :src="BannerImage" alt="Dược sĩ trao thuốc" />
+        <!-- Dots navigation -->
+        <div class="banner-dots">
+          <button
+            v-for="(_, i) in banners"
+            :key="i"
+            :class="{ active: currentBanner === i }"
+            @click="goToBanner(i)"
+            class="banner-dot"
+          ></button>
+        </div>
+        <!-- Prev / Next arrows -->
+        <button class="banner-arrow banner-arrow-left" @click="prevBanner"><i class="fas fa-chevron-left"></i></button>
+        <button class="banner-arrow banner-arrow-right" @click="nextBanner"><i class="fas fa-chevron-right"></i></button>
       </div>
     </section>
 
-    <!-- Why Choose Us -->
+    <!-- Why Choose Us - ảnh -->
     <section class="why-choose">
-      <h2>Tại sao chọn Trương Thị Yến?</h2>
-      <p class="section-subtitle">Hơn 20 năm kinh nghiệm phục vụ sức khỏe cộng đồng</p>
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon-wrap">
-            <i class="fas fa-user-md"></i>
-          </div>
-          <h6>Dược sĩ tư vấn 24/7</h6>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-wrap">
-            <i class="fas fa-search"></i>
-          </div>
-          <h6>Nguồn gốc minh bạch</h6>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-wrap">
-            <i class="fas fa-shipping-fast"></i>
-          </div>
-          <h6>Giao hàng nhanh</h6>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-wrap">
-            <i class="fas fa-robot"></i>
-          </div>
-          <h6>AI thông minh</h6>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-wrap">
-            <i class="fas fa-hospital"></i>
-          </div>
-          <h6>Chăm sóc toàn diện</h6>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-wrap">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h6>Tận tâm phục vụ</h6>
-        </div>
-      </div>
+      <img src="/why-choose.jpg" alt="Tại sao chọn nhà thuốc Trương Thị Yến" class="why-choose-img" />
     </section>
 
     <!-- Product Categories -->
-    <section class="product-categories">
+    <section class="product-categories" style="background-image: url('/backgrounds/bg1.jpg'); background-size: cover; background-position: center;">
       <h2>Tủ thuốc gia đình</h2>
       <p class="section-subtitle">Danh mục sản phẩm phổ biến</p>
       <div class="cabinet-grid">
@@ -104,7 +85,7 @@
     </section>
 
     <!-- Best Sellers -->
-    <section class="best-sellers">
+    <section class="best-sellers" style="background-image: url('/backgrounds/bg2.jpg'); background-size: cover; background-position: center;">
       <div class="best-sellers-header">
         <span class="bs-label"><i class="fas fa-fire"></i> Sản phẩm bán chạy</span>
       </div>
@@ -154,7 +135,7 @@
     </section>
 
     <!-- Blog Preview -->
-    <section class="blog-preview">
+    <section class="blog-preview" style="background-image: url('/backgrounds/bg3.jpg'); background-size: cover; background-position: center;">
       <h2>Kiến thức y khoa</h2>
       <p class="section-subtitle">Cập nhật thông tin sức khỏe hữu ích</p>
       <div class="blog-grid">
@@ -173,9 +154,8 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted, onUnmounted } from 'vue';
 import { useRouter } from 'vue-router';
-import BannerImage from '../assets/banner.png';
 import blogPosts from '../data/blogPosts.json';
 import allProducts from '../data/products.json';
 import { chatOpen } from '../composables/useChat.js';
@@ -185,9 +165,40 @@ const bsPage = ref(0);
 const BS_PER_PAGE = 5;
 const slideDir = ref('slide-left');
 
+// Banner carousel
+const banners = [
+  '/banners/banner1.jpg',
+  '/banners/banner2.jpg',
+  '/banners/banner3.jpg',
+  '/banners/banner4.jpg',
+  '/banners/banner5.jpg',
+  '/banners/banner6.jpg',
+];
+const currentBanner = ref(0);
+let bannerTimer = null;
+
+function nextBanner() {
+  currentBanner.value = (currentBanner.value + 1) % banners.length;
+}
+function prevBanner() {
+  currentBanner.value = (currentBanner.value - 1 + banners.length) % banners.length;
+}
+function goToBanner(i) {
+  currentBanner.value = i;
+}
+function startBannerTimer() {
+  bannerTimer = setInterval(nextBanner, 4000);
+}
+function stopBannerTimer() {
+  clearInterval(bannerTimer);
+}
+
 function openChat() {
   chatOpen.value = true;
 }
+
+onMounted(startBannerTimer);
+onUnmounted(stopBannerTimer);
 
 const latestPosts = computed(() => {
   return [...blogPosts]
@@ -233,6 +244,117 @@ function getFlag(origin) {
 </script>
 
 <style scoped>
+/* Hero Banner Carousel */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.banner-slide.active {
+  opacity: 1;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.banner-content {
+  padding: 0 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.banner-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 3;
+}
+
+.banner-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  padding: 0;
+}
+
+.banner-dot.active {
+  background: #fff;
+  transform: scale(1.3);
+}
+
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1rem;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.banner-arrow:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.banner-arrow-left { left: 16px; }
+.banner-arrow-right { right: 16px; }
+
+/* Why Choose - image */
+.why-choose {
+  margin-bottom: 56px;
+  padding: 0;
+}
+
+.why-choose-img {
+  width: 100%;
+  display: block;
+  max-height: 480px;
+  object-fit: cover;
+}
+
 /* Hero Tag */
 .hero-tag {
   display: inline-flex;
@@ -244,7 +366,6 @@ function getFlag(origin) {
   border-radius: var(--radius-full);
   font-size: 0.875rem;
   font-weight: 500;
-  margin-bottom: 16px;
   backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
