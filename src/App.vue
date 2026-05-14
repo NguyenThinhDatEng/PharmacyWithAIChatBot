@@ -4,7 +4,7 @@
       <div class="header-container">
         <!-- Logo -->
         <router-link to="/" class="logo">
-          <img src="/logo1.png" alt="Nhà thuốc Trương Thị Yến" class="logo-img logo-main" />
+          <img :src="logoImg" alt="Nhà thuốc Trương Thị Yến" class="logo-img logo-main" />
         </router-link>
 
         <!-- Navigation -->
@@ -56,7 +56,7 @@
       <div class="footer-inner">
         <div class="footer-grid">
           <div class="footer-col footer-brand">
-            <img src="/logo1.png" alt="Logo" class="footer-logo" />
+            <img :src="logoImg" alt="Logo" class="footer-logo" />
             <h4>Nhà thuốc Trương Thị Yến</h4>
             <p>Đồng hành cùng sức khỏe gia đình Việt. Tư vấn tận tâm, dược phẩm chất lượng.</p>
           </div>
@@ -94,7 +94,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import Chat from './components/Chat.vue';
 import CategoryNav from './components/CategoryNav.vue';
-import Logo from './assets/Logo.png';
+import logoImg from './assets/imgs/logo 1.jpg';
 
 const isMenuOpen = ref(false);
 const isMobile = ref(false);

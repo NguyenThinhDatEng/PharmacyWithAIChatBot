@@ -159,6 +159,12 @@ import { useRouter } from 'vue-router';
 import blogPosts from '../data/blogPosts.json';
 import allProducts from '../data/products.json';
 import { chatOpen } from '../composables/useChat.js';
+import banner1 from '../assets/imgs/banner 1.jpg';
+import banner2 from '../assets/imgs/banner 2.jpg';
+import banner3 from '../assets/imgs/banner 3.jpg';
+import banner4 from '../assets/imgs/banner 4.jpg';
+import banner5 from '../assets/imgs/banner 5.jpg';
+import banner6 from '../assets/imgs/banner 6.jpg';
 
 const router = useRouter();
 const bsPage = ref(0);
@@ -166,14 +172,7 @@ const BS_PER_PAGE = 5;
 const slideDir = ref('slide-left');
 
 // Banner carousel
-const banners = [
-  '/banners/banner1.jpg',
-  '/banners/banner2.jpg',
-  '/banners/banner3.jpg',
-  '/banners/banner4.jpg',
-  '/banners/banner5.jpg',
-  '/banners/banner6.jpg',
-];
+const banners = [banner1, banner2, banner3, banner4, banner5, banner6];
 const currentBanner = ref(0);
 let bannerTimer = null;
 
