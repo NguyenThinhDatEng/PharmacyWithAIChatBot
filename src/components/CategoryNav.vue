@@ -81,6 +81,7 @@
 import { ref } from 'vue';
 import blogPosts from '../data/blogPosts.json';
 import productsData from '../data/products.json';
+import { buildShopHref } from '../utils/productTaxonomy.js';
 
 const activeCategory = ref(null);
 
@@ -201,6 +202,11 @@ const productCategories = [
   },
 ].map(category => ({
   ...category,
+  href: buildShopHref(category.label),
+  subcategories: category.subcategories.map((subcategory) => ({
+    ...subcategory,
+    href: buildShopHref(category.label, subcategory.label),
+  })),
   featured: featuredProductsByCategory(category.label, category.faIcon),
 }));
 
@@ -397,7 +403,7 @@ const categories = [
 }
 
 .sub-link:hover {
-  background: rgba(8, 145, 178, 0.06);
+  background: rgba(21, 128, 61, 0.06);
   color: var(--primary);
 }
 
@@ -416,7 +422,7 @@ const categories = [
 }
 
 .sub-link:hover .sub-icon-wrap {
-  background: rgba(8, 145, 178, 0.12);
+  background: rgba(21, 128, 61, 0.12);
 }
 
 .sub-label {
@@ -473,7 +479,7 @@ const categories = [
 
 .featured-item:hover {
   border-color: var(--primary);
-  box-shadow: 0 2px 12px rgba(8, 145, 178, 0.12);
+  box-shadow: 0 2px 12px rgba(21, 128, 61, 0.12);
   transform: translateY(-1px);
 }
 
@@ -481,7 +487,7 @@ const categories = [
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(8,145,178,0.1), rgba(34,211,238,0.12));
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.1), rgba(74, 222, 128, 0.12));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -510,11 +516,11 @@ const categories = [
 }
 
 .featured-item:hover .featured-icon-wrap {
-  background: linear-gradient(135deg, rgba(8,145,178,0.18), rgba(34,211,238,0.22));
+  background: linear-gradient(135deg, rgba(21, 128, 61, 0.18), rgba(74, 222, 128, 0.22));
 }
 
 .featured-item:hover .featured-thumb-wrap {
-  border-color: rgba(8, 145, 178, 0.28);
+  border-color: rgba(21, 128, 61, 0.28);
 }
 
 .featured-item span {
