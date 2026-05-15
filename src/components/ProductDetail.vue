@@ -137,14 +137,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import productsData from '../data/products.json';
 
 const route = useRoute();
 const product = ref(null);
 
-async function loadProduct() {
+function loadProduct() {
   product.value = productsData.find(p => p.productId === route.params.id);
 }
 
@@ -169,6 +169,7 @@ function buyNow(item) {
 }
 
 onMounted(loadProduct);
+watch(() => route.params.id, loadProduct);
 </script>
 
 <style scoped>

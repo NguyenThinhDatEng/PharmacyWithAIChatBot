@@ -25,7 +25,7 @@
         v-for="cat in categories"
         :key="cat"
         :class="{ active: selectedCategory === cat }"
-        @click="selectedCategory = cat"
+        @click="selectCategory(cat)"
         class="category-btn"
       >
         {{ cat }}
@@ -66,29 +66,28 @@ import { ref, onMounted, computed, watch } from 'vue';
 import axios from 'axios';
 import { useRoute } from 'vue-router';
 import productsData from '../data/products.json';
+import { SHOP_CATEGORIES, enrichProductsWithSubcategory, filterProducts } from '../utils/productTaxonomy.js';
 
 const route = useRoute();
 const base = 'http://localhost:3000/api';
 const products = ref([]);
 const cart = ref([]);
 const qty = ref(1);
-const categories = ['Tất cả', 'Thực phẩm chức năng', 'Tiêu hóa', 'Hô hấp', 'Khớp xương', 'Mẹ & Bé', 'Chăm sóc da', 'Đề kháng'];
+const categories = SHOP_CATEGORIES;
 const selectedCategory = ref('Tất cả');
+const selectedSubcategory = ref('');
 const searchTerm = ref('');
 
 const filteredProducts = computed(() => {
-  let filtered = products.value;
-  if (selectedCategory.value !== 'Tất cả') {
-    filtered = filtered.filter(p => p.category === selectedCategory.value);
-  }
-  if (searchTerm.value) {
-    filtered = filtered.filter(p => p.name.toLowerCase().includes(searchTerm.value.toLowerCase()));
-  }
-  return filtered;
+  return filterProducts(products.value, {
+    category: selectedCategory.value,
+    subcategory: selectedSubcategory.value,
+    searchTerm: searchTerm.value,
+  });
 });
 
 async function loadProducts() {
-  products.value = productsData;
+  products.value = enrichProductsWithSubcategory(productsData);
 }
 
 function loadCart() {
@@ -116,16 +115,25 @@ function formatPrice(value) {
   return Number(value).toLocaleString('vi-VN');
 }
 
+function selectCategory(category) {
+  selectedCategory.value = category;
+  selectedSubcategory.value = '';
+}
+
 function applyRouteCategory() {
   const cat = route.query.category;
+  const subcat = route.query.subcategory;
+
   if (cat && categories.includes(cat)) {
     selectedCategory.value = cat;
+    selectedSubcategory.value = typeof subcat === 'string' ? subcat : '';
   } else {
     selectedCategory.value = 'Tất cả';
+    selectedSubcategory.value = '';
   }
 }
 
-watch(() => route.query.category, applyRouteCategory);
+watch(() => [route.query.category, route.query.subcategory], applyRouteCategory);
 
 onMounted(() => {
   loadProducts();

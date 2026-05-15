@@ -238,14 +238,14 @@ watch(chatLog, scrollToBottom, { deep: true });
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.4);
+  box-shadow: 0 4px 16px rgba(21, 128, 61, 0.4);
   z-index: 1000;
   transition: all 0.2s ease;
 }
 
 .chat-icon:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 24px rgba(8, 145, 178, 0.5);
+  box-shadow: 0 6px 24px rgba(21, 128, 61, 0.5);
 }
 
 .chat-icon i {
