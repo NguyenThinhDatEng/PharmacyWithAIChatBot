@@ -131,7 +131,7 @@ async function uploadPrescription() {
 
 .upload-area:hover {
   border-color: var(--primary);
-  background: rgba(8, 145, 178, 0.04);
+  background: rgba(21, 128, 61, 0.04);
 }
 
 .upload-placeholder i {

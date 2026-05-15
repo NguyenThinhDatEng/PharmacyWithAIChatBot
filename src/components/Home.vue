@@ -1,48 +1,55 @@
 <template>
   <div class="home">
+    <!-- <section class="hero-tag-section">
+      <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
+    </section> -->
+
     <!-- Hero Banner Carousel -->
-    <section class="hero-banner">
-      <div class="banner-carousel">
-        <div
-          class="banner-slide"
+    <section class="home-hero-banner">
+      <div class="home-banner-carousel">
+        <figure
+          class="home-banner-slide"
           v-for="(banner, index) in banners"
           :key="index"
           :class="{ active: currentBanner === index }"
-          :style="{ backgroundImage: `url(${banner})` }"
-        ></div>
-        <!-- Overlay + CTA always visible -->
-        <div class="banner-overlay">
-          <div class="banner-content">
-            <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
-            <div class="cta-buttons">
-              <router-link to="/shop" class="cta-btn primary">
-                <i class="fas fa-capsules"></i> Khám phá tủ thuốc
-              </router-link>
-              <button class="cta-btn outline" @click="openChat">
-                <i class="fas fa-robot"></i> Chat với Dược sĩ AI
-              </button>
-            </div>
-          </div>
-        </div>
+        >
+          <img :src="banner" :alt="`Banner ${index + 1}`" class="home-banner-image" />
+        </figure>
         <!-- Dots navigation -->
-        <div class="banner-dots">
+        <div class="home-banner-dots">
           <button
             v-for="(_, i) in banners"
             :key="i"
             :class="{ active: currentBanner === i }"
             @click="goToBanner(i)"
-            class="banner-dot"
+            class="home-banner-dot"
           ></button>
         </div>
         <!-- Prev / Next arrows -->
-        <button class="banner-arrow banner-arrow-left" @click="prevBanner"><i class="fas fa-chevron-left"></i></button>
-        <button class="banner-arrow banner-arrow-right" @click="nextBanner"><i class="fas fa-chevron-right"></i></button>
+        <button class="home-banner-arrow home-banner-arrow-left" @click="prevBanner"><i class="fas fa-chevron-left"></i></button>
+        <button class="home-banner-arrow home-banner-arrow-right" @click="nextBanner"><i class="fas fa-chevron-right"></i></button>
       </div>
     </section>
 
-    <!-- Why Choose Us - ảnh -->
-    <section class="why-choose">
-      <img src="/why-choose.jpg" alt="Tại sao chọn nhà thuốc Trương Thị Yến" class="why-choose-img" />
+    <section class="home-bridge-section">
+      <div class="home-banner-content-section">
+        <div class="home-banner-content">
+          <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
+          <div class="cta-buttons">
+            <router-link to="/shop" class="cta-btn primary">
+              <i class="fas fa-capsules"></i> Khám phá tủ thuốc
+            </router-link>
+            <button class="cta-btn outline" @click="openChat">
+              <i class="fas fa-robot"></i> Chat với Dược sĩ AI
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why Choose Us - ảnh -->
+      <section class="why-choose">
+        <img :src="whyChooseImage" alt="Tại sao chọn nhà thuốc Trương Thị Yến" class="why-choose-img" />
+      </section>
     </section>
 
     <!-- Product Categories -->
@@ -165,6 +172,7 @@ import banner3 from '../assets/imgs/banner 3.jpg';
 import banner4 from '../assets/imgs/banner 4.jpg';
 import banner5 from '../assets/imgs/banner 5.jpg';
 import banner6 from '../assets/imgs/banner 6.jpg';
+import whyChooseImage from '../assets/imgs/Why Choose.jpg';
 
 const router = useRouter();
 const bsPage = ref(0);
@@ -244,53 +252,117 @@ function getFlag(origin) {
 
 <style scoped>
 /* Hero Banner Carousel */
-.hero-banner {
+.home {
+  margin-top: -24px;
+}
+
+.home-hero-banner {
   position: relative;
-  width: 100%;
-  height: 480px;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   overflow: hidden;
   margin-bottom: 0;
 }
 
-.banner-carousel {
+.home-banner-carousel {
   position: relative;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1920 / 1020;
 }
 
-.banner-slide {
+.home-banner-slide {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
   opacity: 0;
   transition: opacity 0.8s ease;
+  margin: 0;
 }
 
-.banner-slide.active {
+.home-banner-slide.active {
   opacity: 1;
 }
 
-.banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
-  display: flex;
-  align-items: center;
+.home-banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.home-bridge-section {
+  position: relative;
+  margin: -44px auto 0;
+  padding: 0 0 20px;
+}
+
+.home-banner-content-section {
+  position: relative;
   z-index: 2;
-}
-
-.banner-content {
-  padding: 0 64px;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.banner-dots {
+.home-banner-content {
+  width: fit-content;
+  max-width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(21, 128, 61, 0.1);
+  border-radius: 28px;
+  box-shadow: 0 18px 40px rgba(21, 128, 61, 0.12), 0 6px 18px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(12px);
+}
+
+.home-banner-content .cta-buttons {
+  justify-content: center;
+}
+
+.hero-tag-section {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 16px;
+}
+
+.hero-tag-section .hero-tag {
+  background: rgba(8, 145, 178, 0.1);
+  color: var(--primary-dark);
+  border: 1px solid rgba(8, 145, 178, 0.18);
+  backdrop-filter: none;
+}
+
+.home-banner-content .hero-tag {
+  background: rgba(21, 128, 61, 0.1);
+  color: var(--primary-dark);
+  border: 1px solid rgba(21, 128, 61, 0.18);
+  backdrop-filter: none;
+}
+
+.home-banner-content .cta-btn.outline {
+  border-color: var(--primary);
+  background: var(--bg-white);
+  color: var(--primary-dark);
+  backdrop-filter: none;
+}
+
+.home-banner-content .cta-btn.outline:hover {
+  background: var(--primary);
+  color: var(--text-white);
+  border-color: var(--primary);
+}
+
+.home-banner-dots {
   position: absolute;
-  bottom: 20px;
+  bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -298,7 +370,7 @@ function getFlag(origin) {
   z-index: 3;
 }
 
-.banner-dot {
+.home-banner-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -309,12 +381,12 @@ function getFlag(origin) {
   padding: 0;
 }
 
-.banner-dot.active {
+.home-banner-dot.active {
   background: #fff;
   transform: scale(1.3);
 }
 
-.banner-arrow {
+.home-banner-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -334,24 +406,73 @@ function getFlag(origin) {
   transition: background 0.2s;
 }
 
-.banner-arrow:hover {
+.home-banner-arrow:hover {
   background: rgba(255, 255, 255, 0.35);
 }
 
-.banner-arrow-left { left: 16px; }
-.banner-arrow-right { right: 16px; }
+.home-banner-arrow-left { left: 16px; }
+.home-banner-arrow-right { right: 16px; }
+
+@media (max-width: 768px) {
+  .home-banner-carousel {
+    aspect-ratio: 4 / 3;
+  }
+
+  .home-bridge-section {
+    margin-top: -24px;
+    padding-bottom: 8px;
+  }
+
+  .home-banner-content-section {
+    padding: 0 16px;
+  }
+
+  .home-banner-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 18px;
+    border-radius: 22px;
+  }
+
+  .home-banner-content .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .home-banner-content .cta-buttons > * {
+    justify-content: center;
+  }
+
+  .home-banner-dots {
+    bottom: 12px;
+  }
+
+  .home-banner-arrow-left { left: 8px; }
+  .home-banner-arrow-right { right: 8px; }
+
+  .why-choose {
+    margin-top: -28px;
+  }
+}
 
 /* Why Choose - image */
 .why-choose {
-  margin-bottom: 56px;
+  margin: -56px 0 56px;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .why-choose-img {
   width: 100%;
+  height: auto;
   display: block;
-  max-height: 480px;
-  object-fit: cover;
 }
 
 /* Hero Tag */
