@@ -31,25 +31,23 @@
       </div>
     </section>
 
-    <section class="home-bridge-section">
-      <div class="home-banner-content-section">
-        <div class="home-banner-content">
-          <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
-          <div class="cta-buttons">
-            <router-link to="/shop" class="cta-btn primary">
-              <i class="fas fa-capsules"></i> Khám phá tủ thuốc
-            </router-link>
-            <button class="cta-btn outline" @click="openChat">
-              <i class="fas fa-robot"></i> Chat với Dược sĩ AI
-            </button>
-          </div>
+    <section class="home-banner-content-section">
+      <div class="home-banner-content">
+        <p class="hero-tag"><i class="fas fa-shield-alt"></i> Uy tín - Tận tâm - Chất lượng</p>
+        <div class="cta-buttons">
+          <router-link to="/shop" class="cta-btn primary">
+            <i class="fas fa-capsules"></i> Khám phá tủ thuốc
+          </router-link>
+          <button class="cta-btn outline" @click="openChat">
+            <i class="fas fa-robot"></i> Chat với Dược sĩ AI
+          </button>
         </div>
       </div>
+    </section>
 
-      <!-- Why Choose Us - ảnh -->
-      <section class="why-choose">
-        <img :src="whyChooseImage" alt="Tại sao chọn nhà thuốc Trương Thị Yến" class="why-choose-img" />
-      </section>
+    <!-- Why Choose Us - ảnh -->
+    <section class="why-choose">
+      <img :src="whyChooseImage" alt="Tại sao chọn nhà thuốc Trương Thị Yến" class="why-choose-img" />
     </section>
 
     <!-- Product Categories -->
@@ -166,13 +164,13 @@ import { useRouter } from 'vue-router';
 import blogPosts from '../data/blogPosts.json';
 import allProducts from '../data/products.json';
 import { chatOpen } from '../composables/useChat.js';
-import banner1 from '../assets/imgs/banner 1.jpg';
-import banner2 from '../assets/imgs/banner 2.jpg';
-import banner3 from '../assets/imgs/banner 3.jpg';
-import banner4 from '../assets/imgs/banner 4.jpg';
-import banner5 from '../assets/imgs/banner 5.jpg';
-import banner6 from '../assets/imgs/banner 6.jpg';
-import whyChooseImage from '../assets/imgs/Why Choose.jpg';
+import banner1 from '../assets/imgs/banner_1.png';
+import banner2 from '../assets/imgs/banner_2.png';
+import banner3 from '../assets/imgs/banner_3.png';
+import banner4 from '../assets/imgs/banner_4.png';
+import banner5 from '../assets/imgs/banner_5.png';
+import banner6 from '../assets/imgs/banner_6.png';
+import whyChooseImage from '../assets/imgs/why_us.png';
 
 const router = useRouter();
 const bsPage = ref(0);
@@ -270,7 +268,8 @@ function getFlag(origin) {
 .home-banner-carousel {
   position: relative;
   width: 100%;
-  aspect-ratio: 1920 / 1020;
+  aspect-ratio: 1895 / 830;
+  max-height: 830px;
 }
 
 .home-banner-slide {
@@ -287,22 +286,16 @@ function getFlag(origin) {
 
 .home-banner-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
-}
-
-.home-bridge-section {
-  position: relative;
-  margin: -44px auto 0;
-  padding: 0 0 20px;
+  object-fit: cover;
 }
 
 .home-banner-content-section {
   position: relative;
-  z-index: 2;
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 28px auto 32px;
   padding: 0 24px;
 }
 
@@ -415,15 +408,11 @@ function getFlag(origin) {
 
 @media (max-width: 768px) {
   .home-banner-carousel {
-    aspect-ratio: 4 / 3;
-  }
-
-  .home-bridge-section {
-    margin-top: -24px;
-    padding-bottom: 8px;
+    aspect-ratio: 16 / 9;
   }
 
   .home-banner-content-section {
+    margin: 20px auto 24px;
     padding: 0 16px;
   }
 
@@ -451,14 +440,11 @@ function getFlag(origin) {
   .home-banner-arrow-left { left: 8px; }
   .home-banner-arrow-right { right: 8px; }
 
-  .why-choose {
-    margin-top: -28px;
-  }
 }
 
 /* Why Choose - image */
 .why-choose {
-  margin: -56px 0 56px;
+  margin: 0 0 56px;
   width: 100vw;
   left: 50%;
   right: 50%;
