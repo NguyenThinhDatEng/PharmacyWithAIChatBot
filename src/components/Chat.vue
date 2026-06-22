@@ -95,9 +95,6 @@
             <span>{{ selectedProviderDisplay }}</span>
             <i class="fas fa-chevron-down"></i>
           </button>
-          <span class="chat-provider-status" v-if="providerStatusText">
-            {{ providerStatusText }}
-          </span>
 
           <div
             class="provider-dropdown"
@@ -170,19 +167,20 @@ const providerDropdownOpen = ref(false);
 const PROVIDER_STORAGE_KEY = "chat.selectedProvider";
 const providerUiMeta = {
   gemini: { icon: "✨", label: "Gemini", description: "Google AI" },
-  xai: { icon: "🚀", label: "xAI", description: "Reasoning & Analysis" },
+  mistral: { icon: "🧠", label: "Mistral", description: "Balanced Reasoning" },
+  cerebras: { icon: "🚀", label: "Cerebras", description: "Fast Open Models" },
   groq: { icon: "⚡", label: "Groq", description: "Ultra Fast Responses" },
   openrouter: { icon: "🌐", label: "OpenRouter", description: "Access Multiple Models" },
 };
 const fallbackProviders = [
   { id: "gemini", label: "Gemini", available: true, isDefault: true },
-  { id: "xai", label: "xAI", available: true, isDefault: false },
+  { id: "mistral", label: "Mistral", available: true, isDefault: false },
+  { id: "cerebras", label: "Cerebras", available: true, isDefault: false },
   { id: "groq", label: "Groq", available: true, isDefault: false },
   { id: "openrouter", label: "OpenRouter", available: true, isDefault: false },
 ];
 const providers = ref([...fallbackProviders]);
 const selectedProvider = ref(localStorage.getItem(PROVIDER_STORAGE_KEY) || "gemini");
-const providerStatusText = ref("");
 
 const decoratedProviders = computed(() =>
   providers.value.map(provider => ({
@@ -198,10 +196,6 @@ const selectedProviderDisplay = computed(() => {
   return provider ? `${provider.icon} ${provider.label}` : "✨ Gemini";
 });
 
-function getProviderLabel(providerId) {
-  return providers.value.find(provider => provider.id === providerId)?.label || providerId || "AI";
-}
-
 function selectAvailableProvider(preferredProvider) {
   const availableProviders = providers.value.filter(provider => provider.available);
   const preferred = availableProviders.find(provider => provider.id === preferredProvider);
@@ -212,7 +206,6 @@ function selectAvailableProvider(preferredProvider) {
 
 function rememberSelectedProvider() {
   localStorage.setItem(PROVIDER_STORAGE_KEY, selectedProvider.value);
-  providerStatusText.value = "";
 }
 
 function toggleProviderDropdown() {
@@ -257,19 +250,6 @@ async function loadProviders() {
   } finally {
     selectAvailableProvider(selectedProvider.value);
   }
-}
-
-function updateProviderStatus(meta) {
-  if (!meta.providerUsed) {
-    providerStatusText.value = "Tat ca AI dang loi";
-    return;
-  }
-
-  const requestedLabel = getProviderLabel(meta.requestedProvider);
-  const usedLabel = getProviderLabel(meta.providerUsed);
-  providerStatusText.value = meta.fallbackUsed
-    ? `${requestedLabel} loi, da chuyen sang ${usedLabel}`
-    : `Dang dung ${usedLabel}`;
 }
 
 function toggleChat() {
@@ -352,10 +332,7 @@ async function sendChat() {
         }
         try {
           const parsed = JSON.parse(payload);
-          if (parsed.type === "meta") {
-            updateProviderStatus(parsed);
-            continue;
-          }
+          if (parsed.type === "meta") continue;
           if (parsed.chunk) {
             rawText += parsed.chunk;
             ensureEntry().text = marked.parse(rawText);
@@ -517,16 +494,6 @@ watch(chatLog, scrollToBottom, { deep: true });
   border-radius: 50%;
   background: var(--secondary-light);
   display: inline-block;
-}
-
-.chat-provider-status {
-  color: #047857;
-  font-size: 0.72rem;
-  font-weight: 600;
-  line-height: 1.2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .close-btn {

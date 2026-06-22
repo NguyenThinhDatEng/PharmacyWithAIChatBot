@@ -260,20 +260,29 @@ function validateEnvKeys() {
     console.warn('[CONFIG] GROQ_API_KEY is empty or placeholder - Groq fallback will be skipped');
   }
 
-  if (!process.env.XAI_API_KEY) {
-    console.warn('[CONFIG] XAI_API_KEY is empty - xAI fallback will fail');
-  } else if (!hasConfiguredValue(process.env.XAI_API_KEY)) {
-    console.warn('[CONFIG] XAI_API_KEY is a placeholder - xAI fallback will be skipped');
+  if (!process.env.MISTRAL_API_KEY) {
+    console.warn('[CONFIG] MISTRAL_API_KEY is empty - Mistral fallback will fail');
+  } else if (!hasConfiguredValue(process.env.MISTRAL_API_KEY)) {
+    console.warn('[CONFIG] MISTRAL_API_KEY is a placeholder - Mistral fallback will be skipped');
+  }
+
+  if (!process.env.CEREBRAS_API_KEY) {
+    console.warn('[CONFIG] CEREBRAS_API_KEY is empty - Cerebras fallback will fail');
+  } else if (!hasConfiguredValue(process.env.CEREBRAS_API_KEY)) {
+    console.warn('[CONFIG] CEREBRAS_API_KEY is a placeholder - Cerebras fallback will be skipped');
   }
 }
 validateEnvKeys();
 
 const keys = (process.env.KEYS || '').split(',').map(k => k.trim()).filter(Boolean);
 const MODEL = process.env.MODEL;
-const XAI_MODEL = process.env.XAI_MODEL || 'grok-4.3';
+const MISTRAL_MODEL = process.env.MISTRAL_MODEL || 'mistral-small-latest';
+const CEREBRAS_MODEL = process.env.CEREBRAS_MODEL || 'gpt-oss-120b';
 const SYSTEM_PROMPT = 'Bạn là dược sĩ chuyên nghiệp. Trả lời ngắn gọn, lịch sự, an toàn, khuyến nghị khám chuyên gia nếu cần.';
 
 async function callOpenRouter(message) {
+  console.log('[AI provider] OpenRouter request model', MODEL);
+
   const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
 
   for (const key of keys.filter(hasConfiguredValue)) {
@@ -328,16 +337,16 @@ async function callGroq(message) {
   return completion.choices[0].message.content;
 }
 
-async function callXAI(message) {
-  console.log(`[AI provider] xAI request model ${XAI_MODEL}`);
-  const response = await fetch('https://api.x.ai/v1/chat/completions', {
+async function callOpenAICompatibleProvider({ providerName, apiKey, model, endpoint }, message) {
+  console.log(`[AI provider] ${providerName} request model ${model}`);
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.XAI_API_KEY}`,
+      Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: XAI_MODEL,
+      model,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         { role: 'user', content: message },
@@ -348,53 +357,35 @@ async function callXAI(message) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`xAI HTTP ${response.status}: ${errorText}`);
+    throw new Error(`${providerName} HTTP ${response.status}: ${errorText}`);
   }
 
   const data = await response.json();
-  console.log('[AI provider] xAI response received');
+  console.log(`[AI provider] ${providerName} response received`);
   return data.choices?.[0]?.message?.content;
 }
 
+async function callMistral(message) {
+  return callOpenAICompatibleProvider({
+    providerName: 'Mistral',
+    apiKey: process.env.MISTRAL_API_KEY,
+    model: MISTRAL_MODEL,
+    endpoint: 'https://api.mistral.ai/v1/chat/completions',
+  }, message);
+}
+
+async function callCerebras(message) {
+  return callOpenAICompatibleProvider({
+    providerName: 'Cerebras',
+    apiKey: process.env.CEREBRAS_API_KEY,
+    model: CEREBRAS_MODEL,
+    endpoint: 'https://api.cerebras.ai/v1/chat/completions',
+  }, message);
+}
+
 async function CallToAIModel(message) {
-  try {
-    const content = await callOpenRouter(message);
-    if (content) return content;
-  } catch (err) {
-    console.error('OpenRouter thất bại, chuyển sang Gemini...', err.message);
-  }
-
-  if (process.env.GEMINI_API_KEY) {
-    try {
-      console.log('Fallback: thử Google Gemini...');
-      const content = await callGemini(message);
-      if (content) return content;
-    } catch (err) {
-      console.error('Gemini lỗi, chuyển sang Groq...', err.message);
-    }
-  }
-
-  if (process.env.GROQ_API_KEY) {
-    try {
-      console.log('Fallback: thử Groq...');
-      const content = await callGroq(message);
-      if (content) return content;
-    } catch (err) {
-      console.error('Groq lỗi, chuyển sang xAI...', err.message);
-    }
-  }
-
-  if (process.env.XAI_API_KEY) {
-    try {
-      console.log('Fallback: thử xAI...');
-      const content = await callXAI(message);
-      if (content) return content;
-    } catch (err) {
-      console.error('xAI lỗi:', err.message);
-    }
-  }
-
-  return 'Xin lỗi, hiện tại tôi không trả lời được.';
+  console.log('[AI provider] CallToAIModel called with message:', message);
+  return (await callChatProvider(message, DEFAULT_CHAT_PROVIDER)).content;
 }
 
 async function* parseSseTextStream(response) {
@@ -490,16 +481,16 @@ async function* streamGroq(message) {
   }
 }
 
-async function* streamXAI(message) {
-  console.log(`[AI provider] xAI stream request model ${XAI_MODEL}`);
-  const response = await fetch('https://api.x.ai/v1/chat/completions', {
+async function* streamOpenAICompatibleProvider({ providerName, apiKey, model, endpoint }, message) {
+  console.log(`[AI provider] ${providerName} stream request model ${model}`);
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${process.env.XAI_API_KEY}`,
+      Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: XAI_MODEL,
+      model,
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
         { role: 'user', content: message },
@@ -510,15 +501,33 @@ async function* streamXAI(message) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`xAI stream HTTP ${response.status}: ${errorText}`);
+    throw new Error(`${providerName} stream HTTP ${response.status}: ${errorText}`);
   }
 
-  console.log('[AI provider] xAI stream opened');
+  console.log(`[AI provider] ${providerName} stream opened`);
   yield* parseSseTextStream(response);
 }
 
+async function* streamMistral(message) {
+  yield* streamOpenAICompatibleProvider({
+    providerName: 'Mistral',
+    apiKey: process.env.MISTRAL_API_KEY,
+    model: MISTRAL_MODEL,
+    endpoint: 'https://api.mistral.ai/v1/chat/completions',
+  }, message);
+}
+
+async function* streamCerebras(message) {
+  yield* streamOpenAICompatibleProvider({
+    providerName: 'Cerebras',
+    apiKey: process.env.CEREBRAS_API_KEY,
+    model: CEREBRAS_MODEL,
+    endpoint: 'https://api.cerebras.ai/v1/chat/completions',
+  }, message);
+}
+
 const DEFAULT_CHAT_PROVIDER = 'gemini';
-const CHAT_PROVIDER_ORDER = ['gemini', 'xai', 'groq', 'openrouter'];
+const CHAT_PROVIDER_ORDER = ['gemini', 'mistral', 'cerebras', 'groq', 'openrouter'];
 
 function hasConfiguredValue(value) {
   return Boolean(value && value.trim() && !value.toLowerCase().includes('placeholder'));
@@ -537,11 +546,18 @@ const CHAT_PROVIDERS = [
     stream: streamGemini,
   },
   {
-    id: 'xai',
-    label: 'xAI',
-    isAvailable: () => hasConfiguredValue(process.env.XAI_API_KEY),
-    call: callXAI,
-    stream: streamXAI,
+    id: 'mistral',
+    label: 'Mistral',
+    isAvailable: () => hasConfiguredValue(process.env.MISTRAL_API_KEY),
+    call: callMistral,
+    stream: streamMistral,
+  },
+  {
+    id: 'cerebras',
+    label: 'Cerebras',
+    isAvailable: () => hasConfiguredValue(process.env.CEREBRAS_API_KEY),
+    call: callCerebras,
+    stream: streamCerebras,
   },
   {
     id: 'groq',
@@ -602,9 +618,8 @@ function getProviderPayload() {
 
 async function callChatProvider(message, providerId) {
   const requestedProvider = normalizeProviderId(providerId);
-  const sequence = getProviderSequence(requestedProvider);
-
   console.log('[AI] requested provider:', requestedProvider);
+  const sequence = getProviderSequence(requestedProvider);
 
   for (const provider of sequence) {
     try {
@@ -658,9 +673,8 @@ app.post('/api/chat/stream', async (req, res) => {
 
   try {
     const requestedProvider = normalizeProviderId(provider);
-    const sequence = getProviderSequence(requestedProvider);
-
     console.log('[AI stream] requested provider:', requestedProvider);
+    const sequence = getProviderSequence(requestedProvider);
 
     for (const chatProvider of sequence) {
       try {
@@ -715,16 +729,16 @@ app.post('/api/chat/stream', async (req, res) => {
         await tryStream(streamGroq);
         return done();
       } catch (err) {
-        console.error('Groq stream lỗi, sang xAI:', err.message);
+        console.error('Groq stream lỗi, sang Mistral:', err.message);
       }
     }
 
-    if (process.env.XAI_API_KEY) {
+    if (process.env.MISTRAL_API_KEY) {
       try {
-        await tryStream(streamXAI);
+        await tryStream(streamMistral);
         return done();
       } catch (err) {
-        console.error('xAI stream lỗi:', err.message);
+        console.error('Mistral stream lỗi:', err.message);
       }
     }
 

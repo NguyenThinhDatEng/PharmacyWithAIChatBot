@@ -10,8 +10,10 @@ Use these Postman environment variables or replace them inline:
 - `{{MODEL}}`
 - `{{GEMINI_API_KEY}}`
 - `{{GROQ_API_KEY}}`
-- `{{XAI_API_KEY}}`
-- `{{XAI_MODEL}}` with default `grok-4.3`
+- `{{MISTRAL_API_KEY}}`
+- `{{MISTRAL_MODEL}}` with default `mistral-small-latest`
+- `{{CEREBRAS_API_KEY}}`
+- `{{CEREBRAS_MODEL}}` with default `gpt-oss-120b`
 - `{{USER_MESSAGE}}` such as `Toi dang bi sot nhe va dau hong, nen uu tien thuoc gi?`
 
 System prompt used by the backend:
@@ -182,49 +184,49 @@ curl https://api.groq.com/openai/v1/chat/completions ^
   -d "{\"model\":\"llama-3.3-70b-versatile\",\"messages\":[{\"role\":\"user\",\"content\":\"test\"}],\"stream\":false}"
 ```
 
-## xAI
+## Mistral
 
 URL:
 
 ```text
-POST https://api.x.ai/v1/chat/completions
+POST https://api.mistral.ai/v1/chat/completions
 ```
 
 Required headers:
 
 ```text
-Authorization: Bearer {{XAI_API_KEY}}
+Authorization: Bearer {{MISTRAL_API_KEY}}
 Content-Type: application/json
 ```
 
 Model:
 
 ```text
-{{XAI_MODEL}}
+{{MISTRAL_MODEL}}
 ```
 
 Default if you mirror backend fallback:
 
 ```text
-grok-4.3
+mistral-small-latest
 ```
 
 Non-stream:
 
 ```bash
-curl https://api.x.ai/v1/chat/completions ^
-  -H "Authorization: Bearer {{XAI_API_KEY}}" ^
+curl https://api.mistral.ai/v1/chat/completions ^
+  -H "Authorization: Bearer {{MISTRAL_API_KEY}}" ^
   -H "Content-Type: application/json" ^
-  -d "{\"model\":\"{{XAI_MODEL}}\",\"messages\":[{\"role\":\"system\",\"content\":\"Ban la duoc si chuyen nghiep. Tra loi ngan gon, lich su, an toan, khuyen nghi kham chuyen gia neu can.\"},{\"role\":\"user\",\"content\":\"{{USER_MESSAGE}}\"}],\"stream\":false}"
+  -d "{\"model\":\"{{MISTRAL_MODEL}}\",\"messages\":[{\"role\":\"system\",\"content\":\"Ban la duoc si chuyen nghiep. Tra loi ngan gon, lich su, an toan, khuyen nghi kham chuyen gia neu can.\"},{\"role\":\"user\",\"content\":\"{{USER_MESSAGE}}\"}],\"stream\":false}"
 ```
 
 Stream:
 
 ```bash
-curl -N https://api.x.ai/v1/chat/completions ^
-  -H "Authorization: Bearer {{XAI_API_KEY}}" ^
+curl -N https://api.mistral.ai/v1/chat/completions ^
+  -H "Authorization: Bearer {{MISTRAL_API_KEY}}" ^
   -H "Content-Type: application/json" ^
-  -d "{\"model\":\"{{XAI_MODEL}}\",\"messages\":[{\"role\":\"system\",\"content\":\"Ban la duoc si chuyen nghiep. Tra loi ngan gon, lich su, an toan, khuyen nghi kham chuyen gia neu can.\"},{\"role\":\"user\",\"content\":\"{{USER_MESSAGE}}\"}],\"stream\":true}"
+  -d "{\"model\":\"{{MISTRAL_MODEL}}\",\"messages\":[{\"role\":\"system\",\"content\":\"Ban la duoc si chuyen nghiep. Tra loi ngan gon, lich su, an toan, khuyen nghi kham chuyen gia neu can.\"},{\"role\":\"user\",\"content\":\"{{USER_MESSAGE}}\"}],\"stream\":true}"
 ```
 
 Success signal:
@@ -235,10 +237,69 @@ Success signal:
 Auth error check:
 
 ```bash
-curl https://api.x.ai/v1/chat/completions ^
+curl https://api.mistral.ai/v1/chat/completions ^
   -H "Authorization: Bearer INVALID_KEY" ^
   -H "Content-Type: application/json" ^
-  -d "{\"model\":\"{{XAI_MODEL}}\",\"messages\":[{\"role\":\"user\",\"content\":\"test\"}],\"stream\":false}"
+  -d "{\"model\":\"{{MISTRAL_MODEL}}\",\"messages\":[{\"role\":\"user\",\"content\":\"test\"}],\"stream\":false}"
+```
+
+## Cerebras
+
+URL:
+
+```text
+POST https://api.cerebras.ai/v1/chat/completions
+```
+
+Required headers:
+
+```text
+Authorization: Bearer {{CEREBRAS_API_KEY}}
+Content-Type: application/json
+```
+
+Model:
+
+```text
+{{CEREBRAS_MODEL}}
+```
+
+Default if you mirror backend fallback:
+
+```text
+gpt-oss-120b
+```
+
+Non-stream:
+
+```bash
+curl https://api.cerebras.ai/v1/chat/completions ^
+  -H "Authorization: Bearer {{CEREBRAS_API_KEY}}" ^
+  -H "Content-Type: application/json" ^
+  -d "{\"model\":\"{{CEREBRAS_MODEL}}\",\"messages\":[{\"role\":\"system\",\"content\":\"Ban la duoc si chuyen nghiep. Tra loi ngan gon, lich su, an toan, khuyen nghi kham chuyen gia neu can.\"},{\"role\":\"user\",\"content\":\"{{USER_MESSAGE}}\"}],\"stream\":false}"
+```
+
+Stream:
+
+```bash
+curl -N https://api.cerebras.ai/v1/chat/completions ^
+  -H "Authorization: Bearer {{CEREBRAS_API_KEY}}" ^
+  -H "Content-Type: application/json" ^
+  -d "{\"model\":\"{{CEREBRAS_MODEL}}\",\"messages\":[{\"role\":\"system\",\"content\":\"Ban la duoc si chuyen nghiep. Tra loi ngan gon, lich su, an toan, khuyen nghi kham chuyen gia neu can.\"},{\"role\":\"user\",\"content\":\"{{USER_MESSAGE}}\"}],\"stream\":true}"
+```
+
+Success signal:
+
+- Non-stream returns JSON with `choices[0].message.content`
+- Stream returns SSE lines with `choices[0].delta.content`
+
+Auth error check:
+
+```bash
+curl https://api.cerebras.ai/v1/chat/completions ^
+  -H "Authorization: Bearer INVALID_KEY" ^
+  -H "Content-Type: application/json" ^
+  -d "{\"model\":\"{{CEREBRAS_MODEL}}\",\"messages\":[{\"role\":\"user\",\"content\":\"test\"}],\"stream\":false}"
 ```
 
 ## Quick Postman notes

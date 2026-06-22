@@ -40,14 +40,14 @@ All backend logic lives in `backend/src/index.js` — routes, business logic, an
 
 ### AI Chat Feature
 
-The floating chat UI lets users choose the AI provider at the provider level: Gemini, xAI, Groq, or OpenRouter. The selected provider is saved in `localStorage` and sent to the backend as an optional `provider` field.
+The floating chat UI lets users choose the AI provider at the provider level: Gemini, Mistral, Cerebras, Groq, or OpenRouter. The selected provider is saved in `localStorage` and sent to the backend as an optional `provider` field.
 
 Chat endpoints:
 - `GET /api/chat/providers` returns provider labels, availability, the default provider, and fallback order.
 - `POST /api/chat/stream` accepts `{ userId, message, provider }` and streams a provider metadata SSE frame before text chunks.
 - `POST /api/chat/pharmacist` accepts `{ userId, message, provider }` and returns `requestedProvider`, `providerUsed`, and `fallbackUsed`.
 
-The backend default provider is `gemini`. If the selected provider fails or is not configured, fallback order is: `gemini -> xai -> groq -> openrouter`, with the selected provider tried first and skipped from the later fallback list. OpenRouter uses the `@openrouter/sdk` and multiple comma-separated `KEYS`; xAI uses the OpenAI-compatible API at `https://api.x.ai/v1`.
+The backend default provider is `gemini`. If the selected provider fails or is not configured, fallback order is: `gemini -> mistral -> cerebras -> groq -> openrouter`, with the selected provider tried first and skipped from the later fallback list. OpenRouter uses the `@openrouter/sdk` and multiple comma-separated `KEYS`; Mistral and Cerebras use OpenAI-compatible chat completion APIs via `fetch`.
 
 ### Frontend API Base URL
 
@@ -70,8 +70,10 @@ MODEL=<openrouter-model-id>
 KEYS=<key1>,<key2>,...   # Multiple OpenRouter API keys, comma-separated
 GEMINI_API_KEY=<gemini-api-key>
 GROQ_API_KEY=<groq-api-key>
-XAI_API_KEY=<xai-api-key>
-XAI_MODEL=grok-4.3
+MISTRAL_API_KEY=<mistral-api-key>
+MISTRAL_MODEL=mistral-small-latest
+CEREBRAS_API_KEY=<cerebras-api-key>
+CEREBRAS_MODEL=gpt-oss-120b
 ```
 
 ## Key Constraints
