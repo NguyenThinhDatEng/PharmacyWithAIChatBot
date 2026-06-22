@@ -17,11 +17,31 @@
         <div class="chat-header-avatar">
           <i class="fas fa-user-md"></i>
         </div>
-        <div>
+        <div class="chat-header-copy">
           <span class="chat-title">Dược sĩ AI</span>
           <span class="chat-status-text">
             <span class="status-dot"></span> Sẵn sàng hỗ trợ
           </span>
+          <span class="chat-provider-status" v-if="providerStatusText">
+            {{ providerStatusText }}
+          </span>
+          <label class="provider-select-wrap" aria-label="Chon AI chat">
+            <i class="fas fa-brain"></i>
+            <select
+              v-model="selectedProvider"
+              :disabled="isSending"
+              @change="rememberSelectedProvider"
+            >
+              <option
+                v-for="provider in providers"
+                :key="provider.id"
+                :value="provider.id"
+                :disabled="!provider.available"
+              >
+                {{ provider.label }}{{ provider.available ? "" : " - Chua cau hinh" }}
+              </option>
+            </select>
+          </label>
         </div>
       </div>
       <button class="close-btn" @click="toggleChat" aria-label="Đóng chat">
@@ -114,11 +134,68 @@ const chatLog = ref([]);
 const isSending = ref(false);
 const chatBody = ref(null);
 const textareaRef = ref(null);
+const PROVIDER_STORAGE_KEY = "chat.selectedProvider";
+const fallbackProviders = [
+  { id: "gemini", label: "Gemini", available: true, isDefault: true },
+  { id: "xai", label: "xAI", available: true, isDefault: false },
+  { id: "groq", label: "Groq", available: true, isDefault: false },
+  { id: "openrouter", label: "OpenRouter", available: true, isDefault: false },
+];
+const providers = ref([...fallbackProviders]);
+const selectedProvider = ref(localStorage.getItem(PROVIDER_STORAGE_KEY) || "gemini");
+const providerStatusText = ref("");
+
+function getProviderLabel(providerId) {
+  return providers.value.find(provider => provider.id === providerId)?.label || providerId || "AI";
+}
+
+function selectAvailableProvider(preferredProvider) {
+  const availableProviders = providers.value.filter(provider => provider.available);
+  const preferred = availableProviders.find(provider => provider.id === preferredProvider);
+  const defaultProvider = availableProviders.find(provider => provider.isDefault);
+  selectedProvider.value = (preferred || defaultProvider || availableProviders[0] || providers.value[0]).id;
+  rememberSelectedProvider();
+}
+
+function rememberSelectedProvider() {
+  localStorage.setItem(PROVIDER_STORAGE_KEY, selectedProvider.value);
+  providerStatusText.value = "";
+}
+
+async function loadProviders() {
+  try {
+    const response = await fetch(`${base}/chat/providers`);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    if (Array.isArray(data.providers) && data.providers.length > 0) {
+      providers.value = data.providers;
+    }
+  } catch (error) {
+    providers.value = [...fallbackProviders];
+    console.error(error);
+  } finally {
+    selectAvailableProvider(selectedProvider.value);
+  }
+}
+
+function updateProviderStatus(meta) {
+  if (!meta.providerUsed) {
+    providerStatusText.value = "Tat ca AI dang loi";
+    return;
+  }
+
+  const requestedLabel = getProviderLabel(meta.requestedProvider);
+  const usedLabel = getProviderLabel(meta.providerUsed);
+  providerStatusText.value = meta.fallbackUsed
+    ? `${requestedLabel} loi, da chuyen sang ${usedLabel}`
+    : `Dang dung ${usedLabel}`;
+}
 
 function toggleChat() {
   chatOpen.value = !chatOpen.value;
   if (chatOpen.value) {
     document.body.classList.add("chat-open");
+    loadProviders();
     nextTick(() => textareaRef.value?.focus());
   } else {
     document.body.classList.remove("chat-open");
@@ -170,7 +247,7 @@ async function sendChat() {
     const response = await fetch(`${base}/chat/stream`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ userId: "user1", message: question }),
+      body: JSON.stringify({ userId: "user1", message: question, provider: selectedProvider.value }),
     });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -192,6 +269,10 @@ async function sendChat() {
         }
         try {
           const parsed = JSON.parse(payload);
+          if (parsed.type === "meta") {
+            updateProviderStatus(parsed);
+            continue;
+          }
           if (parsed.chunk) {
             rawText += parsed.chunk;
             ensureEntry().text = marked.parse(rawText);
@@ -303,6 +384,8 @@ watch(chatLog, scrollToBottom, { deep: true });
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
+  flex: 1;
 }
 
 .chat-header-avatar {
@@ -323,6 +406,10 @@ watch(chatLog, scrollToBottom, { deep: true });
   font-family: var(--font-heading);
 }
 
+.chat-header-copy {
+  min-width: 0;
+}
+
 .chat-status-text {
   font-size: 0.75rem;
   opacity: 0.9;
@@ -339,6 +426,53 @@ watch(chatLog, scrollToBottom, { deep: true });
   display: inline-block;
 }
 
+.chat-provider-status {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  opacity: 0.88;
+}
+
+.provider-select-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  max-width: 190px;
+  padding: 5px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.16);
+  color: white;
+}
+
+.provider-select-wrap i {
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.provider-select-wrap select {
+  min-width: 0;
+  width: 135px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+.provider-select-wrap select:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.provider-select-wrap option {
+  color: var(--text-primary);
+  background: var(--bg-white);
+}
+
 .close-btn {
   background: rgba(255, 255, 255, 0.15);
   border: none;
@@ -346,6 +480,7 @@ watch(chatLog, scrollToBottom, { deep: true });
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  flex-shrink: 0;
   cursor: pointer;
   display: flex;
   align-items: center;

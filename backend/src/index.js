@@ -32,7 +32,6 @@ function saveOrderDatabase(data) {
   }
 }
 
-// In-memory prototype data
 const blogs = [];
 const productsFile = path.join(__dirname, '../../src/data/products.json');
 const rawProducts = JSON.parse(fs.readFileSync(productsFile, 'utf-8'));
@@ -56,6 +55,7 @@ function persistSoldCount() {
     console.error('Không thể cập nhật soldCount:', err.message);
   }
 }
+
 const orders = [];
 const prescriptions = [];
 const chatHistory = [];
@@ -66,25 +66,27 @@ const notion = process.env.NOTION_TOKEN
 
 async function pushOrderToNotion(order) {
   if (!notion || !process.env.NOTION_DATABASE_ID) return;
+
   const itemsText = order.items.map(i => `${i.name} x${i.quantity}`).join(', ');
   const paymentLabel = order.paymentMethod === 'bank_transfer' ? 'Chuyển khoản' : 'COD';
   const deliveryLabel = order.deliveryMethod === 'pickup' ? 'Nhận tại quầy' : 'Giao tận nhà';
+
   try {
     await notion.pages.create({
       parent: { database_id: process.env.NOTION_DATABASE_ID },
       properties: {
-        'Tên đơn hàng':   { title:      [{ text: { content: `ĐH#${order.id} - ${order.buyer.name}` } }] },
-        'Trạng thái TT':  { select:     { name: 'Chưa thanh toán' } },
-        'Phương thức TT': { select:     { name: paymentLabel } },
-        'Trạng thái đơn': { select:     { name: 'Chờ xử lý' } },
-        'Hình thức nhận': { select:     { name: deliveryLabel } },
-        'Khách hàng':     { rich_text:  [{ text: { content: order.buyer.name } }] },
-        'Số điện thoại':  { phone_number: order.buyer.phone },
-        'Địa chỉ':        { rich_text:  [{ text: { content: order.buyer.address } }] },
-        'Sản phẩm':       { rich_text:  [{ text: { content: itemsText } }] },
-        'Tổng tiền (VNĐ)':{ number:     order.total },
-        'Ghi chú':        { rich_text:  [{ text: { content: order.buyer.note || '' } }] },
-        'Thời gian đặt':  { date:       { start: new Date(order.createdAt).toISOString() } },
+        'Tên đơn hàng': { title: [{ text: { content: `ĐH#${order.id} - ${order.buyer.name}` } }] },
+        'Trạng thái TT': { select: { name: 'Chưa thanh toán' } },
+        'Phương thức TT': { select: { name: paymentLabel } },
+        'Trạng thái đơn': { select: { name: 'Chờ xử lý' } },
+        'Hình thức nhận': { select: { name: deliveryLabel } },
+        'Khách hàng': { rich_text: [{ text: { content: order.buyer.name } }] },
+        'Số điện thoại': { phone_number: order.buyer.phone },
+        'Địa chỉ': { rich_text: [{ text: { content: order.buyer.address } }] },
+        'Sản phẩm': { rich_text: [{ text: { content: itemsText } }] },
+        'Tổng tiền (VNĐ)': { number: order.total },
+        'Ghi chú': { rich_text: [{ text: { content: order.buyer.note || '' } }] },
+        'Thời gian đặt': { date: { start: new Date(order.createdAt).toISOString() } },
       },
     });
     console.log(`Notion: đã lưu ĐH#${order.id}`);
@@ -93,22 +95,21 @@ async function pushOrderToNotion(order) {
   }
 }
 
-// Routes: Blog
 app.get('/api/blogs', (req, res) => res.json(blogs));
 app.post('/api/blogs', (req, res) => {
   const { title, content, author = 'Admin' } = req.body;
   if (!title || !content) return res.status(400).json({ error: 'title and content are required' });
+
   const post = { id: blogs.length + 1, title, content, author, createdAt: new Date() };
   blogs.push(post);
   res.status(201).json(post);
 });
 
-// Routes: Products
 app.get('/api/products', (req, res) => res.json(products));
 
-// Routes: Orders
 app.post('/api/orders', (req, res) => {
   const { userId, items, buyer, paymentMethod, deliveryMethod, total } = req.body;
+
   if (!buyer || !buyer.phone || !buyer.name || !buyer.address) {
     return res.status(400).json({ error: 'buyer.name, buyer.phone và buyer.address là bắt buộc' });
   }
@@ -121,14 +122,23 @@ app.post('/api/orders', (req, res) => {
 
   let computedTotal = 0;
   const orderItems = [];
+
   for (const item of items) {
     const product = products.find(p => p.id === item.productId);
     if (!product) return res.status(400).json({ error: `Product ${item.productId} not found` });
-    if (product.stock < item.quantity) return res.status(400).json({ error: `Product ${product.name} không đủ số lượng` });
+    if (product.stock < item.quantity) {
+      return res.status(400).json({ error: `Product ${product.name} không đủ số lượng` });
+    }
+
     product.stock -= item.quantity;
     product.soldCount = (product.soldCount || 0) + item.quantity;
     computedTotal += product.price * item.quantity;
-    orderItems.push({ id: product.id, name: product.name, price: product.price, quantity: item.quantity });
+    orderItems.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: item.quantity,
+    });
   }
 
   const orderId = orders.length + 1;
@@ -140,14 +150,14 @@ app.post('/api/orders', (req, res) => {
       phone: buyer.phone,
       email: buyer.email || '',
       address: buyer.address,
-      note: buyer.note || ''
+      note: buyer.note || '',
     },
     paymentMethod,
     deliveryMethod: deliveryMethod || 'delivery',
     items: orderItems,
     total: total || computedTotal,
     status: 'pending',
-    createdAt: new Date()
+    createdAt: new Date(),
   };
 
   orders.push(order);
@@ -155,6 +165,7 @@ app.post('/api/orders', (req, res) => {
 
   const orderData = loadOrderDatabase();
   const phoneKey = buyer.phone.trim();
+
   if (!orderData[phoneKey]) {
     orderData[phoneKey] = {
       buyer: {
@@ -162,9 +173,9 @@ app.post('/api/orders', (req, res) => {
         phone: buyer.phone,
         email: buyer.email || '',
         address: buyer.address,
-        note: buyer.note || ''
+        note: buyer.note || '',
       },
-      orders: []
+      orders: [],
     };
   } else {
     orderData[phoneKey].buyer = {
@@ -172,7 +183,7 @@ app.post('/api/orders', (req, res) => {
       name: buyer.name,
       email: buyer.email || orderData[phoneKey].buyer.email,
       address: buyer.address,
-      note: buyer.note || orderData[phoneKey].buyer.note
+      note: buyer.note || orderData[phoneKey].buyer.note,
     };
   }
 
@@ -183,64 +194,82 @@ app.post('/api/orders', (req, res) => {
   res.status(201).json(order);
 });
 
-// Routes: Prescription upload
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination(req, file, cb) {
     cb(null, uploadDir);
   },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+  filename(req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
     cb(null, uniqueSuffix + '-' + file.originalname);
-  }
+  },
 });
 const upload = multer({ storage });
 
 app.post('/api/prescriptions', upload.single('prescription'), (req, res) => {
   if (!req.file) return res.status(400).json({ error: 'File is required' });
+
   const { userId, note } = req.body;
-  const item = { id: prescriptions.length + 1, userId: userId || 'anonymous', note: note || '', filePath: req.file.path, status: 'pending', createdAt: new Date() };
+  const item = {
+    id: prescriptions.length + 1,
+    userId: userId || 'anonymous',
+    note: note || '',
+    filePath: req.file.path,
+    status: 'pending',
+    createdAt: new Date(),
+  };
   prescriptions.push(item);
   res.status(201).json(item);
 });
+
 app.get('/api/prescriptions', (req, res) => res.json(prescriptions));
 app.get('/api/prescriptions/:id', (req, res) => {
-  const p = prescriptions.find(x => x.id === Number(req.params.id));
-  if (!p) return res.status(404).json({ error: 'Not found' });
-  res.json(p);
+  const prescription = prescriptions.find(x => x.id === Number(req.params.id));
+  if (!prescription) return res.status(404).json({ error: 'Not found' });
+  res.json(prescription);
 });
 
 app.use('/uploads', express.static(uploadDir));
 
-// Routes: Chat AI with fallback chain: OpenRouter → Gemini → Groq
 const { OpenRouter } = require('@openrouter/sdk');
 const { GoogleGenAI } = require('@google/genai');
 const Groq = require('groq-sdk');
 
 function validateEnvKeys() {
-  const keys = (process.env.KEYS || '').split(',').map(k => k.trim()).filter(Boolean);
-  if (keys.length === 0) console.warn('[CONFIG] KEYS is empty — OpenRouter will fail');
-  else keys.forEach(k => {
-    if (!k.startsWith('sk-or-v1-')) console.warn(`[CONFIG] OpenRouter key có thể không hợp lệ (expected sk-or-v1-...): ${k.slice(0, 12)}...`);
-  });
+  const openRouterKeys = (process.env.KEYS || '').split(',').map(k => k.trim()).filter(Boolean);
+  if (openRouterKeys.length === 0) {
+    console.warn('[CONFIG] KEYS is empty - OpenRouter will fail');
+  } else {
+    openRouterKeys.forEach(key => {
+      if (!key.startsWith('sk-or-v1-')) {
+        console.warn(`[CONFIG] OpenRouter key may be invalid (expected sk-or-v1-...): ${key.slice(0, 12)}...`);
+      }
+    });
+  }
 
-  const gemini = process.env.GEMINI_API_KEY || '';
-  if (!gemini) console.warn('[CONFIG] GEMINI_API_KEY is empty — Gemini fallback will fail');
+  if (!process.env.GEMINI_API_KEY) {
+    console.warn('[CONFIG] GEMINI_API_KEY is empty - Gemini fallback will fail');
+  }
 
   const groq = process.env.GROQ_API_KEY || '';
   if (groq && !groq.startsWith('gsk_')) {
-    console.warn(`[CONFIG] GROQ_API_KEY không hợp lệ (expected gsk_...): ${groq.slice(0, 12)}...`);
+    console.warn(`[CONFIG] GROQ_API_KEY may be invalid (expected gsk_...): ${groq.slice(0, 12)}...`);
+  }
+
+  if (!process.env.XAI_API_KEY) {
+    console.warn('[CONFIG] XAI_API_KEY is empty - xAI fallback will fail');
   }
 }
 validateEnvKeys();
 
-const keys = process.env.KEYS.split(",");
+const keys = (process.env.KEYS || '').split(',').map(k => k.trim()).filter(Boolean);
 const MODEL = process.env.MODEL;
-
+const XAI_MODEL = process.env.XAI_MODEL || 'grok-4.3';
 const SYSTEM_PROMPT = 'Bạn là dược sĩ chuyên nghiệp. Trả lời ngắn gọn, lịch sự, an toàn, khuyến nghị khám chuyên gia nếu cần.';
 
 async function callOpenRouter(message) {
   const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
-  for (const key of keys) {
+
+  for (const key of keys.filter(hasConfiguredValue)) {
     const openRouter = new OpenRouter({ apiKey: key });
     try {
       console.log('OpenRouter: thử key', key.slice(0, 15) + '...');
@@ -249,15 +278,17 @@ async function callOpenRouter(message) {
           model: MODEL,
           messages: [{ role: 'user', content: prompt }],
           stream: false,
-        }
+        },
       });
       if (result.error) throw new Error(result.error.message);
+
       const content = result.choices?.[0]?.message?.content;
       if (content) return content;
     } catch (err) {
       console.error('OpenRouter key lỗi, thử tiếp...', err.message);
     }
   }
+
   throw new Error('Tất cả OpenRouter keys đều thất bại');
 }
 
@@ -283,8 +314,33 @@ async function callGroq(message) {
   return completion.choices[0].message.content;
 }
 
+async function callXAI(message) {
+  const response = await fetch('https://api.x.ai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.XAI_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: XAI_MODEL,
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user', content: message },
+      ],
+      stream: false,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`xAI HTTP ${response.status}: ${errorText}`);
+  }
+
+  const data = await response.json();
+  return data.choices?.[0]?.message?.content;
+}
+
 async function CallToAIModel(message) {
-  // 1. OpenRouter
   try {
     const content = await callOpenRouter(message);
     if (content) return content;
@@ -292,7 +348,6 @@ async function CallToAIModel(message) {
     console.error('OpenRouter thất bại, chuyển sang Gemini...', err.message);
   }
 
-  // 2. Fallback: Google Gemini
   if (process.env.GEMINI_API_KEY) {
     try {
       console.log('Fallback: thử Google Gemini...');
@@ -303,74 +358,257 @@ async function CallToAIModel(message) {
     }
   }
 
-  // 3. Fallback: Groq
   if (process.env.GROQ_API_KEY) {
     try {
       console.log('Fallback: thử Groq...');
       const content = await callGroq(message);
       if (content) return content;
     } catch (err) {
-      console.error('Groq lỗi:', err.message);
+      console.error('Groq lỗi, chuyển sang xAI...', err.message);
+    }
+  }
+
+  if (process.env.XAI_API_KEY) {
+    try {
+      console.log('Fallback: thử xAI...');
+      const content = await callXAI(message);
+      if (content) return content;
+    } catch (err) {
+      console.error('xAI lỗi:', err.message);
     }
   }
 
   return 'Xin lỗi, hiện tại tôi không trả lời được.';
 }
 
-// Streaming generator functions for SSE
+async function* parseSseTextStream(response) {
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '';
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split('\n');
+    buffer = lines.pop();
+
+    for (const line of lines) {
+      if (!line.startsWith('data: ')) continue;
+      const payload = line.slice(6).trim();
+      if (payload === '[DONE]') return;
+
+      try {
+        const content = JSON.parse(payload).choices?.[0]?.delta?.content;
+        if (content) yield content;
+      } catch (_) { }
+    }
+  }
+}
+
 async function* streamOpenRouter(message) {
   const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
-  for (const key of keys) {
+
+  for (const key of keys.filter(hasConfiguredValue)) {
     try {
       console.log('OpenRouter stream: thử key', key.slice(0, 15) + '...');
-      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Authorization': `Bearer ${key}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: prompt }], stream: true }),
+        headers: {
+          Authorization: `Bearer ${key}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: MODEL,
+          messages: [{ role: 'user', content: prompt }],
+          stream: true,
+        }),
       });
-      if (!res.ok) { console.error('OR stream key HTTP', res.status); continue; }
-      const reader = res.body.getReader();
-      const decoder = new TextDecoder();
-      let buf = '';
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        buf += decoder.decode(value, { stream: true });
-        const lines = buf.split('\n'); buf = lines.pop();
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue;
-          const payload = line.slice(6).trim();
-          if (payload === '[DONE]') return;
-          try { const c = JSON.parse(payload).choices?.[0]?.delta?.content; if (c) yield c; } catch (_) {}
-        }
+      if (!response.ok) {
+        console.error('OpenRouter stream HTTP', response.status);
+        continue;
       }
+
+      yield* parseSseTextStream(response);
       return;
-    } catch (err) { console.error('OR stream key lỗi:', err.message); }
+    } catch (err) {
+      console.error('OpenRouter stream key lỗi:', err.message);
+    }
   }
+
   throw new Error('OpenRouter stream thất bại');
 }
 
 async function* streamGemini(message) {
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
-  const stream = await ai.models.generateContentStream({ model: 'gemini-2.5-flash', contents: prompt });
-  for await (const chunk of stream) { if (chunk.text) yield chunk.text; }
+  const stream = await ai.models.generateContentStream({
+    model: 'gemini-2.5-flash',
+    contents: prompt,
+  });
+
+  for await (const chunk of stream) {
+    if (chunk.text) yield chunk.text;
+  }
 }
 
 async function* streamGroq(message) {
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
   const stream = await groq.chat.completions.create({
     model: 'llama-3.3-70b-versatile',
-    messages: [{ role: 'system', content: SYSTEM_PROMPT }, { role: 'user', content: message }],
+    messages: [
+      { role: 'system', content: SYSTEM_PROMPT },
+      { role: 'user', content: message },
+    ],
     stream: true,
   });
+
   for await (const chunk of stream) {
-    const c = chunk.choices[0]?.delta?.content; if (c) yield c;
+    const content = chunk.choices[0]?.delta?.content;
+    if (content) yield content;
   }
 }
 
+async function* streamXAI(message) {
+  const response = await fetch('https://api.x.ai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${process.env.XAI_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: XAI_MODEL,
+      messages: [
+        { role: 'system', content: SYSTEM_PROMPT },
+        { role: 'user', content: message },
+      ],
+      stream: true,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`xAI stream HTTP ${response.status}: ${errorText}`);
+  }
+
+  yield* parseSseTextStream(response);
+}
+
+const DEFAULT_CHAT_PROVIDER = 'gemini';
+const CHAT_PROVIDER_ORDER = ['gemini', 'xai', 'groq', 'openrouter'];
+
+function hasConfiguredValue(value) {
+  return Boolean(value && value.trim() && !value.toLowerCase().includes('placeholder'));
+}
+
+function hasOpenRouterConfig() {
+  return keys.some(hasConfiguredValue) && hasConfiguredValue(MODEL);
+}
+
+const CHAT_PROVIDERS = [
+  {
+    id: 'gemini',
+    label: 'Gemini',
+    isAvailable: () => hasConfiguredValue(process.env.GEMINI_API_KEY),
+    call: callGemini,
+    stream: streamGemini,
+  },
+  {
+    id: 'xai',
+    label: 'xAI',
+    isAvailable: () => hasConfiguredValue(process.env.XAI_API_KEY),
+    call: callXAI,
+    stream: streamXAI,
+  },
+  {
+    id: 'groq',
+    label: 'Groq',
+    isAvailable: () => hasConfiguredValue(process.env.GROQ_API_KEY),
+    call: callGroq,
+    stream: streamGroq,
+  },
+  {
+    id: 'openrouter',
+    label: 'OpenRouter',
+    isAvailable: hasOpenRouterConfig,
+    call: callOpenRouter,
+    stream: streamOpenRouter,
+  },
+];
+
+function getProviderById(providerId) {
+  return CHAT_PROVIDERS.find(provider => provider.id === providerId);
+}
+
+function normalizeProviderId(providerId) {
+  return getProviderById(providerId) ? providerId : DEFAULT_CHAT_PROVIDER;
+}
+
+function getProviderSequence(providerId) {
+  const requestedProvider = normalizeProviderId(providerId);
+  const orderedIds = [requestedProvider, ...CHAT_PROVIDER_ORDER]
+    .filter((id, index, arr) => arr.indexOf(id) === index);
+
+  return orderedIds
+    .map(getProviderById)
+    .filter(provider => provider && provider.isAvailable());
+}
+
+function getProviderPayload() {
+  return {
+    providers: CHAT_PROVIDER_ORDER.map(id => {
+      const provider = getProviderById(id);
+      return {
+        id: provider.id,
+        label: provider.label,
+        available: provider.isAvailable(),
+        isDefault: provider.id === DEFAULT_CHAT_PROVIDER,
+      };
+    }),
+    defaultProvider: DEFAULT_CHAT_PROVIDER,
+    fallbackOrder: CHAT_PROVIDER_ORDER,
+  };
+}
+
+async function callChatProvider(message, providerId) {
+  const requestedProvider = normalizeProviderId(providerId);
+  const sequence = getProviderSequence(requestedProvider);
+
+  console.log('[AI] requested provider:', requestedProvider);
+
+  for (const provider of sequence) {
+    try {
+      console.log('[AI] trying provider:', provider.id);
+      const content = await provider.call(message);
+      if (content) {
+        console.log('[AI] provider success:', provider.id, 'fallback:', provider.id !== requestedProvider);
+        return {
+          content,
+          requestedProvider,
+          providerUsed: provider.id,
+          fallbackUsed: provider.id !== requestedProvider,
+        };
+      }
+    } catch (err) {
+      console.error(`[AI] provider failed: ${provider.id}`, err.message);
+    }
+  }
+
+  return {
+    content: 'Xin lá»—i, hiá»‡n táº¡i tÃ´i khÃ´ng tráº£ lá»i Ä‘Æ°á»£c.',
+    requestedProvider,
+    providerUsed: null,
+    fallbackUsed: false,
+  };
+}
+
+app.get('/api/chat/providers', (req, res) => {
+  res.json(getProviderPayload());
+});
+
 app.post('/api/chat/stream', async (req, res) => {
-  const { message } = req.body;
+  const { message, provider } = req.body;
   if (!message) return res.status(400).json({ error: 'message is required' });
 
   res.setHeader('Content-Type', 'text/event-stream');
@@ -378,40 +616,115 @@ app.post('/api/chat/stream', async (req, res) => {
   res.setHeader('Connection', 'keep-alive');
   res.flushHeaders();
 
-  const send = (text) => res.write(`data: ${JSON.stringify({ chunk: text })}\n\n`);
-  const done = () => { res.write('data: [DONE]\n\n'); res.end(); };
+  const sendEvent = (event) => res.write(`data: ${JSON.stringify(event)}\n\n`);
+  const send = (text) => sendEvent({ chunk: text });
+  const done = () => {
+    res.write('data: [DONE]\n\n');
+    res.end();
+  };
 
-  async function tryStream(genFn) {
-    for await (const chunk of genFn(message)) send(chunk);
+  async function tryStream(streamFn) {
+    for await (const chunk of streamFn(message)) send(chunk);
   }
 
   try {
-    try { await tryStream(streamOpenRouter); return done(); }
-    catch (err) { console.error('OR stream lỗi, sang Gemini:', err.message); }
+    const requestedProvider = normalizeProviderId(provider);
+    const sequence = getProviderSequence(requestedProvider);
+
+    console.log('[AI stream] requested provider:', requestedProvider);
+
+    for (const chatProvider of sequence) {
+      try {
+        console.log('[AI stream] trying provider:', chatProvider.id);
+        const iterator = chatProvider.stream(message)[Symbol.asyncIterator]();
+        const first = await iterator.next();
+        const providerUsed = chatProvider.id;
+
+        console.log('[AI stream] provider success:', providerUsed, 'fallback:', providerUsed !== requestedProvider);
+        sendEvent({
+          type: 'meta',
+          requestedProvider,
+          providerUsed,
+          fallbackUsed: providerUsed !== requestedProvider,
+        });
+
+        if (!first.done && first.value) send(first.value);
+
+        while (true) {
+          const next = await iterator.next();
+          if (next.done) break;
+          if (next.value) send(next.value);
+        }
+
+        return done();
+      } catch (err) {
+        console.error(`[AI stream] provider failed: ${chatProvider.id}`, err.message);
+      }
+    }
+
+    send('Xin lá»—i, hiá»‡n táº¡i tÃ´i khÃ´ng tráº£ lá»i Ä‘Æ°á»£c.');
+    return done();
+
+    try {
+      await tryStream(streamOpenRouter);
+      return done();
+    } catch (err) {
+      console.error('OpenRouter stream lỗi, sang Gemini:', err.message);
+    }
 
     if (process.env.GEMINI_API_KEY) {
-      try { await tryStream(streamGemini); return done(); }
-      catch (err) { console.error('Gemini stream lỗi, sang Groq:', err.message); }
+      try {
+        await tryStream(streamGemini);
+        return done();
+      } catch (err) {
+        console.error('Gemini stream lỗi, sang Groq:', err.message);
+      }
     }
 
     if (process.env.GROQ_API_KEY) {
-      try { await tryStream(streamGroq); return done(); }
-      catch (err) { console.error('Groq stream lỗi:', err.message); }
+      try {
+        await tryStream(streamGroq);
+        return done();
+      } catch (err) {
+        console.error('Groq stream lỗi, sang xAI:', err.message);
+      }
     }
 
-    send('Xin lỗi, hiện tại tôi không trả lời được.'); done();
+    if (process.env.XAI_API_KEY) {
+      try {
+        await tryStream(streamXAI);
+        return done();
+      } catch (err) {
+        console.error('xAI stream lỗi:', err.message);
+      }
+    }
+
+    send('Xin lỗi, hiện tại tôi không trả lời được.');
+    done();
   } catch (err) {
-    if (!res.writableEnded) { send('Xin lỗi, có lỗi xảy ra.'); done(); }
+    if (!res.writableEnded) {
+      send('Xin lỗi, có lỗi xảy ra.');
+      done();
+    }
   }
 });
 
 app.post('/api/chat/pharmacist', async (req, res) => {
-  const { userId, message } = req.body;
+  const { userId, message, provider } = req.body;
   if (!message) return res.status(400).json({ error: 'message is required' });
 
   try {
-    const answer = await CallToAIModel(message);
-    const entry = { id: chatHistory.length + 1, userId: userId || 'anonymous', message, answer, createdAt: new Date() };
+    const result = await callChatProvider(message, provider);
+    const entry = {
+      id: chatHistory.length + 1,
+      userId: userId || 'anonymous',
+      message,
+      answer: result.content,
+      requestedProvider: result.requestedProvider,
+      providerUsed: result.providerUsed,
+      fallbackUsed: result.fallbackUsed,
+      createdAt: new Date(),
+    };
     chatHistory.push(entry);
     res.json(entry);
   } catch (err) {
@@ -424,7 +737,7 @@ app.post('/api/chat/pharmacist', async (req, res) => {
     res.status(500).json({
       error: err.message || 'Failed to call OpenRouter',
       openRouterStatus: err.response?.status,
-      openRouterData: err.response?.data
+      openRouterData: err.response?.data,
     });
   }
 });
