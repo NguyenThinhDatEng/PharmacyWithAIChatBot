@@ -22,26 +22,6 @@
           <span class="chat-status-text">
             <span class="status-dot"></span> Sẵn sàng hỗ trợ
           </span>
-          <span class="chat-provider-status" v-if="providerStatusText">
-            {{ providerStatusText }}
-          </span>
-          <label class="provider-select-wrap" aria-label="Chon AI chat">
-            <i class="fas fa-brain"></i>
-            <select
-              v-model="selectedProvider"
-              :disabled="isSending"
-              @change="rememberSelectedProvider"
-            >
-              <option
-                v-for="provider in providers"
-                :key="provider.id"
-                :value="provider.id"
-                :disabled="!provider.available"
-              >
-                {{ provider.label }}{{ provider.available ? "" : " - Chua cau hinh" }}
-              </option>
-            </select>
-          </label>
         </div>
       </div>
       <button class="close-btn" @click="toggleChat" aria-label="Đóng chat">
@@ -103,6 +83,55 @@
     </div>
 
     <div class="chat-input">
+      <div class="chat-input-shell" ref="inputAreaRef">
+        <div class="provider-row">
+          <button
+            type="button"
+            class="provider-chip"
+            @click="toggleProviderDropdown"
+            :aria-expanded="providerDropdownOpen"
+            aria-haspopup="listbox"
+          >
+            <span>{{ selectedProviderDisplay }}</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <span class="chat-provider-status" v-if="providerStatusText">
+            {{ providerStatusText }}
+          </span>
+
+          <div
+            class="provider-dropdown"
+            v-if="providerDropdownOpen"
+            role="listbox"
+          >
+            <button
+              v-for="provider in decoratedProviders"
+              :key="provider.id"
+              type="button"
+              :class="[
+                'provider-option',
+                { selected: provider.id === selectedProvider, disabled: !provider.available },
+              ]"
+              :disabled="!provider.available"
+              role="option"
+              :aria-selected="provider.id === selectedProvider"
+              @click="chooseProvider(provider.id)"
+            >
+              <span class="provider-option-icon">{{ provider.icon }}</span>
+              <span class="provider-option-copy">
+                <span class="provider-option-name">{{ provider.label }}</span>
+                <span class="provider-option-desc">
+                  {{ provider.available ? provider.description : "Chua cau hinh" }}
+                </span>
+              </span>
+              <i
+                v-if="provider.id === selectedProvider"
+                class="fas fa-check provider-option-check"
+              ></i>
+            </button>
+          </div>
+        </div>
+        <div class="message-row">
       <textarea
         v-model="userMessage"
         rows="1"
@@ -119,12 +148,14 @@
       >
         <i class="fas fa-paper-plane"></i>
       </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, reactive, nextTick, watch } from "vue";
+import { ref, reactive, nextTick, watch, computed, onMounted, onBeforeUnmount } from "vue";
 import { marked } from "marked";
 import { chatOpen } from "../composables/useChat.js";
 
@@ -134,7 +165,15 @@ const chatLog = ref([]);
 const isSending = ref(false);
 const chatBody = ref(null);
 const textareaRef = ref(null);
+const inputAreaRef = ref(null);
+const providerDropdownOpen = ref(false);
 const PROVIDER_STORAGE_KEY = "chat.selectedProvider";
+const providerUiMeta = {
+  gemini: { icon: "✨", label: "Gemini", description: "Google AI" },
+  xai: { icon: "🚀", label: "xAI", description: "Reasoning & Analysis" },
+  groq: { icon: "⚡", label: "Groq", description: "Ultra Fast Responses" },
+  openrouter: { icon: "🌐", label: "OpenRouter", description: "Access Multiple Models" },
+};
 const fallbackProviders = [
   { id: "gemini", label: "Gemini", available: true, isDefault: true },
   { id: "xai", label: "xAI", available: true, isDefault: false },
@@ -144,6 +183,20 @@ const fallbackProviders = [
 const providers = ref([...fallbackProviders]);
 const selectedProvider = ref(localStorage.getItem(PROVIDER_STORAGE_KEY) || "gemini");
 const providerStatusText = ref("");
+
+const decoratedProviders = computed(() =>
+  providers.value.map(provider => ({
+    ...provider,
+    icon: providerUiMeta[provider.id]?.icon || "✨",
+    label: providerUiMeta[provider.id]?.label || provider.label,
+    description: providerUiMeta[provider.id]?.description || "AI Provider",
+  }))
+);
+
+const selectedProviderDisplay = computed(() => {
+  const provider = decoratedProviders.value.find(item => item.id === selectedProvider.value);
+  return provider ? `${provider.icon} ${provider.label}` : "✨ Gemini";
+});
 
 function getProviderLabel(providerId) {
   return providers.value.find(provider => provider.id === providerId)?.label || providerId || "AI";
@@ -160,6 +213,34 @@ function selectAvailableProvider(preferredProvider) {
 function rememberSelectedProvider() {
   localStorage.setItem(PROVIDER_STORAGE_KEY, selectedProvider.value);
   providerStatusText.value = "";
+}
+
+function toggleProviderDropdown() {
+  providerDropdownOpen.value = !providerDropdownOpen.value;
+}
+
+function chooseProvider(providerId) {
+  const provider = providers.value.find(item => item.id === providerId);
+  if (!provider?.available) return;
+  selectedProvider.value = providerId;
+  rememberSelectedProvider();
+  providerDropdownOpen.value = false;
+}
+
+function closeProviderDropdown() {
+  providerDropdownOpen.value = false;
+}
+
+function handleOutsideClick(event) {
+  if (!providerDropdownOpen.value) return;
+  if (inputAreaRef.value?.contains(event.target)) return;
+  closeProviderDropdown();
+}
+
+function handleEscape(event) {
+  if (event.key === "Escape") {
+    closeProviderDropdown();
+  }
 }
 
 async function loadProviders() {
@@ -199,6 +280,7 @@ function toggleChat() {
     nextTick(() => textareaRef.value?.focus());
   } else {
     document.body.classList.remove("chat-open");
+    closeProviderDropdown();
   }
 }
 
@@ -225,6 +307,7 @@ async function sendChat() {
   const question = userMessage.value.trim();
   if (!question || isSending.value) return;
 
+  closeProviderDropdown();
   chatLog.value.push({ role: "user", text: question });
   userMessage.value = "";
   isSending.value = true;
@@ -301,6 +384,16 @@ async function sendChat() {
     scrollToBottom();
   }
 }
+
+onMounted(() => {
+  document.addEventListener("click", handleOutsideClick);
+  document.addEventListener("keydown", handleEscape);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener("click", handleOutsideClick);
+  document.removeEventListener("keydown", handleEscape);
+});
 
 watch(chatLog, scrollToBottom, { deep: true });
 </script>
@@ -427,50 +520,13 @@ watch(chatLog, scrollToBottom, { deep: true });
 }
 
 .chat-provider-status {
-  display: block;
-  margin-top: 2px;
-  font-size: 0.68rem;
-  line-height: 1.2;
-  opacity: 0.88;
-}
-
-.provider-select-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  max-width: 190px;
-  padding: 5px 8px;
-  border-radius: var(--radius-full);
-  background: rgba(255, 255, 255, 0.16);
-  color: white;
-}
-
-.provider-select-wrap i {
-  font-size: 0.75rem;
-  flex-shrink: 0;
-}
-
-.provider-select-wrap select {
-  min-width: 0;
-  width: 135px;
-  border: none;
-  background: transparent;
-  color: white;
-  font-size: 0.75rem;
+  color: #047857;
+  font-size: 0.72rem;
   font-weight: 600;
-  outline: none;
-  cursor: pointer;
-}
-
-.provider-select-wrap select:disabled {
-  cursor: not-allowed;
-  opacity: 0.75;
-}
-
-.provider-select-wrap option {
-  color: var(--text-primary);
-  background: var(--bg-white);
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .close-btn {
@@ -500,7 +556,7 @@ watch(chatLog, scrollToBottom, { deep: true });
 /* Chat Body */
 .chat-body {
   flex: 1;
-  padding: 16px;
+  padding: 16px 22px;
   overflow-y: auto;
   background: var(--bg-subtle);
 }
@@ -664,40 +720,173 @@ watch(chatLog, scrollToBottom, { deep: true });
 
 /* Chat Input */
 .chat-input {
-  display: flex;
-  padding: 12px 16px;
-  gap: 10px;
+  padding: 12px 22px 16px;
   border-top: 1px solid var(--border-light);
   background: var(--bg-white);
+  position: relative;
+}
+
+.chat-input-shell {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid #d9eee5;
+  border-radius: 22px;
+  padding: 10px 12px;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+}
+
+.provider-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin-bottom: 8px;
+}
+
+.provider-chip {
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #ecfdf5;
+  border: 1px solid #bbf7d0;
+  color: #047857;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  min-height: unset;
+  flex-shrink: 0;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.provider-chip:hover {
+  background: #d1fae5;
+  border-color: #86efac;
+  box-shadow: none;
+  color: #047857;
+  transform: translateY(-1px);
+}
+
+.provider-chip i {
+  font-size: 0.7rem;
+}
+
+.provider-dropdown {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  min-width: 220px;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 6px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14);
+  z-index: 1100;
+}
+
+.provider-option {
+  width: 100%;
+  height: auto;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  text-align: left;
+  min-width: unset;
+  transition: background 0.2s ease;
+}
+
+.provider-option:hover:not(:disabled) {
+  background: #f3f4f6;
+  box-shadow: none;
+}
+
+.provider-option.selected {
+  background: #ecfdf5;
+}
+
+.provider-option.disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.provider-option-icon {
+  width: 22px;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.provider-option-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.provider-option-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.provider-option.selected .provider-option-name {
+  color: #047857;
+}
+
+.provider-option-desc {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.provider-option-check {
+  color: #047857;
+  font-size: 0.8rem;
+  margin-left: auto;
+}
+
+.message-row {
+  display: flex;
   align-items: flex-end;
+  gap: 10px;
 }
 
 .chat-input textarea {
   flex: 1;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 10px 14px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 4px 0;
   resize: none;
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 1.4;
   max-height: 100px;
   min-height: 40px;
   font-family: var(--font-body);
-  background: var(--bg-subtle);
-  transition: border-color 0.2s ease;
+  background: transparent;
+  color: #0f172a;
 }
 
 .chat-input textarea:focus {
-  border-color: var(--primary);
   outline: none;
-  background: var(--bg-white);
+  background: transparent;
 }
 
 .send-btn {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: var(--primary);
+  border-radius: 999px;
+  background: #059669;
   color: white;
   border: none;
   cursor: pointer;
@@ -711,7 +900,7 @@ watch(chatLog, scrollToBottom, { deep: true });
 }
 
 .send-btn:hover:not(:disabled) {
-  background: var(--primary-dark);
+  background: #047857;
   transform: scale(1.05);
   box-shadow: var(--shadow-sm);
   color: white;
@@ -731,12 +920,12 @@ watch(chatLog, scrollToBottom, { deep: true });
 /* Responsive */
 @media (max-width: 480px) {
   .chat-dialog {
-    bottom: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    border-radius: 0;
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    width: calc(100vw - 24px);
+    height: min(640px, calc(100vh - 24px));
+    border-radius: 22px;
   }
 
   .chat-icon {
@@ -744,6 +933,19 @@ watch(chatLog, scrollToBottom, { deep: true });
     right: 16px;
     width: 52px;
     height: 52px;
+  }
+
+  .chat-body {
+    padding: 14px 16px;
+  }
+
+  .chat-input {
+    padding: 10px 16px 14px;
+  }
+
+  .provider-dropdown {
+    max-height: 240px;
+    min-width: min(220px, calc(100vw - 72px));
   }
 }
 </style>
