@@ -1,8 +1,9 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '..', '.env') });
+require('dotenv').config({ path: path.join(__dirname, '..', '.env.local'), override: true });
 const { Client } = require('@notionhq/client');
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
 
@@ -248,15 +249,21 @@ function validateEnvKeys() {
 
   if (!process.env.GEMINI_API_KEY) {
     console.warn('[CONFIG] GEMINI_API_KEY is empty - Gemini fallback will fail');
+  } else if (!hasConfiguredValue(process.env.GEMINI_API_KEY)) {
+    console.warn('[CONFIG] GEMINI_API_KEY is a placeholder - Gemini fallback will be skipped');
   }
 
   const groq = process.env.GROQ_API_KEY || '';
   if (groq && !groq.startsWith('gsk_')) {
     console.warn(`[CONFIG] GROQ_API_KEY may be invalid (expected gsk_...): ${groq.slice(0, 12)}...`);
+  } else if (!hasConfiguredValue(groq)) {
+    console.warn('[CONFIG] GROQ_API_KEY is empty or placeholder - Groq fallback will be skipped');
   }
 
   if (!process.env.XAI_API_KEY) {
     console.warn('[CONFIG] XAI_API_KEY is empty - xAI fallback will fail');
+  } else if (!hasConfiguredValue(process.env.XAI_API_KEY)) {
+    console.warn('[CONFIG] XAI_API_KEY is a placeholder - xAI fallback will be skipped');
   }
 }
 validateEnvKeys();
@@ -283,7 +290,10 @@ async function callOpenRouter(message) {
       if (result.error) throw new Error(result.error.message);
 
       const content = result.choices?.[0]?.message?.content;
-      if (content) return content;
+      if (content) {
+        console.log('[AI provider] OpenRouter response received');
+        return content;
+      }
     } catch (err) {
       console.error('OpenRouter key lỗi, thử tiếp...', err.message);
     }
@@ -293,16 +303,19 @@ async function callOpenRouter(message) {
 }
 
 async function callGemini(message) {
+  console.log('[AI provider] Gemini request model gemini-2.5-flash-lite');
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
   const response = await ai.models.generateContent({
     model: 'gemini-2.5-flash-lite',
     contents: prompt,
   });
+  console.log('[AI provider] Gemini response received');
   return response.text;
 }
 
 async function callGroq(message) {
+  console.log('[AI provider] Groq request model llama-3.3-70b-versatile');
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
   const completion = await groq.chat.completions.create({
     model: 'llama-3.3-70b-versatile',
@@ -311,10 +324,12 @@ async function callGroq(message) {
       { role: 'user', content: message },
     ],
   });
+  console.log('[AI provider] Groq response received');
   return completion.choices[0].message.content;
 }
 
 async function callXAI(message) {
+  console.log(`[AI provider] xAI request model ${XAI_MODEL}`);
   const response = await fetch('https://api.x.ai/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -337,6 +352,7 @@ async function callXAI(message) {
   }
 
   const data = await response.json();
+  console.log('[AI provider] xAI response received');
   return data.choices?.[0]?.message?.content;
 }
 
@@ -441,12 +457,14 @@ async function* streamOpenRouter(message) {
 }
 
 async function* streamGemini(message) {
+  console.log('[AI provider] Gemini stream request model gemini-2.5-flash');
   const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   const prompt = `${SYSTEM_PROMPT} Người dùng hỏi: "${message}"`;
   const stream = await ai.models.generateContentStream({
     model: 'gemini-2.5-flash',
     contents: prompt,
   });
+  console.log('[AI provider] Gemini stream opened');
 
   for await (const chunk of stream) {
     if (chunk.text) yield chunk.text;
@@ -454,6 +472,7 @@ async function* streamGemini(message) {
 }
 
 async function* streamGroq(message) {
+  console.log('[AI provider] Groq stream request model llama-3.3-70b-versatile');
   const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
   const stream = await groq.chat.completions.create({
     model: 'llama-3.3-70b-versatile',
@@ -463,6 +482,7 @@ async function* streamGroq(message) {
     ],
     stream: true,
   });
+  console.log('[AI provider] Groq stream opened');
 
   for await (const chunk of stream) {
     const content = chunk.choices[0]?.delta?.content;
@@ -471,6 +491,7 @@ async function* streamGroq(message) {
 }
 
 async function* streamXAI(message) {
+  console.log(`[AI provider] xAI stream request model ${XAI_MODEL}`);
   const response = await fetch('https://api.x.ai/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -492,6 +513,7 @@ async function* streamXAI(message) {
     throw new Error(`xAI stream HTTP ${response.status}: ${errorText}`);
   }
 
+  console.log('[AI provider] xAI stream opened');
   yield* parseSseTextStream(response);
 }
 
@@ -552,7 +574,14 @@ function getProviderSequence(providerId) {
 
   return orderedIds
     .map(getProviderById)
-    .filter(provider => provider && provider.isAvailable());
+    .filter(provider => {
+      if (!provider) return false;
+      const available = provider.isAvailable();
+      if (!available) {
+        console.warn(`[AI] skipping provider without valid config: ${provider.id}`);
+      }
+      return available;
+    });
 }
 
 function getProviderPayload() {
